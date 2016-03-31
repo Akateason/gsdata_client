@@ -54,7 +54,7 @@ NSString *const APPSTORE_APPID  = @"999705868" ;
 - (void)setMyStyleWithWindow:(UIWindow *)window
 {
     //1 status bar .
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent] ;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent] ;
     [[UIApplication sharedApplication] keyWindow].tintColor = [UIColor xt_mainColor] ;
     
     //2 nav style .

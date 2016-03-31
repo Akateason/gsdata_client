@@ -51,6 +51,8 @@ static NSString *kGroupCell = @"GroupCell" ;
 {    
     [super viewDidLoad] ;
     
+    self.tabBarController.tabBar.tintColor = [UIColor darkGrayColor] ;
+    
     self.title = @"我的分组" ;
     
     _table.delegate = self ;

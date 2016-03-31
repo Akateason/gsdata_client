@@ -331,4 +331,63 @@ static NSString *kJsonStr     = @"jsonStr" ;
     
 }
 
+/**
+ *  search Nickname With Keyword
+ *  根据关键词搜索公众号
+ *  @param keyword keyword description
+ *  @param success
+ *  @param fail
+ */
++ (void)searchNicknameWithKeyword:(NSString *)keyword
+                          success:(void (^)(id json))success
+                             fail:(void (^)())fail
+{
+    NSString *jsonStr = [XTJson getJsonStr:@{@"keyword":keyword
+                                             }] ;
+    
+    NSMutableDictionary *paramer = [self getParameters] ;
+    [paramer setObject:URL_OPEN_ACCOUNT_INFO
+                forKey:kSpaceName] ;
+    [paramer setObject:jsonStr
+                forKey:kJsonStr] ;
+    
+    [XTRequest GETWithUrl:kRootUrlString
+               parameters:paramer
+                  success:^(id json) {
+                      if (success) success(json) ;
+                  } fail:^{
+                      if (fail) fail() ;
+                  }] ;
+}
+
+/**
+ *  search Articles With Keyword
+ *  根据关键词搜索公众号文章
+ *  @param keyword keyword description
+ *  @param success success description
+ *  @param fail    fail description
+ */
++ (void)searchArticlesWithKeyword:(NSString *)keyword
+                          success:(void (^)(id json))success
+                             fail:(void (^)())fail
+{
+    NSString *jsonStr = [XTJson getJsonStr:@{@"keyword":keyword
+                                             }] ;
+    
+    NSMutableDictionary *paramer = [self getParameters] ;
+    [paramer setObject:URL_OPEN_ACCOUT_CONTENT
+                forKey:kSpaceName] ;
+    [paramer setObject:jsonStr
+                forKey:kJsonStr] ;
+    
+    [XTRequest GETWithUrl:kRootUrlString
+               parameters:paramer
+                  success:^(id json) {
+                      if (success) success(json) ;
+                  } fail:^{
+                      if (fail) fail() ;
+                  }] ;
+}
+
+
 @end

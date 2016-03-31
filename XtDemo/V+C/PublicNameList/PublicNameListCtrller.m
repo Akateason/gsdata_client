@@ -13,8 +13,6 @@
 #import "PublicNameDetailCtrller.h"
 //#import "BRFlabbyTableManager.h"
 
-
-
 static NSString *kPublicNameCell = @"PublicNameCell" ;
 
 @interface PublicNameListCtrller () <UITableViewDataSource,UITableViewDelegate>
@@ -103,9 +101,6 @@ static NSString *kPublicNameCell = @"PublicNameCell" ;
     Nickname *nickName = self.publicNameList[indexPath.row] ;
     cell.nickName = nickName ;
     cell.backgroundColor = indexPath.row % 2 ? [UIColor xt_halfMainBlueColor] : [UIColor xt_halfMainColor] ;
-//    [cell setFlabby:YES];
-//    [cell setLongPressAnimated:YES];
-//    [cell setFlabbyColor:[self colorForIndexPath:indexPath]];
 
     return cell ;
 }

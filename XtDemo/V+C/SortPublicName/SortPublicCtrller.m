@@ -13,6 +13,7 @@
 #import "Nickname.h"
 #import "YYModel.h"
 #import "HZQDatePickerView.h"
+#import "PublicNameDetailCtrller.h"
 
 typedef enum : NSUInteger {
     dayType = 0 , // DEFAULT
@@ -319,19 +320,23 @@ static const NSInteger kRows = 10 ;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    Nickname *nick = self.list[indexPath.row] ;
+    [self performSegueWithIdentifier:@"sortPublic2Detail" sender:nick] ;
 }
 
-
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"sortPublic2Detail"])
+    {
+        PublicNameDetailCtrller *detailCtrller = segue.destinationViewController ;
+        detailCtrller.selected_wx_publicNameID = ((Nickname *)sender).nickname_id ;
+    }
 }
-*/
+
 
 @end

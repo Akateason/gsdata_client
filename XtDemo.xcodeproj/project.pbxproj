@@ -45,6 +45,14 @@
 		609041D21CAB89B8002FF0E0 /* PublicNameInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 609041D11CAB89B8002FF0E0 /* PublicNameInfoCell.m */; };
 		609041D51CAB90DB002FF0E0 /* NicknameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 609041D41CAB90DB002FF0E0 /* NicknameInfo.m */; };
 		609041D81CABCB1E002FF0E0 /* PublicRecentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 609041D71CABCB1E002FF0E0 /* PublicRecentCell.m */; };
+		60D04DAB1CACC066005C1B98 /* ArticleRecentChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DAA1CACC066005C1B98 /* ArticleRecentChartView.m */; };
+		60D04DB91CACC464005C1B98 /* UUBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DAE1CACC464005C1B98 /* UUBar.m */; };
+		60D04DBA1CACC464005C1B98 /* UUBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB01CACC464005C1B98 /* UUBarChart.m */; };
+		60D04DBB1CACC464005C1B98 /* UUChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB21CACC464005C1B98 /* UUChart.m */; };
+		60D04DBC1CACC464005C1B98 /* UUChartConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB41CACC464005C1B98 /* UUChartConst.m */; };
+		60D04DBD1CACC464005C1B98 /* UUChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB61CACC464005C1B98 /* UUChartLabel.m */; };
+		60D04DBE1CACC464005C1B98 /* UULineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB81CACC464005C1B98 /* UULineChart.m */; };
+		60D04DC11CAD14CE005C1B98 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DC01CAD14CE005C1B98 /* SearchViewController.m */; };
 		D75CC3C61C2A926100E590E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC3C51C2A926100E590E6 /* main.m */; };
 		D75CC3C91C2A926100E590E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC3C81C2A926100E590E6 /* AppDelegate.m */; };
 		D75CC3CF1C2A926100E590E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75CC3CD1C2A926100E590E6 /* Main.storyboard */; };
@@ -299,6 +307,22 @@
 		609041D41CAB90DB002FF0E0 /* NicknameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NicknameInfo.m; sourceTree = "<group>"; };
 		609041D61CABCB1E002FF0E0 /* PublicRecentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicRecentCell.h; path = "XtDemo/V+C/PublicNameDetail/PublicRecentCell.h"; sourceTree = SOURCE_ROOT; };
 		609041D71CABCB1E002FF0E0 /* PublicRecentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublicRecentCell.m; path = "XtDemo/V+C/PublicNameDetail/PublicRecentCell.m"; sourceTree = SOURCE_ROOT; };
+		60D04DA91CACC066005C1B98 /* ArticleRecentChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleRecentChartView.h; path = "XtDemo/V+C/PublicNameDetail/ArticleRecentChartView.h"; sourceTree = SOURCE_ROOT; };
+		60D04DAA1CACC066005C1B98 /* ArticleRecentChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleRecentChartView.m; path = "XtDemo/V+C/PublicNameDetail/ArticleRecentChartView.m"; sourceTree = SOURCE_ROOT; };
+		60D04DAD1CACC464005C1B98 /* UUBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUBar.h; sourceTree = "<group>"; };
+		60D04DAE1CACC464005C1B98 /* UUBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUBar.m; sourceTree = "<group>"; };
+		60D04DAF1CACC464005C1B98 /* UUBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUBarChart.h; sourceTree = "<group>"; };
+		60D04DB01CACC464005C1B98 /* UUBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUBarChart.m; sourceTree = "<group>"; };
+		60D04DB11CACC464005C1B98 /* UUChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChart.h; sourceTree = "<group>"; };
+		60D04DB21CACC464005C1B98 /* UUChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChart.m; sourceTree = "<group>"; };
+		60D04DB31CACC464005C1B98 /* UUChartConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChartConst.h; sourceTree = "<group>"; };
+		60D04DB41CACC464005C1B98 /* UUChartConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChartConst.m; sourceTree = "<group>"; };
+		60D04DB51CACC464005C1B98 /* UUChartLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChartLabel.h; sourceTree = "<group>"; };
+		60D04DB61CACC464005C1B98 /* UUChartLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChartLabel.m; sourceTree = "<group>"; };
+		60D04DB71CACC464005C1B98 /* UULineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UULineChart.h; sourceTree = "<group>"; };
+		60D04DB81CACC464005C1B98 /* UULineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UULineChart.m; sourceTree = "<group>"; };
+		60D04DBF1CAD14CE005C1B98 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = "XtDemo/V+C/Searcher/SearchViewController.h"; sourceTree = SOURCE_ROOT; };
+		60D04DC01CAD14CE005C1B98 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = "XtDemo/V+C/Searcher/SearchViewController.m"; sourceTree = SOURCE_ROOT; };
 		D75CC3C11C2A926100E590E6 /* XtDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XtDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75CC3C51C2A926100E590E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D75CC3C71C2A926100E590E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -735,6 +759,8 @@
 		606CF9721C9C1290009E51F6 /* Searcher */ = {
 			isa = PBXGroup;
 			children = (
+				60D04DBF1CAD14CE005C1B98 /* SearchViewController.h */,
+				60D04DC01CAD14CE005C1B98 /* SearchViewController.m */,
 			);
 			name = Searcher;
 			sourceTree = "<group>";
@@ -830,6 +856,8 @@
 			children = (
 				60754E531CA12CFB006AE4B9 /* PublicNameDetailCtrller.h */,
 				60754E541CA12CFB006AE4B9 /* PublicNameDetailCtrller.m */,
+				60D04DA91CACC066005C1B98 /* ArticleRecentChartView.h */,
+				60D04DAA1CACC066005C1B98 /* ArticleRecentChartView.m */,
 				609041D01CAB89B8002FF0E0 /* PublicNameInfoCell.h */,
 				609041D11CAB89B8002FF0E0 /* PublicNameInfoCell.m */,
 				609041D61CABCB1E002FF0E0 /* PublicRecentCell.h */,
@@ -849,6 +877,25 @@
 				6073867A1CA28B4400B8CD71 /* SortManager */,
 			);
 			name = Sort;
+			sourceTree = "<group>";
+		};
+		60D04DAC1CACC464005C1B98 /* UUChart */ = {
+			isa = PBXGroup;
+			children = (
+				60D04DAD1CACC464005C1B98 /* UUBar.h */,
+				60D04DAE1CACC464005C1B98 /* UUBar.m */,
+				60D04DAF1CACC464005C1B98 /* UUBarChart.h */,
+				60D04DB01CACC464005C1B98 /* UUBarChart.m */,
+				60D04DB11CACC464005C1B98 /* UUChart.h */,
+				60D04DB21CACC464005C1B98 /* UUChart.m */,
+				60D04DB31CACC464005C1B98 /* UUChartConst.h */,
+				60D04DB41CACC464005C1B98 /* UUChartConst.m */,
+				60D04DB51CACC464005C1B98 /* UUChartLabel.h */,
+				60D04DB61CACC464005C1B98 /* UUChartLabel.m */,
+				60D04DB71CACC464005C1B98 /* UULineChart.h */,
+				60D04DB81CACC464005C1B98 /* UULineChart.m */,
+			);
+			path = UUChart;
 			sourceTree = "<group>";
 		};
 		D75CC3B81C2A926100E590E6 = {
@@ -950,6 +997,7 @@
 		D75CC3F91C2A92B200E590E6 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				60D04DAC1CACC464005C1B98 /* UUChart */,
 				603FB9491CAA87E2004FD018 /* FlabbyTable */,
 				D75CC72D1C2D13C000E590E6 /* YYModel */,
 				D75CC4561C2A964F00E590E6 /* AFNetworking */,
@@ -1651,7 +1699,7 @@
 				TargetAttributes = {
 					D75CC3C01C2A926100E590E6 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = S9H98D8VCR;
+						DevelopmentTeam = 5D74XHX7AD;
 					};
 					D75CC3D91C2A926200E590E6 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1732,6 +1780,8 @@
 				6073869D1CA5286600B8CD71 /* HZQDatePickerView.m in Sources */,
 				D75CC5E91C2A965000E590E6 /* QNSessionManager.m in Sources */,
 				D75CC5FF1C2A965000E590E6 /* UIImage+WebP.m in Sources */,
+				60D04DBA1CACC464005C1B98 /* UUBarChart.m in Sources */,
+				60D04DC11CAD14CE005C1B98 /* SearchViewController.m in Sources */,
 				D75CC5AC1C2A965000E590E6 /* ASIFormDataRequest.m in Sources */,
 				607386781CA26C0100B8CD71 /* SortItemCell.m in Sources */,
 				D75CC5B01C2A965000E590E6 /* ASICloudFilesCDNRequest.m in Sources */,
@@ -1753,6 +1803,7 @@
 				D75CC5E31C2A965000E590E6 /* QNCrc32.m in Sources */,
 				D75CC5AF1C2A965000E590E6 /* ASINetworkQueue.m in Sources */,
 				D75CC4481C2A95DE00E590E6 /* PinkButton.m in Sources */,
+				60D04DB91CACC464005C1B98 /* UUBar.m in Sources */,
 				D75CC5A61C2A965000E590E6 /* AFURLResponseSerialization.m in Sources */,
 				D75CC5CE1C2A965000E590E6 /* MJRefreshBackFooter.m in Sources */,
 				D75CC5F31C2A965000E590E6 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1764,6 +1815,7 @@
 				D75CC5C91C2A965000E590E6 /* KeyBoardTopBar.m in Sources */,
 				D75CC5D21C2A965000E590E6 /* MJRefreshAutoGifFooter.m in Sources */,
 				D75CC4431C2A95DE00E590E6 /* UIView+Sizes.m in Sources */,
+				60D04DBB1CACC464005C1B98 /* UUChart.m in Sources */,
 				D75CC4441C2A95DE00E590E6 /* MySearchBar.m in Sources */,
 				D75CC5E71C2A965000E590E6 /* QNHttpManager.m in Sources */,
 				603FB9421CA91EA9004FD018 /* SortPNCell.m in Sources */,
@@ -1814,6 +1866,7 @@
 				609041D51CAB90DB002FF0E0 /* NicknameInfo.m in Sources */,
 				D75CC44F1C2A95DE00E590E6 /* ShareUtils.m in Sources */,
 				D75CC5B11C2A965000E590E6 /* ASICloudFilesContainer.m in Sources */,
+				60D04DBD1CACC464005C1B98 /* UUChartLabel.m in Sources */,
 				D75CC5B41C2A965000E590E6 /* ASICloudFilesObject.m in Sources */,
 				603FB9501CAA87E2004FD018 /* BRFlabbyTableManager.m in Sources */,
 				60754E4C1CA0F988006AE4B9 /* PublicNameCell.m in Sources */,
@@ -1827,6 +1880,7 @@
 				D75CC5F41C2A965000E590E6 /* NSData+ImageContentType.m in Sources */,
 				D75CC43F1C2A95DE00E590E6 /* UIButton+Badges.m in Sources */,
 				D75CC5F11C2A965000E590E6 /* QNUpToken.m in Sources */,
+				60D04DBC1CACC464005C1B98 /* UUChartConst.m in Sources */,
 				D75CC5A11C2A965000E590E6 /* AFHTTPSessionManager.m in Sources */,
 				D75CC4471C2A95DE00E590E6 /* MyTextView.m in Sources */,
 				D75CC43E1C2A95DE00E590E6 /* NSString+Extend.m in Sources */,
@@ -1859,6 +1913,8 @@
 				D75CC5EA1C2A965000E590E6 /* QNUserAgent.m in Sources */,
 				D75CC44E1C2A95DE00E590E6 /* ServerRequest.m in Sources */,
 				609041D21CAB89B8002FF0E0 /* PublicNameInfoCell.m in Sources */,
+				60D04DBE1CACC464005C1B98 /* UULineChart.m in Sources */,
+				60D04DAB1CACC066005C1B98 /* ArticleRecentChartView.m in Sources */,
 				D75CC5AA1C2A965000E590E6 /* ASIDataDecompressor.m in Sources */,
 				D75CC4501C2A95DE00E590E6 /* XTAnimation.m in Sources */,
 				D75CC44B1C2A95DE00E590E6 /* XTSegment.m in Sources */,

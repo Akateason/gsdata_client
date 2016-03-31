@@ -29,12 +29,12 @@
 
 - (IBAction)btSeeOnClick:(id)sender
 {
-
+    self.BlockSeeButton(self.article.url) ;
 }
 
 - (IBAction)btSevenOnClick:(id)sender
 {
-    
+    self.BlockSevenDayButton(self.article) ;
 }
 
 - (void)awakeFromNib

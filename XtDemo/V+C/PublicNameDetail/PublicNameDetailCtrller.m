@@ -14,6 +14,8 @@
 #import "YYModel.h"
 #import "Article.h"
 #import "PublicRecentCell.h"
+#import "ArticleCtrller.h"
+#import "ArticleRecentChartView.h"
 
 
 static NSString *kPublicNameInfoCellIdentifier = @"PublicNameInfoCell" ;
@@ -23,6 +25,7 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
 
 @property (weak, nonatomic) IBOutlet RootTableView *table;
 
+@property (nonatomic,strong) ArticleRecentChartView *rChartView ;
 @property (nonatomic,strong) NSMutableArray         *list_recentArticleInfo ;
 @property (nonatomic,strong) NicknameInfo           *nickInfo ;
 
@@ -87,7 +90,7 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
     if (self.list_recentArticleInfo.count) return ;
     
     NSString *yesterdayStr = [XTTickConvert getStrWithNSDate:[NSDate dateYesterday] AndWithFormat:TIME_STR_FORMAT_YY_MM_DD] ;
-    NSDate *earlyDay = [NSDate dateWithDaysBeforeNow:7] ;
+    NSDate *earlyDay = [NSDate dateWithDaysBeforeNow:8] ;
     NSString *earlyDayStr = [XTTickConvert getStrWithNSDate:earlyDay AndWithFormat:TIME_STR_FORMAT_YY_MM_DD] ;
     
     [ServerRequest fetchWxWeekReadNumWithStartTime:earlyDayStr
@@ -130,7 +133,6 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
     return 1 ;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.list_recentArticleInfo.count + 1 ;
@@ -155,6 +157,42 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
         cell.article = self.list_recentArticleInfo[indexPath.row - 1] ;
         cell.selectionStyle = UITableViewCellSelectionStyleNone ;
         cell.backgroundColor = indexPath.row % 2 ? [UIColor whiteColor] : [UIColor xt_halfMainColor] ;
+        cell.transform = CGAffineTransformMakeTranslation(APP_WIDTH / 4. , 0) ;
+        [UIView animateWithDuration:.35
+                         animations:^{
+                             cell.transform = CGAffineTransformIdentity ;
+                         }] ;
+        
+        cell.BlockSeeButton = ^(NSString *url){
+            [self performSegueWithIdentifier:@"detail2Article" sender:url] ;
+        } ;
+        
+        cell.BlockSevenDayButton = ^(Article *article){
+            // custom a chart View .
+            // transition scale into Screen .
+            if (_rChartView) {
+                [_rChartView removeFromSuperview] ;
+                _rChartView = nil ;
+            }
+            _rChartView = [[ArticleRecentChartView alloc] initWithArticle:article] ;
+            _rChartView.frame = APPFRAME ;
+            [self.view.window addSubview:_rChartView] ;
+            _rChartView.hidden = YES ;
+            _rChartView.transform = CGAffineTransformScale(_rChartView.transform, 0.2, 0.2) ;
+
+            [UIView transitionWithView:self.view.window
+                              duration:.25
+                               options:UIViewAnimationOptionCurveEaseOut
+                            animations:^{
+                                _rChartView.hidden = NO ;
+                                _rChartView.transform = CGAffineTransformIdentity ;
+                            }
+                            completion:^(BOOL finished) {
+                                
+                            }] ;
+            
+        } ;
+        
         return cell ;
     }
     
@@ -165,12 +203,7 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    cell.layer.transform = CATransform3DMakeScale(0.96, 0.96, 1) ;
-    cell.transform = CGAffineTransformMakeTranslation(APP_WIDTH / 2. , 0) ;
-    [UIView animateWithDuration:.65
-                     animations:^{
-                         cell.transform = CGAffineTransformIdentity ;
-                     }] ;
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -194,14 +227,19 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
+#pragma mark - Navigation
  
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
- }
- */
+    if ([segue.identifier isEqualToString:@"detail2Article"]) {
+        NSString *url = sender ;
+        ArticleCtrller *articleCtrller = segue.destinationViewController ;
+        articleCtrller.urlStr = url ;
+    }
+}
+
 
 @end

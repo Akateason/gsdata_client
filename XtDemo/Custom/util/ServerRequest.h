@@ -149,6 +149,28 @@
                         success:(void (^)(id json))success
                            fail:(void (^)())fail ;
 
+/**
+ *  search Nickname With Keyword
+ *  根据关键词搜索公众号
+ *  @param keyword keyword description
+ *  @param success
+ *  @param fail
+ */
++ (void)searchNicknameWithKeyword:(NSString *)keyword
+                          success:(void (^)(id json))success
+                             fail:(void (^)())fail ;
+
+/**
+ *  search Articles With Keyword
+ *  根据关键词搜索公众号文章
+ *  @param keyword keyword description
+ *  @param success success description
+ *  @param fail    fail description
+ */
++ (void)searchArticlesWithKeyword:(NSString *)keyword
+                          success:(void (^)(id json))success
+                             fail:(void (^)())fail ;
+
 @end
 
 

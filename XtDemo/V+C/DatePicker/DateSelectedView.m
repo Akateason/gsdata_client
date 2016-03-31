@@ -44,7 +44,8 @@
     
 }
 
-- (IBAction)endTimeClick:(id)sender {
+- (IBAction)endTimeClick:(id)sender
+{
     [self setupDateView:DateTypeOfEnd];
 }
 
