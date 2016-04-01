@@ -109,7 +109,6 @@ typedef enum : NSUInteger
 
 }
 
-
 - (IBAction)btSearchOnClick:(id)sender
 {
     m_page = 0 ;
@@ -242,7 +241,6 @@ typedef enum : NSUInteger
     return 0 ;
 }
 
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -261,6 +259,5 @@ typedef enum : NSUInteger
     
     [segue.destinationViewController setHidesBottomBarWhenPushed:YES] ;
 }
-
 
 @end

@@ -20,7 +20,8 @@
 
 @implementation MyWebController
 
-#pragma mark --
+#pragma mark -
+
 - (void)setUrlStr:(NSString *)urlStr
 {
     _urlStr = urlStr ;
@@ -44,12 +45,12 @@
     
     return _webView ;
 }
+
 - (void)startLoadingWebview
 {
     NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]] ;
     [self.webView loadRequest:request];
 }
-
 
 #pragma mark - 
 
@@ -68,7 +69,8 @@
     [self.navigationController popViewControllerAnimated:YES] ;
 }
 
-#pragma mark --
+#pragma mark -
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
