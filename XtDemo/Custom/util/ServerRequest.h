@@ -157,6 +157,7 @@
  *  @param fail
  */
 + (void)searchNicknameWithKeyword:(NSString *)keyword
+                            start:(NSInteger)start
                           success:(void (^)(id json))success
                              fail:(void (^)())fail ;
 
@@ -168,6 +169,7 @@
  *  @param fail    fail description
  */
 + (void)searchArticlesWithKeyword:(NSString *)keyword
+                            start:(NSInteger)start
                           success:(void (^)(id json))success
                              fail:(void (^)())fail ;
 

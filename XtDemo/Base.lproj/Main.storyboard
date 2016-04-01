@@ -253,7 +253,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PublicNameInfoCell" rowHeight="137" id="Qts-wL-kZh" customClass="PublicNameInfoCell">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="137"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qts-wL-kZh" id="4QY-Yp-ceQ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
@@ -345,7 +345,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PublicRecentCell" rowHeight="80" id="9ky-59-Lfo" customClass="PublicRecentCell">
-                                        <rect key="frame" x="0.0" y="229" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="165" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9ky-59-Lfo" id="Dxz-2t-dX6">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
@@ -633,11 +633,13 @@
                         <outlet property="segment" destination="ADL-tp-AVh" id="0ga-I2-fUc"/>
                         <outlet property="table" destination="G5z-Vg-Ho2" id="cig-LJ-Qd1"/>
                         <outlet property="textfield" destination="lPe-Gj-RdB" id="mEP-rP-gYF"/>
+                        <segue destination="Ml2-ye-pP3" kind="push" identifier="search2article" id="soE-FS-mP5"/>
+                        <segue destination="TST-l2-h7r" kind="push" identifier="search2publicnameDetail" id="Oe6-NU-ZAG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQx-tu-IVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1699" y="1018"/>
+            <point key="canvasLocation" x="1842" y="1018"/>
         </scene>
     </scenes>
     <resources>
@@ -645,7 +647,7 @@
         <image name="sch" width="24" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f7j-Bj-h4J"/>
-        <segue reference="7oF-oV-ccq"/>
+        <segue reference="soE-FS-mP5"/>
+        <segue reference="Oe6-NU-ZAG"/>
     </inferredMetricsTieBreakers>
 </document>

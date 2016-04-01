@@ -34,7 +34,7 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新更新时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txC-sh-kYI">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新时间:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txC-sh-kYI">
                         <rect key="frame" x="27" y="85" width="89" height="13"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="V8U-5y-TOt"/>
@@ -44,7 +44,7 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新文章title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILy-Nm-vfy">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最近文章:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILy-Nm-vfy">
                         <rect key="frame" x="27" y="56" width="252" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="CEQ-Ly-TND"/>
@@ -57,6 +57,7 @@
                 <constraints>
                     <constraint firstItem="ILy-Nm-vfy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="27" id="0cR-C6-mEg"/>
                     <constraint firstItem="0r6-bk-gL6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="27" id="Cco-iM-Kwd"/>
+                    <constraint firstAttribute="bottom" secondItem="txC-sh-kYI" secondAttribute="bottom" constant="21" id="H7M-5C-iTv"/>
                     <constraint firstItem="txC-sh-kYI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="27" id="R6Z-7R-xeO"/>
                     <constraint firstAttribute="trailing" secondItem="XKg-go-zt8" secondAttribute="trailing" constant="8" id="VMC-EM-3Kv"/>
                     <constraint firstItem="txC-sh-kYI" firstAttribute="top" secondItem="ILy-Nm-vfy" secondAttribute="bottom" constant="8" id="Vc3-Wr-bwX"/>

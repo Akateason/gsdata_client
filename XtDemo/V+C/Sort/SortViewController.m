@@ -273,7 +273,7 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 147. ;
+    return 132. ;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

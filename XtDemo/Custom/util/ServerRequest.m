@@ -335,14 +335,18 @@ static NSString *kJsonStr     = @"jsonStr" ;
  *  search Nickname With Keyword
  *  根据关键词搜索公众号
  *  @param keyword keyword description
+ *  @param start default is 0
  *  @param success
  *  @param fail
  */
 + (void)searchNicknameWithKeyword:(NSString *)keyword
+                            start:(NSInteger)start
                           success:(void (^)(id json))success
                              fail:(void (^)())fail
 {
-    NSString *jsonStr = [XTJson getJsonStr:@{@"keyword":keyword
+    NSString *jsonStr = [XTJson getJsonStr:@{@"keyword":keyword ,
+                                             @"start":@(start) ,
+                                             @"num":@10
                                              }] ;
     
     NSMutableDictionary *paramer = [self getParameters] ;
@@ -368,10 +372,13 @@ static NSString *kJsonStr     = @"jsonStr" ;
  *  @param fail    fail description
  */
 + (void)searchArticlesWithKeyword:(NSString *)keyword
+                            start:(NSInteger)start
                           success:(void (^)(id json))success
                              fail:(void (^)())fail
 {
-    NSString *jsonStr = [XTJson getJsonStr:@{@"keyword":keyword
+    NSString *jsonStr = [XTJson getJsonStr:@{@"keyword":keyword ,
+                                             @"start":@(start) ,
+                                             @"num":@10
                                              }] ;
     
     NSMutableDictionary *paramer = [self getParameters] ;

@@ -17,4 +17,16 @@
              } ;
 }
 
+
+// <span>日本</span>
+- (NSString *)title
+{
+    if ([_title containsString:@"<span>"]) {
+        _title = [_title stringByReplacingOccurrencesOfString:@"<span>" withString:@""] ;
+        _title = [_title stringByReplacingOccurrencesOfString:@"</span>" withString:@""] ;
+    }
+    
+    return _title ;
+}
+
 @end

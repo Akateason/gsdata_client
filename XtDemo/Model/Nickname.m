@@ -10,4 +10,10 @@
 
 @implementation Nickname
 
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{
+                @"nickname_id" : @[@"id",@"nickname_id"]
+             };
+}
+
 @end

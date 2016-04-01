@@ -24,8 +24,13 @@
 {
     _lb_name.text = nickName.wx_nickname ;
     _lb_subName.text = nickName.wx_name ;
-    _lb_latestTitle.text = [NSString stringWithFormat:@"最近文章：\t%@",nickName.wx_title] ;
-    _lb_latestUpdateTime.text = [NSString stringWithFormat:@"更新时间：\t%@",nickName.wx_url_posttime] ;
+    
+    if (nickName.wx_title) {
+        _lb_latestTitle.text = [NSString stringWithFormat:@"最近文章：\t%@",nickName.wx_title] ;
+    }
+    if (nickName.wx_url_posttime) {
+        _lb_latestUpdateTime.text = [NSString stringWithFormat:@"更新时间：\t%@",nickName.wx_url_posttime] ;
+    }
 }
 
 - (void)awakeFromNib {
