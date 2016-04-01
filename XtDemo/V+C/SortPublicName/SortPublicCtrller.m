@@ -40,10 +40,12 @@ static const NSInteger kRows = 10 ;
 @property (weak, nonatomic) IBOutlet UIView             *topBarBackview;
 
 @property (nonatomic,strong)         NSMutableArray     *list ;
+@property (nonatomic,strong)         dispatch_queue_t   myQueue ;
 
 @end
 
 @implementation SortPublicCtrller
+@synthesize list = _list ;
 
 #pragma mark - Action
 
@@ -103,6 +105,13 @@ static const NSInteger kRows = 10 ;
 }
 
 #pragma mark - Prop
+- (dispatch_queue_t)myQueue
+{
+    if (!_myQueue) {
+        _myQueue = dispatch_queue_create("mySyncQueue", DISPATCH_QUEUE_CONCURRENT) ;
+    }
+    return _myQueue ;
+}
 
 - (NSMutableArray *)list
 {
@@ -110,6 +119,19 @@ static const NSInteger kRows = 10 ;
         _list = [@[] mutableCopy] ;
     }
     return _list ;
+    
+    __block NSMutableArray *list ;
+    dispatch_sync(self.myQueue, ^{
+        list = _list ;
+    }) ;
+    return list ;
+}
+
+- (void)setList:(NSMutableArray *)list
+{
+    dispatch_barrier_async(self.myQueue, ^{
+        _list = list ;
+    }) ;
 }
 
 #pragma mark - Sort Way

@@ -33,18 +33,43 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
 @property (nonatomic,strong)         DateSelectedView   *dateSelView ;
 
 @property (nonatomic,strong)         NSMutableArray     *list ; // Array <article>
+@property (nonatomic,strong)         dispatch_queue_t   myQueue ;
 
 @end
 
 @implementation SortViewController
+@synthesize list = _list ;
+
+
 
 #pragma mark - Prop
+- (dispatch_queue_t)myQueue
+{
+    if (!_myQueue) {
+        _myQueue = dispatch_queue_create("mySyncQueue", DISPATCH_QUEUE_CONCURRENT) ;
+    }
+    return _myQueue ;
+}
+
 - (NSMutableArray *)list
 {
     if (!_list) {
         _list = [@[] mutableCopy] ;
+        return _list ;
     }
-    return _list ;
+    
+    __block NSMutableArray *list ;
+    dispatch_sync(self.myQueue, ^{
+        list = _list ;
+    }) ;
+    return list ;
+}
+
+- (void)setList:(NSMutableArray *)list
+{
+    dispatch_barrier_async(self.myQueue, ^{
+        _list = list ;
+    }) ;
 }
 
 #pragma mark - DateSelectedViewDelegate

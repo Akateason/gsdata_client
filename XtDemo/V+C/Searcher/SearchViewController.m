@@ -37,18 +37,46 @@ typedef enum : NSUInteger
 @property (weak, nonatomic) IBOutlet UITextField *textfield;
 
 @property (nonatomic,strong) NSMutableArray *list ;
+@property (nonatomic,strong) dispatch_queue_t myQueue ;
 
 @end
 
 @implementation SearchViewController
+@synthesize list = _list ;
+
+#pragma mark --
+#pragma mark - prop
+
+- (dispatch_queue_t)myQueue
+{
+    if (!_myQueue) {
+        _myQueue = dispatch_queue_create("mySyncQueue", DISPATCH_QUEUE_CONCURRENT) ;
+    }
+    return _myQueue ;
+}
 
 - (NSMutableArray *)list
 {
     if (!_list) {
-        _list = [NSMutableArray array] ;
+        _list = [@[] mutableCopy] ;
     }
     return _list ;
+    
+    __block NSMutableArray *list ;
+    dispatch_sync(self.myQueue, ^{
+        list = _list ;
+    }) ;
+    return list ;
 }
+
+- (void)setList:(NSMutableArray *)list
+{
+    dispatch_barrier_async(self.myQueue, ^{
+        _list = list ;
+    }) ;
+}
+
+#pragma mark --
 
 - (void)fetchNewData
 {
@@ -109,6 +137,9 @@ typedef enum : NSUInteger
 
 }
 
+#pragma mark --
+#pragma mark - Action
+
 - (IBAction)btSearchOnClick:(id)sender
 {
     m_page = 0 ;
@@ -126,6 +157,9 @@ typedef enum : NSUInteger
 
     [self fetchNewData] ;
 }
+
+#pragma mark --
+#pragma mark - life
 
 - (void)viewDidLoad
 {
