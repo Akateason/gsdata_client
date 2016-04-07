@@ -170,6 +170,7 @@ typedef enum : NSUInteger
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
+    self.title = @"搜" ;
     _textfield.text = @"日本" ;
     
     [self configure] ;

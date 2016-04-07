@@ -10,6 +10,8 @@
 #import "Nickname.h"
 #import "YYModel.h"
 #import "SelfChartView.h"
+#import "RootCtrl+LoadingLauncherScene.h"
+
 
 @interface SelfGrowUpCtrller () <UITextFieldDelegate>
 
@@ -139,8 +141,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"同比增长" ;
+    self.title = @"我" ;
     self.textfield.delegate = self ;
+    self.tabBarController.tabBar.tintColor = [UIColor darkGrayColor] ;
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated] ;
+    
+    [self modalIntoLauncher] ;
 }
 
 - (void)didReceiveMemoryWarning {

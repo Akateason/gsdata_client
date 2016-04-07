@@ -13,7 +13,7 @@
 /**
  *  REWRITE THIS FUNC IN viewWillAppear:
  */
-- (void)modalIntoLauncherWithSegueIdentifier:(NSString *)identifier ;
+- (void)modalIntoLauncher ;
 
 
 @end

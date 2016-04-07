@@ -747,7 +747,6 @@
 		606CF9711C9C1265009E51F6 /* MyGroups(Home) */ = {
 			isa = PBXGroup;
 			children = (
-				606CF96A1C9BFA81009E51F6 /* Launcher */,
 				606CF9731C9C150B009E51F6 /* IndexCtrller.h */,
 				606CF9741C9C150B009E51F6 /* IndexCtrller.m */,
 				60754E401CA0E349006AE4B9 /* GroupCell.h */,
@@ -979,6 +978,7 @@
 		D75CC3F71C2A92B200E590E6 /* Views+Contrllers */ = {
 			isa = PBXGroup;
 			children = (
+				606CF96A1C9BFA81009E51F6 /* Launcher */,
 				60B0EF3F1CB39D8700EAF7F5 /* SelfGrowUp */,
 				606CF9711C9C1265009E51F6 /* MyGroups(Home) */,
 				60754E451CA0E8A7006AE4B9 /* PublicNameList */,

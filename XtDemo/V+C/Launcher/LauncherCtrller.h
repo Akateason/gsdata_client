@@ -10,4 +10,6 @@
 
 @interface LauncherCtrller : UIViewController
 
++ (void)modalToLauncherWithCurrentCtrller:(UIViewController *)ctrller ;
+
 @end

@@ -12,8 +12,8 @@
 /**
  *服务器 地址
  */
-//static NSString *const kRootUrlString           = @"http://114.55.74.220:8080/gsdata/api" ;
-static NSString *const kRootUrlString           = @"http://localhost:9090/gsdata/api" ;
+static NSString *const kRootUrlString           = @"http://114.55.74.220:8080/gsdata/api" ;
+//static NSString *const kRootUrlString           = @"http://localhost:9090/gsdata/api" ;
 //static NSString *const kRootUrlString           = @"http://teason.pagekite.me/gsdata/api" ;
 
 #pragma mark --

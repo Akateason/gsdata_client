@@ -19,6 +19,17 @@
 
 static NSString *const STR_SHOW = @"清博指数_速报酱_内部" ;
 
++ (void)modalToLauncherWithCurrentCtrller:(UIViewController *)ctrller
+{
+    LauncherCtrller *launcher = [[LauncherCtrller alloc] init] ;
+    [ctrller presentViewController:launcher
+                          animated:YES
+                        completion:^{
+                            
+                        }] ;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -26,7 +37,7 @@ static NSString *const STR_SHOW = @"清博指数_速报酱_内部" ;
     
     self.animationLayer = [CALayer layer];
     self.animationLayer.frame = APPFRAME ;
-
+    self.view.backgroundColor = [UIColor whiteColor] ;
     [self.view.layer addSublayer:self.animationLayer];
     
     [self setupTextLayer];

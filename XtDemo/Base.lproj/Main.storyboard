@@ -514,20 +514,20 @@
                         <color key="selectedImageTintColor" red="0.99497195510000003" green="0.2469716193" blue="0.29821157279999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
+                        <segue destination="BVl-NZ-BSs" kind="relationship" relationship="viewControllers" id="zWa-N1-2ho"/>
                         <segue destination="UGA-Tg-VXf" kind="relationship" relationship="viewControllers" id="0hy-Rj-OPv"/>
                         <segue destination="spb-bq-nPX" kind="relationship" relationship="viewControllers" id="j6b-Yl-bXu"/>
-                        <segue destination="BVl-NZ-BSs" kind="relationship" relationship="viewControllers" id="zWa-N1-2ho"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOn-VL-zZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-26" y="1034"/>
         </scene>
-        <!--我的-->
+        <!--组-->
         <scene sceneID="hH8-KW-Jtg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UGA-Tg-VXf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" image="my" id="NtW-Ix-lZD"/>
+                    <tabBarItem key="tabBarItem" title="组" image="more" id="NtW-Ix-lZD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aLw-C8-FEd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -542,11 +542,11 @@
             </objects>
             <point key="canvasLocation" x="1056" y="-334"/>
         </scene>
-        <!--搜索-->
+        <!--搜-->
         <scene sceneID="DJR-MH-tch">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="spb-bq-nPX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="搜索" image="sch" id="3fA-oU-DGw"/>
+                    <tabBarItem key="tabBarItem" title="搜" image="sch" id="3fA-oU-DGw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VXi-bq-S4W">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -721,11 +721,11 @@
             </objects>
             <point key="canvasLocation" x="1856" y="1900"/>
         </scene>
-        <!--同比增长-->
+        <!--我-->
         <scene sceneID="P1e-pK-eJK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BVl-NZ-BSs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="同比增长" image="more" id="H5s-gL-Ahi"/>
+                    <tabBarItem key="tabBarItem" title="我" image="my" id="H5s-gL-Ahi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BCo-b3-EyW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -747,7 +747,7 @@
         <image name="sch" width="24" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="soE-FS-mP5"/>
         <segue reference="Oe6-NU-ZAG"/>
+        <segue reference="soE-FS-mP5"/>
     </inferredMetricsTieBreakers>
 </document>

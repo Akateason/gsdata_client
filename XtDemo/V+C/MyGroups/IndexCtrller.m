@@ -7,7 +7,6 @@
 //
 
 #import "IndexCtrller.h"
-#import "RootCtrl+LoadingLauncherScene.h"
 #import "XTJson.h"
 #import "Group.h"
 #import "YYModel.h"
@@ -50,10 +49,8 @@ static NSString *kGroupCell = @"GroupCell" ;
 - (void)viewDidLoad
 {    
     [super viewDidLoad] ;
-    
-    self.tabBarController.tabBar.tintColor = [UIColor darkGrayColor] ;
-    
-    self.title = @"我的分组" ;
+        
+    self.title = @"组" ;
     
     _table.delegate = self ;
     _table.dataSource = self ;
@@ -66,7 +63,7 @@ static NSString *kGroupCell = @"GroupCell" ;
 {
     [super viewWillAppear:animated] ;
     
-    [self modalIntoLauncherWithSegueIdentifier:@"index2launcher"] ;
+//    [self modalIntoLauncherWithSegueIdentifier:@"index2launcher"] ;
 }
 
 #pragma mark - GroupCellDelegate
