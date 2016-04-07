@@ -14,6 +14,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U6x-ZK-Mzs">
+                        <rect key="frame" x="0.0" y="-50" width="320" height="231"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title balabalabala ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbE-Eh-Ko7">
                         <rect key="frame" x="29" y="54" width="261" height="20"/>
                         <constraints>
@@ -116,20 +119,25 @@
                     <constraint firstItem="JbE-Eh-Ko7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="29" id="HWz-8D-u53"/>
                     <constraint firstItem="oNm-ZH-bD1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="29" id="Jg9-ha-14j"/>
                     <constraint firstAttribute="trailing" secondItem="JbE-Eh-Ko7" secondAttribute="trailing" constant="30" id="LhW-Nv-9EI"/>
+                    <constraint firstItem="U6x-ZK-Mzs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-50" id="MHA-uy-cjR"/>
                     <constraint firstItem="JbE-Eh-Ko7" firstAttribute="top" secondItem="iqK-8D-MOa" secondAttribute="bottom" constant="12" id="Mkg-er-0rd"/>
                     <constraint firstAttribute="bottom" secondItem="ytw-fY-N5q" secondAttribute="bottom" constant="18" id="OIT-EF-8pD"/>
                     <constraint firstAttribute="trailing" secondItem="iqK-8D-MOa" secondAttribute="trailing" constant="30" id="PZa-E4-WRL"/>
                     <constraint firstItem="iqK-8D-MOa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="Vd4-xf-tiE"/>
                     <constraint firstItem="8Uh-96-AHa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="29" id="WM9-DI-IeE"/>
+                    <constraint firstAttribute="trailing" secondItem="U6x-ZK-Mzs" secondAttribute="trailing" id="dcY-r4-ZYC"/>
                     <constraint firstItem="8Uh-96-AHa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="erd-bT-e9v"/>
+                    <constraint firstAttribute="bottom" secondItem="U6x-ZK-Mzs" secondAttribute="bottom" constant="-50" id="fuB-LN-poS"/>
                     <constraint firstItem="ytw-fY-N5q" firstAttribute="leading" secondItem="ovA-Q8-ZfS" secondAttribute="trailing" constant="6" id="iCW-bj-yhF"/>
                     <constraint firstAttribute="bottom" secondItem="ejq-EA-hB8" secondAttribute="bottom" constant="18" id="mIM-nT-AQV"/>
                     <constraint firstItem="ovA-Q8-ZfS" firstAttribute="leading" secondItem="ejq-EA-hB8" secondAttribute="trailing" constant="14" id="mPS-j6-grd"/>
+                    <constraint firstItem="U6x-ZK-Mzs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tpX-k0-UDN"/>
                     <constraint firstItem="YtA-X9-Td9" firstAttribute="top" secondItem="JbE-Eh-Ko7" secondAttribute="bottom" constant="21" id="uTj-NM-C6e"/>
                     <constraint firstItem="JeC-4I-jiZ" firstAttribute="leading" secondItem="8Uh-96-AHa" secondAttribute="trailing" constant="8" id="xnf-Nk-6XP"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="img" destination="U6x-ZK-Mzs" id="dLL-Wi-SUi"/>
                 <outlet property="lbYue" destination="oNm-ZH-bD1" id="Fcu-qn-m26"/>
                 <outlet property="lbZan" destination="ovA-Q8-ZfS" id="n7k-3a-iRO"/>
                 <outlet property="lb_author" destination="iqK-8D-MOa" id="KrH-6O-fcL"/>

@@ -68,7 +68,6 @@ static const CGFloat kLabelHeight = 20. ;
 {
     [super layoutSubviews] ;
     
-    
     self.frame = APPFRAME ;
     btBack.frame = APPFRAME ;
     lb_1.frame = CGRectMake(orgX, orgY, chartWidth, kLabelHeight) ;
@@ -91,9 +90,7 @@ static const CGFloat kLabelHeight = 20. ;
     chartViewLike = [[UUChart alloc] initWithFrame:rectLike
                                         dataSource:self
                                              style:UUChartStyleLine] ;
-    [chartViewLike showInView:self];
-
-
+    [chartViewLike showInView:self] ;
 }
 
 - (void)btBackOnClick
@@ -106,7 +103,6 @@ static const CGFloat kLabelHeight = 20. ;
                      } completion:^(BOOL finished) {
                          [self removeFromSuperview] ;
                      }] ;
-    
     
 }
 
@@ -162,16 +158,16 @@ static const CGFloat kLabelHeight = 20. ;
         }
         return NSOrderedSame;
     }] ;
-    
-    return CGRangeMake([[list lastObject] integerValue], [[list firstObject] integerValue]);
+    NSInteger deta = ( [[list lastObject] integerValue] - [[list firstObject] integerValue] ) / 5. ;
+    return CGRangeMake([[list lastObject] integerValue] + deta, [[list firstObject] integerValue]);
 }
 
 #pragma mark - 折线图专享功能
-//标记数值区域
-- (CGRange)chartHighlightRangeInLine:(UUChart *)chart
-{
-    return CGRangeMake(25, 75) ;
-}
+////标记数值区域
+//- (CGRange)chartHighlightRangeInLine:(UUChart *)chart
+//{
+//    return CGRangeMake(25, 75) ;
+//}
 
 //判断显示横线条
 - (BOOL)chart:(UUChart *)chart showHorizonLineAtIndex:(NSInteger)index

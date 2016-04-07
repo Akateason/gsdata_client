@@ -10,6 +10,7 @@
 #import "UUChartConst.h"
 #import "UUChartLabel.h"
 
+static const NSInteger kMaxHorizonalNumber = 100 ;
 
 @implementation UULineChart {
     NSHashTable *_chartLabelsForX;
@@ -24,13 +25,13 @@
     return self;
 }
 
--(void)setYValues:(NSArray *)yValues
+- (void)setYValues:(NSArray *)yValues
 {
     _yValues = yValues;
     [self setYLabels:yValues];
 }
 
--(void)setYLabels:(NSArray *)yLabels
+- (void)setYLabels:(NSArray *)yLabels
 {
     NSInteger max = 0;
     NSInteger min = 1000000000;
@@ -46,7 +47,7 @@
             }
         }
     }
-    max = max<5 ? 5:max;
+    max = max < 5 ? 5 : max;
     _yValueMin = 0;
     _yValueMax = (int)max;
     
@@ -54,26 +55,36 @@
         _yValueMax = _chooseRange.max;
         _yValueMin = _chooseRange.min;
     }
-
-    float level = (_yValueMax-_yValueMin) /4.0;
-    CGFloat chartCavanHeight = self.frame.size.height - UULabelHeight*3;
-    CGFloat levelHeight = chartCavanHeight /4.0;
-
-    for (int i=0; i<5; i++) {
-        UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(0.0,chartCavanHeight-i*levelHeight+5, UUYLabelwidth, UULabelHeight)];
-		label.text = [NSString stringWithFormat:@"%d",(int)(level * i+_yValueMin)];
+    
+    float level = (_yValueMax-_yValueMin) / 4.0;
+    CGFloat chartCavanHeight = self.frame.size.height - UULabelHeight * 3 ;
+    CGFloat levelHeight = chartCavanHeight / 4.0;
+    
+    for (int i=0; i < 5; i++)
+    {
+        UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(0.0,
+                                                                              chartCavanHeight - i*levelHeight + 5,
+                                                                              UUYLabelwidth,
+                                                                              UULabelHeight)];
+		label.text = [NSString stringWithFormat:@"%d",(int)(level * i + _yValueMin)];
 		[self addSubview:label];
     }
-    if ([super respondsToSelector:@selector(setMarkRange:)]) {
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(UUYLabelwidth, (1-(_markRange.max-_yValueMin)/(_yValueMax-_yValueMin))*chartCavanHeight+UULabelHeight, self.frame.size.width-UUYLabelwidth, (_markRange.max-_markRange.min)/(_yValueMax-_yValueMin)*chartCavanHeight)];
+    
+    if ([super respondsToSelector:@selector(setMarkRange:)])
+    {
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(UUYLabelwidth,
+                                                               (1-(_markRange.max-_yValueMin)/(_yValueMax-_yValueMin))*chartCavanHeight+UULabelHeight,
+                                                               self.frame.size.width-UUYLabelwidth,
+                                                               (_markRange.max-_markRange.min)/(_yValueMax-_yValueMin)*chartCavanHeight)] ;
         view.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
         [self addSubview:view];
     }
-
+    
     //画横线
-    for (int i=0; i<5; i++) {
-        if ([_showHorizonLine[i] integerValue]>0) {
-            
+    for (int i=0; i<5; i++)
+    {
+        if ([_showHorizonLine[i] integerValue]>0)
+        {
             CAShapeLayer *shapeLayer = [CAShapeLayer layer];
             UIBezierPath *path = [UIBezierPath bezierPath];
             [path moveToPoint:CGPointMake(UUYLabelwidth,UULabelHeight+i*levelHeight)];
@@ -88,7 +99,7 @@
     }
 }
 
--(void)setXLabels:(NSArray *)xLabels
+- (void)setXLabels:(NSArray *)xLabels
 {
     if( !_chartLabelsForX ){
         _chartLabelsForX = [NSHashTable weakObjectsHashTable];
@@ -96,9 +107,9 @@
     
     _xLabels = xLabels;
     CGFloat num = 0;
-    if (xLabels.count>=20) {
-        num=20.0;
-    }else if (xLabels.count<=1){
+    if (xLabels.count >= kMaxHorizonalNumber) {
+        num = kMaxHorizonalNumber;
+    }else if (xLabels.count <= 1){
         num=1.0;
     }else{
         num = xLabels.count;

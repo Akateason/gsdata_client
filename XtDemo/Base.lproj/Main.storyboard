@@ -3,7 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Launcher Ctrller-->
@@ -514,11 +516,12 @@
                     <connections>
                         <segue destination="UGA-Tg-VXf" kind="relationship" relationship="viewControllers" id="0hy-Rj-OPv"/>
                         <segue destination="spb-bq-nPX" kind="relationship" relationship="viewControllers" id="j6b-Yl-bXu"/>
+                        <segue destination="BVl-NZ-BSs" kind="relationship" relationship="viewControllers" id="zWa-N1-2ho"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOn-VL-zZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="-6"/>
+            <point key="canvasLocation" x="-26" y="1034"/>
         </scene>
         <!--我的-->
         <scene sceneID="hH8-KW-Jtg">
@@ -556,7 +559,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neh-5u-Zdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1016" y="1018"/>
+            <point key="canvasLocation" x="1056" y="914"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="ysx-3V-fhy">
@@ -639,10 +642,107 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQx-tu-IVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="1018"/>
+            <point key="canvasLocation" x="1826" y="906"/>
+        </scene>
+        <!--Self Grow Up Ctrller-->
+        <scene sceneID="BRR-id-NJr">
+            <objects>
+                <viewController id="KhA-92-E37" customClass="SelfGrowUpCtrller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I9w-Np-jto"/>
+                        <viewControllerLayoutGuide type="bottom" id="MaD-ZF-bQJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qms-HQ-g9r">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihe-o4-916">
+                                <rect key="frame" x="301" y="300" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.90980392160000001" green="0.98039215690000003" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="k3T-uh-EpT"/>
+                                    <constraint firstAttribute="width" secondItem="ihe-o4-916" secondAttribute="height" multiplier="1:1" id="sEu-RX-fHO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                <state key="normal" title="月">
+                                    <color key="titleColor" red="0.35294117647058826" green="0.62745098039215685" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btYueOnclick:" destination="KhA-92-E37" eventType="touchUpInside" id="qXn-hW-w8D"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="678-ma-19h">
+                                <rect key="frame" x="150" y="149" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.90980392156862744" green="0.98039215686274506" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="mAk-1Y-gIn"/>
+                                    <constraint firstAttribute="width" secondItem="678-ma-19h" secondAttribute="height" multiplier="1:1" id="zXv-rN-ERp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                <state key="normal" title="周">
+                                    <color key="titleColor" red="0.35294117647058826" green="0.62745098039215685" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btZhouOnclick:" destination="KhA-92-E37" eventType="touchUpInside" id="D45-EM-90S"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="678-ma-19h" firstAttribute="centerY" secondItem="Qms-HQ-g9r" secondAttribute="centerY" constant="-76" id="Ar1-Nv-MIt"/>
+                            <constraint firstItem="ihe-o4-916" firstAttribute="centerX" secondItem="Qms-HQ-g9r" secondAttribute="centerX" constant="76" id="GHz-lT-tCH"/>
+                            <constraint firstItem="ihe-o4-916" firstAttribute="width" secondItem="Qms-HQ-g9r" secondAttribute="width" multiplier="1:4" priority="500" id="GRL-Il-448"/>
+                            <constraint firstItem="ihe-o4-916" firstAttribute="centerY" secondItem="Qms-HQ-g9r" secondAttribute="centerY" constant="75" id="IPc-B8-AYf"/>
+                            <constraint firstItem="678-ma-19h" firstAttribute="centerX" secondItem="Qms-HQ-g9r" secondAttribute="centerX" constant="-75" id="bfs-X2-IUW"/>
+                            <constraint firstItem="678-ma-19h" firstAttribute="width" secondItem="Qms-HQ-g9r" secondAttribute="width" multiplier="1:4" priority="500" id="dsg-MY-H60"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VQW-tn-6aN">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="日本流行每日速报" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="3IQ-zx-zZc">
+                            <rect key="frame" x="220" y="7" width="160" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="UWR-in-2Zf"/>
+                                <constraint firstAttribute="height" constant="30" id="kgt-Ki-rtf"/>
+                            </constraints>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btYue" destination="ihe-o4-916" id="73j-T1-JJT"/>
+                        <outlet property="btZhou" destination="678-ma-19h" id="jdY-je-1ut"/>
+                        <outlet property="textfield" destination="3IQ-zx-zZc" id="sdK-um-6Ua"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eEj-J2-YHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1856" y="1900"/>
+        </scene>
+        <!--同比增长-->
+        <scene sceneID="P1e-pK-eJK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BVl-NZ-BSs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="同比增长" image="more" id="H5s-gL-Ahi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BCo-b3-EyW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KhA-92-E37" kind="relationship" relationship="rootViewController" id="uco-Jc-L8a"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ubg-MW-5Nc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066" y="1900"/>
         </scene>
     </scenes>
     <resources>
+        <image name="more" width="27" height="23"/>
         <image name="my" width="24" height="23"/>
         <image name="sch" width="24" height="23"/>
     </resources>

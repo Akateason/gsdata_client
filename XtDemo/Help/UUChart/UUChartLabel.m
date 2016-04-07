@@ -17,9 +17,9 @@
     if (self) {
         // Initialization code
         [self setLineBreakMode:NSLineBreakByWordWrapping];
-        [self setMinimumScaleFactor:5.0f];
+        [self setMinimumScaleFactor:15.0f];
         [self setNumberOfLines:1];
-        [self setFont:[UIFont boldSystemFontOfSize:9.0f]];
+        [self setFont:[UIFont boldSystemFontOfSize:9.0f]]; // 9.
         [self setTextColor: [UUColor darkGrayColor]];
         [self setTextAlignment:NSTextAlignmentCenter];
         self.backgroundColor = [UIColor clearColor];

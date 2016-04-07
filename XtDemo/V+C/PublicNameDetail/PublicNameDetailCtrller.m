@@ -89,9 +89,16 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
 {
     if (self.list_recentArticleInfo.count) return ;
     
-    NSString *yesterdayStr = [XTTickConvert getStrWithNSDate:[NSDate dateYesterday] AndWithFormat:TIME_STR_FORMAT_YY_MM_DD] ;
-    NSDate *earlyDay = [NSDate dateWithDaysBeforeNow:8] ;
-    NSString *earlyDayStr = [XTTickConvert getStrWithNSDate:earlyDay AndWithFormat:TIME_STR_FORMAT_YY_MM_DD] ;
+    NSString *yesterdayStr = [XTTickConvert getStrWithNSDate:[NSDate dateYesterday]
+                                               AndWithFormat:TIME_STR_FORMAT_YY_MM_DD] ;
+    int beforeDay = 8 ;
+    NSDate *earlyDay = [NSDate dateWithDaysBeforeNow:beforeDay] ; // 搜索时间不能跨月(服务端要求.)
+    while ( ![earlyDay isThisMonth] && beforeDay ) {
+        beforeDay -- ;
+        earlyDay = [NSDate dateWithDaysBeforeNow:beforeDay] ;
+    }
+    NSString *earlyDayStr = [XTTickConvert getStrWithNSDate:earlyDay
+                                              AndWithFormat:TIME_STR_FORMAT_YY_MM_DD] ;
     
     [ServerRequest fetchWxWeekReadNumWithStartTime:earlyDayStr
                                            endTime:yesterdayStr

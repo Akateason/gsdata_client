@@ -36,12 +36,12 @@
                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEg-t2-QO9">
-                        <rect key="frame" x="140" y="36" width="39" height="77"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEg-t2-QO9">
+                        <rect key="frame" x="131" y="36" width="39" height="77"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="39" id="4zw-qQ-XFX"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -64,7 +64,7 @@
                 <constraints>
                     <constraint firstItem="JCi-2s-cjo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="36" id="709-zA-HW9"/>
                     <constraint firstItem="sEg-t2-QO9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="36" id="8kd-ph-6hL"/>
-                    <constraint firstItem="sEg-t2-QO9" firstAttribute="leading" secondItem="JCi-2s-cjo" secondAttribute="trailing" constant="17" id="BlZ-1C-SHx"/>
+                    <constraint firstItem="sEg-t2-QO9" firstAttribute="leading" secondItem="JCi-2s-cjo" secondAttribute="trailing" constant="8" id="BlZ-1C-SHx"/>
                     <constraint firstItem="61v-b8-oDo" firstAttribute="leading" secondItem="adv-JY-EnS" secondAttribute="trailing" constant="11" id="Bsw-7c-p25"/>
                     <constraint firstAttribute="bottom" secondItem="JCi-2s-cjo" secondAttribute="bottom" constant="37" id="DDl-El-4hZ"/>
                     <constraint firstAttribute="bottom" secondItem="sEg-t2-QO9" secondAttribute="bottom" constant="37" id="LBU-fu-EsE"/>

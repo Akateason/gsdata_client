@@ -14,23 +14,24 @@
 #import "Article.h"
 #import "YYModel.h"
 #import "ArticleCtrller.h"
-#import "DateSelectedView.h"
-
+#import "HZQDatePickerView.h"
+#import "NSDate+Utilities.h"
 
 static NSString *kSortItemCell = @"SortItemCell" ;
 static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
 
-@interface SortViewController () <UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate,DateSelectedViewDelegate>
+@interface SortViewController () <UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate,HZQDatePickerViewDelegate,UIScrollViewDelegate>
 {
-    SortManagement *m_sortManagement ;  // manage sort condition and get condition result to sort
-    NSInteger       m_page ;            // 页码
+    SortManagement      *m_sortManagement ;  // manage sort condition and get condition result to sort
+    NSInteger           m_page ;             // 页码
+    NSDate              *m_last_date ;
+    HZQDatePickerView   *_pikerView ;
 }
 @property (weak, nonatomic) IBOutlet RootTableView      *table;
 @property (weak, nonatomic) IBOutlet UIButton           *btDate;
 @property (weak, nonatomic) IBOutlet SortSeqButton      *btPostTime;
 @property (weak, nonatomic) IBOutlet SortSeqButton      *btReadCount;
 
-@property (nonatomic,strong)         DateSelectedView   *dateSelView ;
 
 @property (nonatomic,strong)         NSMutableArray     *list ; // Array <article>
 @property (nonatomic,strong)         dispatch_queue_t   myQueue ;
@@ -39,8 +40,6 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
 
 @implementation SortViewController
 @synthesize list = _list ;
-
-
 
 #pragma mark - Prop
 - (dispatch_queue_t)myQueue
@@ -72,50 +71,34 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
     }) ;
 }
 
-#pragma mark - DateSelectedViewDelegate
-- (void)doConfirmWithDate:(NSDate *)dateSelected way:(NSInteger)waySelected
+#pragma mark - HZQ delegate
+
+- (void)getSelectDate:(NSString *)date type:(DateType)type
 {
-    [UIView animateWithDuration:0.25
-                     animations:^{
-                         
-                         _dateSelView.transform = CGAffineTransformScale(_dateSelView.transform, 0.01, 0.01) ;
-                         
-                     } completion:^(BOOL finished) {
-                         
-                         if ([_dateSelView superview] != nil) {
-                             [_dateSelView removeFromSuperview] ;
-                         }
-                         
-                         [m_sortManagement updateDate:dateSelected] ;
-                         [m_sortManagement updateSortWay:waySelected] ;
-                         
-                         [self freshDateButtonLabel] ;
-                         
-                         // go for sort . ps + sort by ' sort way '
-                         [self doFetchDatas:YES] ;
-                     }] ;
+    NSDate *dateSel = [XTTickConvert getNSDateWithDateStr:date
+                                           AndWithFormat:TIME_STR_FORMAT_YY_MM_DD] ;
+
+    if ([m_last_date isEqualToDate:dateSel]) return ;
+    [m_sortManagement updateDate:dateSel] ;
+    
+    [self freshDateButtonLabel] ;
+    
+    // go for sort . ps + sort by ' sort way '
+    [self doFetchDatas:YES] ;
 }
 
 #pragma mark - Buttons Action
+
 - (IBAction)btDateClicked:(id)sender
 {
-    [self fetchNewDataForDateSelView] ;
+    _pikerView = [HZQDatePickerView instanceDatePickerView];
+    _pikerView.frame = CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT + 20);
+    [_pikerView setBackgroundColor:[UIColor clearColor]];
+    _pikerView.delegate = self;
+    [_pikerView.datePickerView setMaximumDate:[NSDate dateYesterday]] ;
+    _pikerView.datePickerView.date = [m_sortManagement fetchDate] ;
     
-    _dateSelView.transform = CGAffineTransformScale(_dateSelView.transform, 0.2, 0.2) ;
-    [self.view.window addSubview:_dateSelView] ;
-    _dateSelView.hidden = YES ;
-
-    [UIView transitionWithView:self.view.window
-                      duration:0.25
-                       options:UIViewAnimationOptionCurveEaseOut
-                    animations:^{
-                        
-                        _dateSelView.hidden = NO ;
-                        _dateSelView.transform = CGAffineTransformIdentity ;
-                        
-                    } completion:^(BOOL finished) {
-                        
-                    }] ;
+    [self.view.window addSubview:_pikerView];
 }
 
 - (IBAction)btPostTimeClicked:(SortSeqButton *)sender
@@ -184,20 +167,12 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
     [_btPostTime setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal] ;
     [_btReadCount setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal] ;
     
-    // 5. initial date Select View
-    _dateSelView = [[[NSBundle mainBundle] loadNibNamed:@"DateSeletedView" owner:self options:nil] lastObject] ;
-    _dateSelView.frame = APPFRAME ;
-    _dateSelView.delegate = self ;
-    [self fetchNewDataForDateSelView] ;
+    // 5.
+//    _dateSelView.date = [m_sortManagement fetchDate] ;
+//    _dateSelView.way = [m_sortManagement fetchSortWay] ;
     
     // 6. button date .
     [self freshDateButtonLabel] ;
-}
-
-- (void)fetchNewDataForDateSelView
-{
-    _dateSelView.date = [m_sortManagement fetchDate] ;
-    _dateSelView.way = [m_sortManagement fetchSortWay] ;
 }
 
 - (void)freshDateButtonLabel
@@ -232,8 +207,8 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
     }
     
     SortCondition *sortResult = [m_sortManagement fetchCompletelySortResult] ;
-    
-    NSString *dateString = [XTTickConvert getStrWithNSDate:[m_sortManagement fetchDate]
+    m_last_date = [m_sortManagement fetchDate] ;
+    NSString *dateString = [XTTickConvert getStrWithNSDate:m_last_date
                                              AndWithFormat:TIME_STR_FORMAT_YY_MM_DD] ;
     
     [ServerRequest sortInGroupWithDayString:dateString
@@ -266,6 +241,7 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
 }
 
 #pragma mark - RootTableViewDelegate
+
 - (void)loadNewData
 {
     [self doFetchDatas:YES] ;
@@ -277,6 +253,7 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
 }
 
 #pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.list.count ;
@@ -296,6 +273,7 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
 }
 
 #pragma mark - UITableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 132. ;
@@ -306,6 +284,21 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
     Article *article = self.list[indexPath.row] ;
     [self performSegueWithIdentifier:@"sort2article" sender:article] ;
 }
+
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // Get visible cells on table view.
+    NSArray *visibleCells = [_table visibleCells];
+    
+    for (SortItemCell *cell in visibleCells) {
+        [cell cellOnTableView:_table didScrollOnView:self.view];
+    }
+}
+
+
 
 #pragma mark - Navigation
 

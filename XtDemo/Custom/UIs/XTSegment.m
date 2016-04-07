@@ -10,24 +10,33 @@
 #import "XTSegment.h"
 
 @interface XTSegment ()
+{
+    CGFloat widthMain ;
+}
 @property (nonatomic)           int             sumIndex ;
 @property (nonatomic)           CGFloat         btWidth ;
 @property (nonatomic,strong)    UIImageView     *imgSelectView ;
+
 @end
 
 @implementation XTSegment
 
 #pragma mark - Initialization
+
 - (instancetype)initWithDataList:(NSArray *)datalist
                            imgBg:(UIImage *)imgBg
                           height:(CGFloat)height
                      normalColor:(UIColor *)normalColor
                      selectColor:(UIColor *)selectColor
                             font:(UIFont *)font
+                           width:(CGFloat)width
 {
     self = [super init] ;
     if (self)
     {
+        CGRect rect = CGRectZero ;
+        rect.size.width = width ;
+        self.frame = rect ;
         self.dataList = datalist ;
         self.heightForSeg = height ;
         self.imgBG_sel = imgBg ;
@@ -42,6 +51,7 @@
 }
 
 #pragma mark - Properties
+
 - (void)setDataList:(NSArray *)dataList
 {
     _dataList = dataList ;
@@ -53,7 +63,8 @@
 {
     _sumIndex = sumIndex ;
     
-    self.btWidth = APPFRAME.size.width / sumIndex ;
+    self.btWidth = self.frame.size.width / sumIndex ;
+//    self.btWidth = APPFRAME.size.width / sumIndex ;
 }
 
 - (void)setImgBG_sel:(UIImage *)imgBG_sel
@@ -61,6 +72,12 @@
     _imgBG_sel = imgBG_sel ;
     
     self.imgSelectView.image = imgBG_sel ;
+}
+
+- (CGFloat)btWidth
+{
+    _btWidth = self.frame.size.width / self.sumIndex ;
+    return _btWidth ;
 }
 
 - (UIImageView *)imgSelectView
@@ -81,6 +98,7 @@
 
 
 #pragma mark - Setup
+
 - (void)setup
 {
     // h
@@ -111,6 +129,23 @@
     [self changeButtonSelectInfo] ;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews] ;
+    
+    for (UIView *sub in [self subviews])
+    {
+        if ([sub isKindOfClass:[UIButton class]] && sub.tag >= TAGS_TEASEGMENT_BT)
+        {
+            long i = sub.tag - TAGS_TEASEGMENT_BT ;
+            CGRect btFrame = CGRectZero ;
+            btFrame.size = CGSizeMake(self.btWidth, self.heightForSeg) ;
+            btFrame.origin = CGPointMake(self.btWidth * (i), 0) ;
+            sub.frame = btFrame ;
+        }
+    }
+}
+
 - (void)changeButtonSelectInfo
 {
     for (UIView *subview in [self subviews]) {
@@ -128,8 +163,8 @@
     }
 }
 
-
 #pragma mark - Action
+
 - (void)btSelectedAction:(id)sender
 {
     UIButton *bt = sender ;
@@ -139,13 +174,18 @@
 }
 
 #pragma mark - Public
+
 - (void)moveToIndex:(int)index
            callBack:(BOOL)callback
 {
     self.currentIndex = index ;
     
-    if (callback) {
-        [self.delegate clickSegmentWith:index] ;
+    if (callback)
+    {
+        if ([self.delegate respondsToSelector:@selector(clickSegmentWith:)])
+        {
+            [self.delegate clickSegmentWith:index] ;
+        }
     }
     
     [self changeButtonSelectInfo] ;
@@ -156,8 +196,6 @@
         _imgSelectView.frame = rect ;
     }] ;
 }
-
-
 
 /*
 // Only override drawRect: if you perform custom drawing.

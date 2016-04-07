@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @protocol XTSegmentDelegate <NSObject>
+@optional
 - (void)clickSegmentWith:(int)index ;
+
 @end
 
 @interface XTSegment : UIView
@@ -28,7 +30,8 @@
                           height:(CGFloat)height
                      normalColor:(UIColor *)normalColor
                      selectColor:(UIColor *)selectColor
-                            font:(UIFont *)font ;
+                            font:(UIFont *)font
+                           width:(CGFloat)width ;
 
 - (void)moveToIndex:(int)index
            callBack:(BOOL)callback ;

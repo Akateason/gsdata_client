@@ -44,7 +44,6 @@ static NSString *kPublicNameCell = @"PublicNameCell" ;
     
 //    _flabbyTableManager = [[BRFlabbyTableManager alloc] initWithTableView:_table];
 //    [_flabbyTableManager setDelegate:self];
-
 }
 
 - (void)tableConfigure

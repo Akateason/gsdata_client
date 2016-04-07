@@ -32,11 +32,19 @@
 @property (nonatomic)           NSInteger   likenum_av_up ;     // 平均点赞的增量 (负数为下降)
 @property (nonatomic)           NSInteger   readnum_max ;       // 最大阅读数
 @property (nonatomic)           NSInteger   likenum_max	;       // 最大点赞数
-@property (nonatomic)           double   likenum_readnum_rate ; // 点赞率
-@property (nonatomic)           double   wci ;                  // 微信传播指数
-@property (nonatomic)           double   wci_up ;               // 微信传播指数 增量
+@property (nonatomic)           double      likenum_readnum_rate ; // 阅读数与点赞数的比率
+@property (nonatomic)           double      wci ;                  // 微信传播指数
+@property (nonatomic)           double      wci_up ;               // 微信传播指数 增量
 @property (nonatomic)           NSInteger   rowno ;             // 排名
 @property (nonatomic)           NSInteger   rowno_up ;          // 排名上升增量
-@property (nonatomic)           NSInteger   url_times ;
+@property (nonatomic,copy)      NSString    *result_day ;       // 排名日期
+@property (nonatomic)           NSInteger   url_times ;         // 该公众号在上述日期中发文次数
+@property (nonatomic)           NSInteger   url_times_up ;      // 发文次数相对上次的增量（负数即为下降）
+@property (nonatomic)           NSInteger   url_times_readnum ; // 该公众号在上述日期中发文的总阅读数
+@property (nonatomic)           NSInteger   url_times_readnum_up ; // 发文的总阅读数相对上次的增量（负数即为下降）
+@property (nonatomic)           NSInteger   url_num_up ;        // 文章总数相对上次的增量（负数即为下降）
+@property (nonatomic)           double      wcir ;
+@property (nonatomic)           double      wciz ;
 
 @end
+

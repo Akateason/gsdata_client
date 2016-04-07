@@ -26,7 +26,7 @@ typedef enum : NSUInteger
     typeArticle
 } WXSearchType;
 
-@interface SearchViewController () <UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate>
+@interface SearchViewController () <UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate,UIScrollViewDelegate>
 {
     WXSearchType m_searchType ;
     NSInteger    m_page ; // default is 0 ;
@@ -73,6 +73,10 @@ typedef enum : NSUInteger
 {
     dispatch_barrier_async(self.myQueue, ^{
         _list = list ;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_table reloadData] ;
+        }) ;
     }) ;
 }
 
@@ -188,7 +192,6 @@ typedef enum : NSUInteger
     _table.separatorStyle = UITableViewCellSeparatorStyleNone ;
     [_table registerNib:[UINib nibWithNibName:kPublicNameCell bundle:nil] forCellReuseIdentifier:kPublicNameCell] ;
     [_table registerNib:[UINib nibWithNibName:kSortItemCell bundle:nil] forCellReuseIdentifier:kSortItemCell] ;
-    _table.rowHeight = UITableViewAutomaticDimension ;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -264,7 +267,7 @@ typedef enum : NSUInteger
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (m_searchType == typePublicName) {
         return 120. ;
@@ -274,6 +277,23 @@ typedef enum : NSUInteger
     }
     return 0 ;
 }
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (m_searchType == typePublicName) return ;
+    
+    // Get visible cells on table view.
+    NSArray *visibleCells = [_table visibleCells];
+    
+    for (SortItemCell *cell in visibleCells) {
+        if ([cell respondsToSelector:@selector(cellOnTableView:didScrollOnView:)]) {
+            [cell cellOnTableView:_table didScrollOnView:self.view];
+        }
+    }
+}
+
 
 #pragma mark - Navigation
 

@@ -8,6 +8,7 @@
 
 #import "SortItemCell.h"
 #import "Article.h"
+#import "UIImageView+WebCache.h"
 
 @interface SortItemCell ()
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lb_author;
 @property (weak, nonatomic) IBOutlet UILabel *lbZan;
 @property (weak, nonatomic) IBOutlet UILabel *lb_likeCount;
+@property (weak, nonatomic) IBOutlet UIImageView *img;
 
 @end
 
@@ -35,6 +37,9 @@
     
     _lbYue.backgroundColor = [UIColor xt_lightBlueColor] ;
     _lbZan.backgroundColor = [UIColor xt_lightGreenColor] ;
+    
+    self.layer.masksToBounds = YES ;
+    _img.alpha = 0.3 ;
 }
 
 - (void)setArticle:(Article *)article
@@ -49,7 +54,26 @@
     _lb_author.text = article.author ;
     _lb_readcount.text = [NSString stringWithFormat:@"%@",@(article.readnum)] ;
     _lb_likeCount.text = [NSString stringWithFormat:@"%@",@(article.likenum)] ;
+    
+    [_img sd_setImageWithURL:[NSURL URLWithString:article.picurl]
+                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                       
+                   }] ;
 }
+
+- (void)cellOnTableView:(UITableView *)tableView didScrollOnView:(UIView *)view
+{
+    CGRect rectInSuperview = [tableView convertRect:self.frame toView:view];
+    
+    float distanceFromCenter = CGRectGetHeight(view.frame)/2 - CGRectGetMinY(rectInSuperview);
+    float difference = CGRectGetHeight(self.img.frame) - CGRectGetHeight(self.frame);
+    float move = (distanceFromCenter / CGRectGetHeight(view.frame)) * difference;
+    
+    CGRect imageRect = self.img.frame;
+    imageRect.origin.y = -(difference/2)+move;
+    self.img.frame = imageRect;
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

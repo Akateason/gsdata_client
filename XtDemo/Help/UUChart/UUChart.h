@@ -44,6 +44,7 @@ typedef NS_ENUM(NSInteger, UUChartStyle){
 
 //判断显示最大最小值
 - (BOOL)chart:(UUChart *)chart showMaxMinAtIndex:(NSInteger)index;
+
 @end
 
 

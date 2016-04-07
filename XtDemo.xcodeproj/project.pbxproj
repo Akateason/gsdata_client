@@ -23,8 +23,6 @@
 		607386871CA2A27300B8CD71 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 607386861CA2A27300B8CD71 /* Article.m */; };
 		6073868B1CA4D77900B8CD71 /* ArticleCtrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 6073868A1CA4D77900B8CD71 /* ArticleCtrller.m */; };
 		6073868D1CA4E72700B8CD71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6073868C1CA4E72700B8CD71 /* Images.xcassets */; };
-		607386961CA4F13100B8CD71 /* DateSeletedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607386951CA4F13100B8CD71 /* DateSeletedView.xib */; };
-		607386991CA5138500B8CD71 /* DateSelectedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 607386981CA5138500B8CD71 /* DateSelectedView.m */; };
 		6073869D1CA5286600B8CD71 /* HZQDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6073869B1CA5286600B8CD71 /* HZQDatePickerView.m */; };
 		6073869E1CA5286600B8CD71 /* HZQDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6073869C1CA5286600B8CD71 /* HZQDatePickerView.xib */; };
 		60754E331C9F9A2C006AE4B9 /* UIColor+AllColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 60754E321C9F9A2C006AE4B9 /* UIColor+AllColors.m */; };
@@ -45,6 +43,8 @@
 		609041D21CAB89B8002FF0E0 /* PublicNameInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 609041D11CAB89B8002FF0E0 /* PublicNameInfoCell.m */; };
 		609041D51CAB90DB002FF0E0 /* NicknameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 609041D41CAB90DB002FF0E0 /* NicknameInfo.m */; };
 		609041D81CABCB1E002FF0E0 /* PublicRecentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 609041D71CABCB1E002FF0E0 /* PublicRecentCell.m */; };
+		60B0EF421CB39DE500EAF7F5 /* SelfGrowUpCtrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B0EF411CB39DE500EAF7F5 /* SelfGrowUpCtrller.m */; };
+		60B0EF451CB50AB400EAF7F5 /* SelfChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B0EF441CB50AB400EAF7F5 /* SelfChartView.m */; };
 		60D04DAB1CACC066005C1B98 /* ArticleRecentChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DAA1CACC066005C1B98 /* ArticleRecentChartView.m */; };
 		60D04DB91CACC464005C1B98 /* UUBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DAE1CACC464005C1B98 /* UUBar.m */; };
 		60D04DBA1CACC464005C1B98 /* UUBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB01CACC464005C1B98 /* UUBarChart.m */; };
@@ -268,9 +268,6 @@
 		607386891CA4D77900B8CD71 /* ArticleCtrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleCtrller.h; path = "XtDemo/V+C/Article/ArticleCtrller.h"; sourceTree = SOURCE_ROOT; };
 		6073868A1CA4D77900B8CD71 /* ArticleCtrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleCtrller.m; path = "XtDemo/V+C/Article/ArticleCtrller.m"; sourceTree = SOURCE_ROOT; };
 		6073868C1CA4E72700B8CD71 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		607386951CA4F13100B8CD71 /* DateSeletedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateSeletedView.xib; sourceTree = SOURCE_ROOT; };
-		607386971CA5138500B8CD71 /* DateSelectedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateSelectedView.h; path = "XtDemo/V+C/DatePicker/DateSelectedView.h"; sourceTree = SOURCE_ROOT; };
-		607386981CA5138500B8CD71 /* DateSelectedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateSelectedView.m; path = "XtDemo/V+C/DatePicker/DateSelectedView.m"; sourceTree = SOURCE_ROOT; };
 		6073869A1CA5286600B8CD71 /* HZQDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HZQDatePickerView.h; path = "XtDemo/V+C/DatePicker/HZQDatePickerView.h"; sourceTree = SOURCE_ROOT; };
 		6073869B1CA5286600B8CD71 /* HZQDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HZQDatePickerView.m; path = "XtDemo/V+C/DatePicker/HZQDatePickerView.m"; sourceTree = SOURCE_ROOT; };
 		6073869C1CA5286600B8CD71 /* HZQDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HZQDatePickerView.xib; path = "XtDemo/V+C/DatePicker/HZQDatePickerView.xib"; sourceTree = SOURCE_ROOT; };
@@ -307,6 +304,10 @@
 		609041D41CAB90DB002FF0E0 /* NicknameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NicknameInfo.m; sourceTree = "<group>"; };
 		609041D61CABCB1E002FF0E0 /* PublicRecentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicRecentCell.h; path = "XtDemo/V+C/PublicNameDetail/PublicRecentCell.h"; sourceTree = SOURCE_ROOT; };
 		609041D71CABCB1E002FF0E0 /* PublicRecentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublicRecentCell.m; path = "XtDemo/V+C/PublicNameDetail/PublicRecentCell.m"; sourceTree = SOURCE_ROOT; };
+		60B0EF401CB39DE500EAF7F5 /* SelfGrowUpCtrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelfGrowUpCtrller.h; path = "XtDemo/V+C/SelfGrowUp/SelfGrowUpCtrller.h"; sourceTree = SOURCE_ROOT; };
+		60B0EF411CB39DE500EAF7F5 /* SelfGrowUpCtrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelfGrowUpCtrller.m; path = "XtDemo/V+C/SelfGrowUp/SelfGrowUpCtrller.m"; sourceTree = SOURCE_ROOT; };
+		60B0EF431CB50AB400EAF7F5 /* SelfChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelfChartView.h; path = "XtDemo/V+C/SelfGrowUp/SelfChartView.h"; sourceTree = SOURCE_ROOT; };
+		60B0EF441CB50AB400EAF7F5 /* SelfChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelfChartView.m; path = "XtDemo/V+C/SelfGrowUp/SelfChartView.m"; sourceTree = SOURCE_ROOT; };
 		60D04DA91CACC066005C1B98 /* ArticleRecentChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleRecentChartView.h; path = "XtDemo/V+C/PublicNameDetail/ArticleRecentChartView.h"; sourceTree = SOURCE_ROOT; };
 		60D04DAA1CACC066005C1B98 /* ArticleRecentChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleRecentChartView.m; path = "XtDemo/V+C/PublicNameDetail/ArticleRecentChartView.m"; sourceTree = SOURCE_ROOT; };
 		60D04DAD1CACC464005C1B98 /* UUBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUBar.h; sourceTree = "<group>"; };
@@ -799,9 +800,6 @@
 		6073868E1CA4EBAE00B8CD71 /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
-				607386971CA5138500B8CD71 /* DateSelectedView.h */,
-				607386981CA5138500B8CD71 /* DateSelectedView.m */,
-				607386951CA4F13100B8CD71 /* DateSeletedView.xib */,
 				6073869A1CA5286600B8CD71 /* HZQDatePickerView.h */,
 				6073869B1CA5286600B8CD71 /* HZQDatePickerView.m */,
 				6073869C1CA5286600B8CD71 /* HZQDatePickerView.xib */,
@@ -866,7 +864,7 @@
 			name = PublicNameDetail;
 			sourceTree = "<group>";
 		};
-		60754E561CA148BE006AE4B9 /* Sort */ = {
+		60754E561CA148BE006AE4B9 /* SortArticle */ = {
 			isa = PBXGroup;
 			children = (
 				60754E571CA148E2006AE4B9 /* SortViewController.h */,
@@ -876,7 +874,18 @@
 				607386771CA26C0100B8CD71 /* SortItemCell.xib */,
 				6073867A1CA28B4400B8CD71 /* SortManager */,
 			);
-			name = Sort;
+			name = SortArticle;
+			sourceTree = "<group>";
+		};
+		60B0EF3F1CB39D8700EAF7F5 /* SelfGrowUp */ = {
+			isa = PBXGroup;
+			children = (
+				60B0EF401CB39DE500EAF7F5 /* SelfGrowUpCtrller.h */,
+				60B0EF411CB39DE500EAF7F5 /* SelfGrowUpCtrller.m */,
+				60B0EF431CB50AB400EAF7F5 /* SelfChartView.h */,
+				60B0EF441CB50AB400EAF7F5 /* SelfChartView.m */,
+			);
+			name = SelfGrowUp;
 			sourceTree = "<group>";
 		};
 		60D04DAC1CACC464005C1B98 /* UUChart */ = {
@@ -970,14 +979,15 @@
 		D75CC3F71C2A92B200E590E6 /* Views+Contrllers */ = {
 			isa = PBXGroup;
 			children = (
+				60B0EF3F1CB39D8700EAF7F5 /* SelfGrowUp */,
 				606CF9711C9C1265009E51F6 /* MyGroups(Home) */,
 				60754E451CA0E8A7006AE4B9 /* PublicNameList */,
 				60754E521CA12CC3006AE4B9 /* PublicNameDetail */,
 				603FB93B1CA91843004FD018 /* SortPublicName */,
-				606CF9721C9C1290009E51F6 /* Searcher */,
-				60754E561CA148BE006AE4B9 /* Sort */,
+				60754E561CA148BE006AE4B9 /* SortArticle */,
 				607386881CA4D6B300B8CD71 /* WebView(article) */,
 				6073868E1CA4EBAE00B8CD71 /* DatePicker */,
+				606CF9721C9C1290009E51F6 /* Searcher */,
 			);
 			name = "Views+Contrllers";
 			path = Controller;
@@ -1740,7 +1750,6 @@
 				607386791CA26C0100B8CD71 /* SortItemCell.xib in Resources */,
 				6073868D1CA4E72700B8CD71 /* Images.xcassets in Resources */,
 				D75CC3D41C2A926100E590E6 /* LaunchScreen.storyboard in Resources */,
-				607386961CA4F13100B8CD71 /* DateSeletedView.xib in Resources */,
 				60754E441CA0E349006AE4B9 /* GroupCell.xib in Resources */,
 				D75CC3CF1C2A926100E590E6 /* Main.storyboard in Resources */,
 				6073869E1CA5286600B8CD71 /* HZQDatePickerView.xib in Resources */,
@@ -1826,7 +1835,6 @@
 				60754E3F1C9FEDA0006AE4B9 /* Group.m in Sources */,
 				D75CC5FC1C2A965000E590E6 /* UIButton+WebCache.m in Sources */,
 				D75CC4551C2A95DE00E590E6 /* XTVerification.m in Sources */,
-				607386991CA5138500B8CD71 /* DateSelectedView.m in Sources */,
 				603FB9521CAA87E2004FD018 /* NSIndexPath+BRFlabbyTable.m in Sources */,
 				D75CC59F1C2A965000E590E6 /* AFHTTPRequestOperation.m in Sources */,
 				D75CC4401C2A95DE00E590E6 /* UIColor+HexString.m in Sources */,
@@ -1889,6 +1897,7 @@
 				D75CC6041C2A965000E590E6 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				D75CC6021C2A965000E590E6 /* UIView+WebCacheOperation.m in Sources */,
 				D75CC7341C2D13C000E590E6 /* YYClassInfo.m in Sources */,
+				60B0EF421CB39DE500EAF7F5 /* SelfGrowUpCtrller.m in Sources */,
 				D75CC5C11C2A965000E590E6 /* CHTCollectionViewWaterfallLayout.m in Sources */,
 				D75CC5FB1C2A965000E590E6 /* SDWebImagePrefetcher.m in Sources */,
 				606CF9751C9C150B009E51F6 /* IndexCtrller.m in Sources */,
@@ -1937,6 +1946,7 @@
 				D75CC5BD1C2A965000E590E6 /* ASIS3ServiceRequest.m in Sources */,
 				D75CC6561C2AA17700E590E6 /* ResultParsered.m in Sources */,
 				D75CC5DF1C2A965000E590E6 /* UIView+MJExtension.m in Sources */,
+				60B0EF451CB50AB400EAF7F5 /* SelfChartView.m in Sources */,
 				D75CC5E51C2A965000E590E6 /* QNUrlSafeBase64.m in Sources */,
 				D75CC5F01C2A965000E590E6 /* QNUploadOption.m in Sources */,
 				603FB93E1CA91875004FD018 /* SortPublicCtrller.m in Sources */,

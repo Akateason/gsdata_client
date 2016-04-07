@@ -12,5 +12,6 @@
 @interface SortItemCell : UITableViewCell
 
 @property (nonatomic,strong) Article *article ;
+- (void)cellOnTableView:(UITableView *)tableView didScrollOnView:(UIView *)view ;
 
 @end

@@ -27,6 +27,7 @@ static const NSInteger kRows = 10 ;
 @interface SortPublicCtrller () <UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate,HZQDatePickerViewDelegate,UIActionSheetDelegate>
 {
     NSDate              *m_dateWillPick ;
+    NSDate              *m_last_date ;
     DateSegmentType     m_dateSegmentType ;
     NSString            *m_sortWayKey ;
     
@@ -83,16 +84,20 @@ static const NSInteger kRows = 10 ;
 }
 
 #pragma mark - HZQ delegate
+
 - (void)getSelectDate:(NSString *)date type:(DateType)type
 {
     m_dateWillPick = [XTTickConvert getNSDateWithDateStr:date
                                            AndWithFormat:TIME_STR_FORMAT_YY_MM_DD] ;
+    if ([m_last_date isEqualToDate:m_dateWillPick]) return ;
+
     [_btDate setTitle:date forState:0] ;
 
     [self loadNewData] ;
 }
 
 #pragma mark - action sheet delegate
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (!buttonIndex) return ;
@@ -105,6 +110,7 @@ static const NSInteger kRows = 10 ;
 }
 
 #pragma mark - Prop
+
 - (dispatch_queue_t)myQueue
 {
     if (!_myQueue) {
@@ -135,6 +141,7 @@ static const NSInteger kRows = 10 ;
 }
 
 #pragma mark - Sort Way
+
 + (NSDictionary *)getSortWayDictionary
 {
     return @{@"wci":@"微信传播指数(WCI)" ,
@@ -219,10 +226,13 @@ static const NSInteger kRows = 10 ;
 }
 
 #pragma mark - RootTableViewDelegate
+
 - (void)loadNewData
 {
     if (self.list.count) [self.list removeAllObjects] ;
  
+    m_last_date = m_dateWillPick ;
+    
     switch (m_dateSegmentType) {
         case dayType:
         {
@@ -316,6 +326,7 @@ static const NSInteger kRows = 10 ;
 }
 
 #pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.list.count ;
@@ -335,6 +346,7 @@ static const NSInteger kRows = 10 ;
 }
 
 #pragma mark - UITableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 150. ;
@@ -359,6 +371,5 @@ static const NSInteger kRows = 10 ;
         detailCtrller.selected_wx_publicNameID = ((Nickname *)sender).nickname_id ;
     }
 }
-
 
 @end

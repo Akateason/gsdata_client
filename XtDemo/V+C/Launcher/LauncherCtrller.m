@@ -17,7 +17,7 @@
 
 @implementation LauncherCtrller
 
-static NSString *const STR_SHOW = @"_清博指数_速报酱_内部_" ;
+static NSString *const STR_SHOW = @"清博指数_速报酱_内部" ;
 
 - (void)viewDidLoad
 {

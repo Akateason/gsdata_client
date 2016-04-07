@@ -396,5 +396,40 @@ static NSString *kJsonStr     = @"jsonStr" ;
                   }] ;
 }
 
+/**
+ *  wx/opensearchapi/nickname_order_total
+ *  获取某个公众号时间范围内的文章总数、阅读总数、点赞总数
+ *
+ *  @param nickNameString nickNameString description
+ *  @param num            days 默认3, 可传7,最大31.
+ *  @param success        success description
+ *  @param fail           fail description
+ */
++ (void)fetchNickNameOrderList3Days:(NSString *)nickNameString
+                                num:(NSInteger)days
+                            success:(void (^)(id json))success
+                               fail:(void (^)())fail
+{
+    NSString *jsonStr = [XTJson getJsonStr:@{@"wx_nickname":nickNameString ,
+                                             @"num":@(days) ,
+                                             @"sort":@"asc"
+                                             }] ;
+    
+    NSMutableDictionary *paramer = [self getParameters] ;
+    [paramer setObject:URL_OPEN_ORDER_LIST
+                forKey:kSpaceName] ;
+    [paramer setObject:jsonStr
+                forKey:kJsonStr] ;
+    
+    [XTRequest GETWithUrl:kRootUrlString
+               parameters:paramer
+                  success:^(id json) {
+                      if (success) success(json) ;
+                  } fail:^{
+                      if (fail) fail() ;
+                  }] ;
+    
+}
+
 
 @end
