@@ -53,6 +53,7 @@
 		60D04DBD1CACC464005C1B98 /* UUChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB61CACC464005C1B98 /* UUChartLabel.m */; };
 		60D04DBE1CACC464005C1B98 /* UULineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB81CACC464005C1B98 /* UULineChart.m */; };
 		60D04DC11CAD14CE005C1B98 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DC01CAD14CE005C1B98 /* SearchViewController.m */; };
+		60EE179B1CBB83FF00429004 /* MMPulseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE179A1CBB83FF00429004 /* MMPulseView.m */; };
 		D75CC3C61C2A926100E590E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC3C51C2A926100E590E6 /* main.m */; };
 		D75CC3C91C2A926100E590E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC3C81C2A926100E590E6 /* AppDelegate.m */; };
 		D75CC3CF1C2A926100E590E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75CC3CD1C2A926100E590E6 /* Main.storyboard */; };
@@ -324,6 +325,8 @@
 		60D04DB81CACC464005C1B98 /* UULineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UULineChart.m; sourceTree = "<group>"; };
 		60D04DBF1CAD14CE005C1B98 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = "XtDemo/V+C/Searcher/SearchViewController.h"; sourceTree = SOURCE_ROOT; };
 		60D04DC01CAD14CE005C1B98 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = "XtDemo/V+C/Searcher/SearchViewController.m"; sourceTree = SOURCE_ROOT; };
+		60EE17991CBB83FF00429004 /* MMPulseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPulseView.h; sourceTree = "<group>"; };
+		60EE179A1CBB83FF00429004 /* MMPulseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPulseView.m; sourceTree = "<group>"; };
 		D75CC3C11C2A926100E590E6 /* XtDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XtDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75CC3C51C2A926100E590E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D75CC3C71C2A926100E590E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -906,6 +909,15 @@
 			path = UUChart;
 			sourceTree = "<group>";
 		};
+		60EE17981CBB83FF00429004 /* MMPulseView */ = {
+			isa = PBXGroup;
+			children = (
+				60EE17991CBB83FF00429004 /* MMPulseView.h */,
+				60EE179A1CBB83FF00429004 /* MMPulseView.m */,
+			);
+			path = MMPulseView;
+			sourceTree = "<group>";
+		};
 		D75CC3B81C2A926100E590E6 = {
 			isa = PBXGroup;
 			children = (
@@ -1007,6 +1019,7 @@
 		D75CC3F91C2A92B200E590E6 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				60EE17981CBB83FF00429004 /* MMPulseView */,
 				60D04DAC1CACC464005C1B98 /* UUChart */,
 				603FB9491CAA87E2004FD018 /* FlabbyTable */,
 				D75CC72D1C2D13C000E590E6 /* YYModel */,
@@ -1789,6 +1802,7 @@
 				6073869D1CA5286600B8CD71 /* HZQDatePickerView.m in Sources */,
 				D75CC5E91C2A965000E590E6 /* QNSessionManager.m in Sources */,
 				D75CC5FF1C2A965000E590E6 /* UIImage+WebP.m in Sources */,
+				60EE179B1CBB83FF00429004 /* MMPulseView.m in Sources */,
 				60D04DBA1CACC464005C1B98 /* UUBarChart.m in Sources */,
 				60D04DC11CAD14CE005C1B98 /* SearchViewController.m in Sources */,
 				D75CC5AC1C2A965000E590E6 /* ASIFormDataRequest.m in Sources */,
