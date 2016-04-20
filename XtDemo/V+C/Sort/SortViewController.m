@@ -203,7 +203,7 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
     if (bNewData)
     {
         m_page = 1 ;
-        if (self.list.count) [self.list removeAllObjects] ;
+        //if (self.list.count) [self.list removeAllObjects] ;
     }
     
     SortCondition *sortResult = [m_sortManagement fetchCompletelySortResult] ;
@@ -223,9 +223,20 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
                                         if ([result.returnCode integerValue] != 1001) return ;
                                         NSDictionary *dicResult = result.returnData ;
                                         NSArray *tmpList = dicResult[@"rows"] ;
+                                        
+                                        NSMutableArray *appendList = [@[] mutableCopy] ;
                                         for (NSDictionary *tmpDic in tmpList) {
                                             Article *article = [Article yy_modelWithJSON:tmpDic] ;
-                                            [self.list addObject:article] ;
+                                            [appendList addObject:article] ;
+                                        }
+                                        
+                                        if (bNewData) {
+                                            self.list = appendList ;
+                                        }
+                                        else {
+                                            NSArray *originList = self.list ;
+                                            NSMutableArray *resultList = [[originList arrayByAddingObjectsFromArray:appendList] mutableCopy];
+                                            self.list = resultList ;
                                         }
                                         
                                         [_table reloadData] ;

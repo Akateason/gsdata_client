@@ -137,6 +137,11 @@ static const NSInteger kRows = 10 ;
 {
     dispatch_barrier_async(self.myQueue, ^{
         _list = list ;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_table reloadData] ;
+        }) ;
+
     }) ;
 }
 
@@ -229,8 +234,9 @@ static const NSInteger kRows = 10 ;
 
 - (void)loadNewData
 {
-    if (self.list.count) [self.list removeAllObjects] ;
- 
+    //[self.list removeAllObjects] ;
+//    if (self.list.count) self.list = [@[] mutableCopy] ;
+    
     m_last_date = m_dateWillPick ;
     
     switch (m_dateSegmentType) {
@@ -296,13 +302,15 @@ static const NSInteger kRows = 10 ;
     if ([result.returnCode integerValue] != 1001) return ;
     NSDictionary *dicResult = result.returnData ;
     NSArray *list = dicResult[@"rows"] ;
+    NSMutableArray *resultList = [@[] mutableCopy] ;
     for (NSDictionary *tmpDic in list)
     {
         Nickname *nickN = [Nickname yy_modelWithJSON:tmpDic] ;
-        [self.list addObject:nickN] ;
+        [resultList addObject:nickN] ;
     }
+    self.list = resultList ;
     
-    if (!self.list.count)
+    if (!resultList.count)
     {
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"欧了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             

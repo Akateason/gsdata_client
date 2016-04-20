@@ -106,7 +106,7 @@ static NSString *kPublicNameCell = @"PublicNameCell" ;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.layer.transform = CATransform3DMakeScale(0.96, 0.96, 1) ;
+    cell.layer.transform = CATransform3DMakeScale(0.76, 0.76, 1) ;
     
     [UIView animateWithDuration:.25
                      animations:^{

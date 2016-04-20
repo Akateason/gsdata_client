@@ -107,7 +107,8 @@ typedef enum : NSUInteger
                                              }
                                              
                                              self.list = resultList ;
-                                             [_table reloadData] ;
+                                             
+                                             // [_table reloadData] ;
                                              
                                          } fail:^{
                                              
@@ -132,7 +133,8 @@ typedef enum : NSUInteger
                                              }
                                              
                                              self.list = resultList ;
-                                             [_table reloadData] ;
+                                             
+                                             //[_table reloadData] ;
                                              
                                          } fail:^{
                                              
@@ -147,8 +149,8 @@ typedef enum : NSUInteger
 - (IBAction)btSearchOnClick:(id)sender
 {
     m_page = 0 ;
-    [self.list removeAllObjects] ;
-    
+//    [self.list removeAllObjects] ;
+    self.list = [@[] mutableCopy] ;
     [self fetchNewData] ;
 }
 
@@ -157,8 +159,8 @@ typedef enum : NSUInteger
     m_searchType = sender.selectedSegmentIndex ;
 
     m_page = 0 ;
-    [self.list removeAllObjects] ;
-
+//    [self.list removeAllObjects] ;
+    self.list = [@[] mutableCopy] ;
     [self fetchNewData] ;
 }
 
@@ -171,7 +173,7 @@ typedef enum : NSUInteger
 
     // Do any additional setup after loading the view.
     self.title = @"搜" ;
-    _textfield.text = @"日本" ;
+    _textfield.text = @"" ;
     
     [self configure] ;
     [self tableConfigure] ;
@@ -256,6 +258,17 @@ typedef enum : NSUInteger
     }
     return nil ;
 }
+
+/*
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.alpha = 0.3 ;
+    [UIView animateWithDuration:.55
+                     animations:^{
+                         cell.alpha = 1. ;
+                     }] ;
+}
+*/
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -23,7 +23,7 @@ static NSString *const STR_SHOW = @"清博指数_速报酱_内部" ;
 {
     LauncherCtrller *launcher = [[LauncherCtrller alloc] init] ;
     [ctrller presentViewController:launcher
-                          animated:YES
+                          animated:NO
                         completion:^{
                             
                         }] ;
@@ -34,6 +34,8 @@ static NSString *const STR_SHOW = @"清博指数_速报酱_内部" ;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve ;
     
     self.animationLayer = [CALayer layer];
     self.animationLayer.frame = APPFRAME ;
@@ -67,7 +69,9 @@ static NSString *const STR_SHOW = @"清博指数_速报酱_内部" ;
     if ([anim.keyPath isEqualToString:@"strokeEnd"])
     {
         sleep(1) ;
-        [self dismissViewControllerAnimated:NO completion:^{
+        
+        [self dismissViewControllerAnimated:YES
+                                 completion:^{
             [self.pathLayer removeAllAnimations];
             self.pathLayer = nil ;
             [self.animationLayer removeAllAnimations];

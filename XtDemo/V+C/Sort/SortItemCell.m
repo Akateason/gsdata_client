@@ -39,7 +39,7 @@
     _lbZan.backgroundColor = [UIColor xt_lightGreenColor] ;
     
     self.layer.masksToBounds = YES ;
-    _img.alpha = 0.3 ;
+    _img.alpha = 0.2 ;
 }
 
 - (void)setArticle:(Article *)article

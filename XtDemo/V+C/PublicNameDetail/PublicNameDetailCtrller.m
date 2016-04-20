@@ -109,11 +109,16 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
                                                if ([result.returnCode integerValue] != 1001) return ;
                                                NSDictionary *dicResult = result.returnData ;
                                                NSArray *list = dicResult[@"rows"] ;
+                                               NSMutableArray *resultList = [@[] mutableCopy] ;
                                                for (NSDictionary *tmpDic in list)
                                                {
                                                    Article *article = [Article yy_modelWithJSON:tmpDic] ;
-                                                   [self.list_recentArticleInfo addObject:article] ;
+                                                   [resultList addObject:article] ;
                                                }
+                                               
+                                               NSArray *reverseList = [[resultList reverseObjectEnumerator] allObjects] ;
+                                               
+                                               self.list_recentArticleInfo = [reverseList mutableCopy] ;
                                                
                                                [_table reloadData] ;
                                                
