@@ -17,7 +17,7 @@
 
 @implementation LauncherCtrller
 
-static NSString *const STR_SHOW = @"清博指数_速报酱_内部" ;
+static NSString *const STR_SHOW = @"速报酱·内部·工具" ;
 
 + (void)modalToLauncherWithCurrentCtrller:(UIViewController *)ctrller
 {
