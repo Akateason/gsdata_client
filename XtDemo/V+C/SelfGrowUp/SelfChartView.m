@@ -14,6 +14,7 @@
 typedef enum : NSUInteger {
     typeAllRead = 0,
     typeAvgRead,
+    typeMaxRead,
     typeAllLike,
     typeWCI,
     type10W
@@ -39,7 +40,7 @@ static const CGFloat kLabelHeight           = 30. ;
 
 + (NSArray *)segmentTitles
 {
-    return  @[@"总阅读",@"平均阅",@"总点赞",@"WCI",@"10W+"] ;
+    return  @[@"总阅读",@"平均阅",@"最高阅",@"总点赞",@"WCI",@"10W+"] ;
 }
 
 - (NSArray *)getHorizontalTitles
@@ -197,6 +198,11 @@ static const CGFloat kLabelHeight           = 30. ;
             case typeAvgRead:
             {
                 [list addObject:@(nick.readnum_av)] ;
+            }
+                break;
+            case typeMaxRead:
+            {
+                [list addObject:@(nick.readnum_max)] ;
             }
                 break;
             case typeAllLike:

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>公众号英文</string>
+	<string>公众号</string>
+	<string>文章数</string>
+	<string>文章达10w+的数量(+-)</string>
+	<string>文章达10w+的数量的增量(+-)</string>
+	<string>总阅读</string>
+	<string>总阅读的增量(+-)</string>
+	<string>平均阅读</string>
+	<string>平均阅读的增量(+-)</string>
+	<string>总点赞</string>
+	<string>总点赞的增量(+-)</string>
+	<string>平均点赞</string>
+	<string>平均点赞的增量 (+-)</string>
+	<string>最大阅读数</string>
+	<string>最大点赞数</string>
+	<string>阅读数与点赞数的比率</string>
+	<string>微信传播指数</string>
+	<string>微信传播指数 增量(+-)</string>
+	<string>排名</string>
+	<string>排名上升增量</string>
+	<string>排名日期</string>
+	<string>该公众号在上述日期中发文次数</string>
+	<string>发文次数相对上次的增量（+-）</string>
+	<string>该公众号在上述日期中发文的总阅读数</string>
+	<string>发文的总阅读数相对上次的增量(+-)</string>
+	<string>文章总数相对上次的增量（+-）</string>
+</array>
+</plist>

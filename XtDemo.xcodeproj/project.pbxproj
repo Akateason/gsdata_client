@@ -54,6 +54,15 @@
 		60D04DBE1CACC464005C1B98 /* UULineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB81CACC464005C1B98 /* UULineChart.m */; };
 		60D04DC11CAD14CE005C1B98 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DC01CAD14CE005C1B98 /* SearchViewController.m */; };
 		60EE179B1CBB83FF00429004 /* MMPulseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE179A1CBB83FF00429004 /* MMPulseView.m */; };
+		60EE17ED1CC8E95600429004 /* XTBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17EA1CC8E95600429004 /* XTBubbleTransition.m */; };
+		60EE17EE1CC8E95600429004 /* XTCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17EC1CC8E95600429004 /* XTCustomSegue.m */; };
+		60EE17F21CC8EB5000429004 /* GrowUpDetailCtrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17F11CC8EB5000429004 /* GrowUpDetailCtrller.m */; };
+		60EE17F41CC9FD4600429004 /* NicknameTransfer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60EE17F31CC9FD4600429004 /* NicknameTransfer.plist */; };
+		60EE17F71CCA0AAD00429004 /* GrowUpDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17F61CCA0AAD00429004 /* GrowUpDetailCell.m */; };
+		60EE17FA1CCDC5CE00429004 /* PlistUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17F91CCDC5CE00429004 /* PlistUtils.m */; };
+		60EE17FD1CCDCC2C00429004 /* NSObject+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17FC1CCDCC2C00429004 /* NSObject+Reflection.m */; };
+		60EE18001CCDD64000429004 /* GrowUpDetailCtrller+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17FF1CCDD64000429004 /* GrowUpDetailCtrller+Animations.m */; };
+		60EE18021CCE08FD00429004 /* NicknameSequence.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60EE18011CCE08FD00429004 /* NicknameSequence.plist */; };
 		D75CC3C61C2A926100E590E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC3C51C2A926100E590E6 /* main.m */; };
 		D75CC3C91C2A926100E590E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC3C81C2A926100E590E6 /* AppDelegate.m */; };
 		D75CC3CF1C2A926100E590E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75CC3CD1C2A926100E590E6 /* Main.storyboard */; };
@@ -327,6 +336,22 @@
 		60D04DC01CAD14CE005C1B98 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = "XtDemo/V+C/Searcher/SearchViewController.m"; sourceTree = SOURCE_ROOT; };
 		60EE17991CBB83FF00429004 /* MMPulseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPulseView.h; sourceTree = "<group>"; };
 		60EE179A1CBB83FF00429004 /* MMPulseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPulseView.m; sourceTree = "<group>"; };
+		60EE17E91CC8E95600429004 /* XTBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTBubbleTransition.h; sourceTree = "<group>"; };
+		60EE17EA1CC8E95600429004 /* XTBubbleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTBubbleTransition.m; sourceTree = "<group>"; };
+		60EE17EB1CC8E95600429004 /* XTCustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTCustomSegue.h; sourceTree = "<group>"; };
+		60EE17EC1CC8E95600429004 /* XTCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTCustomSegue.m; sourceTree = "<group>"; };
+		60EE17F01CC8EB5000429004 /* GrowUpDetailCtrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowUpDetailCtrller.h; path = "XtDemo/V+C/GrowUpDetail/GrowUpDetailCtrller.h"; sourceTree = SOURCE_ROOT; };
+		60EE17F11CC8EB5000429004 /* GrowUpDetailCtrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowUpDetailCtrller.m; path = "XtDemo/V+C/GrowUpDetail/GrowUpDetailCtrller.m"; sourceTree = SOURCE_ROOT; };
+		60EE17F31CC9FD4600429004 /* NicknameTransfer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = NicknameTransfer.plist; path = "XtDemo/V+C/GrowUpDetail/NicknameTransfer.plist"; sourceTree = SOURCE_ROOT; };
+		60EE17F51CCA0AAD00429004 /* GrowUpDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowUpDetailCell.h; path = "XtDemo/V+C/GrowUpDetail/GrowUpDetailCell.h"; sourceTree = SOURCE_ROOT; };
+		60EE17F61CCA0AAD00429004 /* GrowUpDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowUpDetailCell.m; path = "XtDemo/V+C/GrowUpDetail/GrowUpDetailCell.m"; sourceTree = SOURCE_ROOT; };
+		60EE17F81CCDC5CE00429004 /* PlistUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlistUtils.h; path = "XtDemo/V+C/GrowUpDetail/PlistUtils.h"; sourceTree = SOURCE_ROOT; };
+		60EE17F91CCDC5CE00429004 /* PlistUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlistUtils.m; path = "XtDemo/V+C/GrowUpDetail/PlistUtils.m"; sourceTree = SOURCE_ROOT; };
+		60EE17FB1CCDCC2C00429004 /* NSObject+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Reflection.h"; sourceTree = "<group>"; };
+		60EE17FC1CCDCC2C00429004 /* NSObject+Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Reflection.m"; sourceTree = "<group>"; };
+		60EE17FE1CCDD64000429004 /* GrowUpDetailCtrller+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GrowUpDetailCtrller+Animations.h"; path = "XtDemo/V+C/GrowUpDetail/GrowUpDetailCtrller+Animations.h"; sourceTree = SOURCE_ROOT; };
+		60EE17FF1CCDD64000429004 /* GrowUpDetailCtrller+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GrowUpDetailCtrller+Animations.m"; path = "XtDemo/V+C/GrowUpDetail/GrowUpDetailCtrller+Animations.m"; sourceTree = SOURCE_ROOT; };
+		60EE18011CCE08FD00429004 /* NicknameSequence.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = NicknameSequence.plist; path = "XtDemo/V+C/GrowUpDetail/NicknameSequence.plist"; sourceTree = SOURCE_ROOT; };
 		D75CC3C11C2A926100E590E6 /* XtDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XtDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75CC3C51C2A926100E590E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D75CC3C71C2A926100E590E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -918,6 +943,34 @@
 			path = MMPulseView;
 			sourceTree = "<group>";
 		};
+		60EE17E81CC8E95600429004 /* XTCustomTransition */ = {
+			isa = PBXGroup;
+			children = (
+				60EE17E91CC8E95600429004 /* XTBubbleTransition.h */,
+				60EE17EA1CC8E95600429004 /* XTBubbleTransition.m */,
+				60EE17EB1CC8E95600429004 /* XTCustomSegue.h */,
+				60EE17EC1CC8E95600429004 /* XTCustomSegue.m */,
+			);
+			path = XTCustomTransition;
+			sourceTree = "<group>";
+		};
+		60EE17EF1CC8EB1A00429004 /* GrowUpDetailCtrller */ = {
+			isa = PBXGroup;
+			children = (
+				60EE17F01CC8EB5000429004 /* GrowUpDetailCtrller.h */,
+				60EE17F11CC8EB5000429004 /* GrowUpDetailCtrller.m */,
+				60EE17FE1CCDD64000429004 /* GrowUpDetailCtrller+Animations.h */,
+				60EE17FF1CCDD64000429004 /* GrowUpDetailCtrller+Animations.m */,
+				60EE17F81CCDC5CE00429004 /* PlistUtils.h */,
+				60EE17F91CCDC5CE00429004 /* PlistUtils.m */,
+				60EE17F51CCA0AAD00429004 /* GrowUpDetailCell.h */,
+				60EE17F61CCA0AAD00429004 /* GrowUpDetailCell.m */,
+				60EE17F31CC9FD4600429004 /* NicknameTransfer.plist */,
+				60EE18011CCE08FD00429004 /* NicknameSequence.plist */,
+			);
+			name = GrowUpDetailCtrller;
+			sourceTree = "<group>";
+		};
 		D75CC3B81C2A926100E590E6 = {
 			isa = PBXGroup;
 			children = (
@@ -992,6 +1045,7 @@
 			children = (
 				606CF96A1C9BFA81009E51F6 /* Launcher */,
 				60B0EF3F1CB39D8700EAF7F5 /* SelfGrowUp */,
+				60EE17EF1CC8EB1A00429004 /* GrowUpDetailCtrller */,
 				606CF9711C9C1265009E51F6 /* MyGroups(Home) */,
 				60754E451CA0E8A7006AE4B9 /* PublicNameList */,
 				60754E521CA12CC3006AE4B9 /* PublicNameDetail */,
@@ -1101,6 +1155,7 @@
 		D75CC4151C2A95DD00E590E6 /* UIs */ = {
 			isa = PBXGroup;
 			children = (
+				60EE17E81CC8E95600429004 /* XTCustomTransition */,
 				D75CC4221C2A95DD00E590E6 /* XTNetReloader */,
 				D75CC4161C2A95DD00E590E6 /* MySearchBar.h */,
 				D75CC4171C2A95DD00E590E6 /* MySearchBar.m */,
@@ -1132,6 +1187,8 @@
 		D75CC4271C2A95DE00E590E6 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				60EE17FB1CCDCC2C00429004 /* NSObject+Reflection.h */,
+				60EE17FC1CCDCC2C00429004 /* NSObject+Reflection.m */,
 				60754E371C9F9D8F006AE4B9 /* XTJson.h */,
 				60754E381C9F9D8F006AE4B9 /* XTJson.m */,
 				D75CC4281C2A95DE00E590E6 /* CommonFunc.h */,
@@ -1767,8 +1824,10 @@
 				D75CC3CF1C2A926100E590E6 /* Main.storyboard in Resources */,
 				6073869E1CA5286600B8CD71 /* HZQDatePickerView.xib in Resources */,
 				60754E361C9F9B68006AE4B9 /* xtAllColorsList.plist in Resources */,
+				60EE18021CCE08FD00429004 /* NicknameSequence.plist in Resources */,
 				D75CC5DB1C2A965000E590E6 /* MJRefresh.bundle in Resources */,
 				60754E4D1CA0F988006AE4B9 /* PublicNameCell.xib in Resources */,
+				60EE17F41CC9FD4600429004 /* NicknameTransfer.plist in Resources */,
 				603FB9431CA91EA9004FD018 /* SortPNCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1794,6 +1853,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60EE17FA1CCDC5CE00429004 /* PlistUtils.m in Sources */,
 				603FB9511CAA87E2004FD018 /* BRFlabbyTableViewCell.m in Sources */,
 				D75CC4531C2A95DE00E590E6 /* XTRequest.m in Sources */,
 				D75CC4411C2A95DE00E590E6 /* UIImage+AddFunction.m in Sources */,
@@ -1827,6 +1887,7 @@
 				D75CC5AF1C2A965000E590E6 /* ASINetworkQueue.m in Sources */,
 				D75CC4481C2A95DE00E590E6 /* PinkButton.m in Sources */,
 				60D04DB91CACC464005C1B98 /* UUBar.m in Sources */,
+				60EE17F71CCA0AAD00429004 /* GrowUpDetailCell.m in Sources */,
 				D75CC5A61C2A965000E590E6 /* AFURLResponseSerialization.m in Sources */,
 				D75CC5CE1C2A965000E590E6 /* MJRefreshBackFooter.m in Sources */,
 				D75CC5F31C2A965000E590E6 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1860,6 +1921,7 @@
 				D75CC3C91C2A926100E590E6 /* AppDelegate.m in Sources */,
 				D75CC3C61C2A926100E590E6 /* main.m in Sources */,
 				D75CC5B31C2A965000E590E6 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
+				60EE17ED1CC8E95600429004 /* XTBubbleTransition.m in Sources */,
 				D75CC5D01C2A965000E590E6 /* MJRefreshFooter.m in Sources */,
 				D75CC5B61C2A965000E590E6 /* ASICloudFilesRequest.m in Sources */,
 				D75CC5AB1C2A965000E590E6 /* ASIDownloadCache.m in Sources */,
@@ -1867,6 +1929,7 @@
 				D75CC5E11C2A965000E590E6 /* GTM_Base64.m in Sources */,
 				D75CC5C51C2A965000E590E6 /* FMDatabasePool.m in Sources */,
 				D75CC5FE1C2A965000E590E6 /* UIImage+MultiFormat.m in Sources */,
+				60EE18001CCDD64000429004 /* GrowUpDetailCtrller+Animations.m in Sources */,
 				D75CC4491C2A95DE00E590E6 /* PlaceHolderTextView.m in Sources */,
 				D75CC5D51C2A965000E590E6 /* MJRefreshBackGifFooter.m in Sources */,
 				606CF9701C9BFB61009E51F6 /* LauncherCtrller.m in Sources */,
@@ -1940,6 +2003,7 @@
 				60D04DAB1CACC066005C1B98 /* ArticleRecentChartView.m in Sources */,
 				D75CC5AA1C2A965000E590E6 /* ASIDataDecompressor.m in Sources */,
 				D75CC4501C2A95DE00E590E6 /* XTAnimation.m in Sources */,
+				60EE17FD1CCDCC2C00429004 /* NSObject+Reflection.m in Sources */,
 				D75CC44B1C2A95DE00E590E6 /* XTSegment.m in Sources */,
 				609041D81CABCB1E002FF0E0 /* PublicRecentCell.m in Sources */,
 				D75CC5DD1C2A965000E590E6 /* UIScrollView+MJExtension.m in Sources */,
@@ -1955,6 +2019,8 @@
 				D75CC5A21C2A965000E590E6 /* AFNetworkReachabilityManager.m in Sources */,
 				D75CC5D11C2A965000E590E6 /* MJRefreshHeader.m in Sources */,
 				D75CC6031C2A965000E590E6 /* SIAlertView.m in Sources */,
+				60EE17EE1CC8E95600429004 /* XTCustomSegue.m in Sources */,
+				60EE17F21CC8EB5000429004 /* GrowUpDetailCtrller.m in Sources */,
 				60754E551CA12CFB006AE4B9 /* PublicNameDetailCtrller.m in Sources */,
 				60754E431CA0E349006AE4B9 /* GroupCell.m in Sources */,
 				D75CC5BD1C2A965000E590E6 /* ASIS3ServiceRequest.m in Sources */,

@@ -15,6 +15,8 @@
 
 #define ACCEPTABLE_CONTENT_TYPES        @"application/json", @"text/html", @"text/json", @"text/javascript",@"text/plain"
 
+
+
 @implementation XTRequest
 
 + (void)netWorkStatus
@@ -124,13 +126,16 @@
             AndWithMode:(METHOD_REQUEST)mode
 {
     
-    if (mode == GET_MODE) {
-        
+    if (mode == GET_MODE)
+    {
+        //
         NSString *apStr = [self getUrlInGetModeWithDic:dict] ;
         urlstr = [urlstr stringByAppendingString:apStr] ;
+        urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
         
         ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlstr]];
         request.timeOutSeconds = TIMEOUT ;
+
         [request startSynchronous];
         NSError *error = [request error];
         NSString *response;

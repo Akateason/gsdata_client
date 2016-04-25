@@ -20,5 +20,7 @@
 	<string>[113,174,145,0.4]</string>
 	<key>black</key>
 	<string>[0,0,0]</string>
+	<key>yellow</key>
+	<string>[255,225,121]</string>
 </dict>
 </plist>

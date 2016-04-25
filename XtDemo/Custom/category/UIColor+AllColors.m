@@ -104,5 +104,10 @@
     return [self xt_colorWithKey:@"light_red"] ;
 }
 
++ (UIColor *)xt_yellowColor
+{
+    return [self xt_colorWithKey:@"yellow"] ;
+}
+
 
 @end

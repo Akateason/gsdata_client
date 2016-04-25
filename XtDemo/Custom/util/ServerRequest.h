@@ -187,6 +187,8 @@
                             success:(void (^)(id json))success
                                fail:(void (^)())fail ;
 
++ (ResultParsered *)syncFetchNickNameOrderList3Days:(NSString *)nickNameString
+                                                num:(NSInteger)days ;
 
 @end
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>wx_name</key>
+	<string>公众号英文</string>
+	<key>wx_nickname</key>
+	<string>公众号</string>
+	<key>url_num</key>
+	<string>文章数</string>
+	<key>url_num_10w</key>
+	<string>文章达10w+的数量(+-)</string>
+	<key>url_num_10w_up</key>
+	<string>文章达10w+的数量的增量(+-)</string>
+	<key>readnum_all</key>
+	<string>总阅读</string>
+	<key>readnum_all_up</key>
+	<string>总阅读的增量(+-)</string>
+	<key>readnum_av</key>
+	<string>平均阅读</string>
+	<key>readnum_av_up</key>
+	<string>平均阅读的增量(+-)</string>
+	<key>likenum_all</key>
+	<string>总点赞</string>
+	<key>likenum_all_up</key>
+	<string>总点赞的增量(+-)</string>
+	<key>likenum_av</key>
+	<string>平均点赞</string>
+	<key>likenum_av_up</key>
+	<string>平均点赞的增量 (+-)</string>
+	<key>readnum_max</key>
+	<string>最大阅读数</string>
+	<key>likenum_max</key>
+	<string>最大点赞数</string>
+	<key>likenum_readnum_rate</key>
+	<string>阅读数与点赞数的比率</string>
+	<key>wci</key>
+	<string>微信传播指数</string>
+	<key>wci_up</key>
+	<string>微信传播指数 增量(+-)</string>
+	<key>rowno</key>
+	<string>排名</string>
+	<key>rowno_up</key>
+	<string>排名上升增量</string>
+	<key>result_day</key>
+	<string>排名日期</string>
+	<key>url_times</key>
+	<string>该公众号在上述日期中发文次数</string>
+	<key>url_times_up</key>
+	<string>发文次数相对上次的增量（+-）</string>
+	<key>url_times_readnum</key>
+	<string>该公众号在上述日期中发文的总阅读数</string>
+	<key>url_times_readnum_up</key>
+	<string>发文的总阅读数相对上次的增量(+-)</string>
+	<key>url_num_up</key>
+	<string>文章总数相对上次的增量（+-）</string>
+</dict>
+</plist>

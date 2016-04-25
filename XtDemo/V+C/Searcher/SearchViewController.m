@@ -87,6 +87,7 @@ typedef enum : NSUInteger
     [_textfield resignFirstResponder] ;
     
     NSString *keyword = _textfield.text ;
+    if (!keyword.length) return ;
     
     if (m_searchType == typePublicName)
     {

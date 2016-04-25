@@ -432,4 +432,23 @@ static NSString *kJsonStr     = @"jsonStr" ;
 }
 
 
++ (ResultParsered *)syncFetchNickNameOrderList3Days:(NSString *)nickNameString
+                                                num:(NSInteger)days
+{
+    NSString *jsonStr = [XTJson getJsonStr:@{@"wx_nickname":nickNameString ,
+                                             @"num":@(days) ,
+                                             @"sort":@"asc"
+                                             }] ;
+    NSMutableDictionary *paramer = [self getParameters] ;
+    [paramer setObject:URL_OPEN_ORDER_LIST
+                forKey:kSpaceName] ;
+    [paramer setObject:jsonStr
+                forKey:kJsonStr] ;
+    return [XTRequest getJsonWithURLstr:kRootUrlString
+                         AndWithParamer:paramer
+                            AndWithMode:GET_MODE] ;
+}
+
+
+
 @end

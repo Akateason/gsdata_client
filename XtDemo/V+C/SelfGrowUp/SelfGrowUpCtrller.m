@@ -12,21 +12,29 @@
 #import "SelfChartView.h"
 #import "RootCtrl+LoadingLauncherScene.h"
 #import "MMPulseView.h"
+#import "XTBubbleTransition.h"
+#import "GrowUpDetailCtrller.h"
 
 
-@interface SelfGrowUpCtrller () <UITextFieldDelegate>
+@interface SelfGrowUpCtrller () <UITextFieldDelegate,UIViewControllerTransitioningDelegate>
 {
     MMPulseView *bt1_pulseView ;
     MMPulseView *bt2_pulseView ;
+    
+    NSArray     *m_moreList ;
 }
+
 @property (nonatomic,strong) NSMutableArray *list_7days ;
 @property (nonatomic,strong) NSMutableArray *list_30days ;
 
 @property (nonatomic,strong) SelfChartView  *chartView ;
 
+@property (nonatomic,strong) XTBubbleTransition *transition ;
+
 @property (weak, nonatomic) IBOutlet UITextField *textfield;
 @property (weak, nonatomic) IBOutlet UIButton *btYue;
 @property (weak, nonatomic) IBOutlet UIButton *btZhou;
+@property (weak, nonatomic) IBOutlet UIButton *btMore;
 
 @end
 
@@ -34,18 +42,53 @@
 
 #pragma mark - Prop
 
+- (XTBubbleTransition *)transition
+{
+    if (!_transition) {
+        _transition = [[XTBubbleTransition alloc] init] ;
+    }
+    return _transition ;
+}
+
 - (NSMutableArray *)list_7days
 {
-    if (!_list_7days) {
+    if (!_list_7days)
+    {
         _list_7days = [@[] mutableCopy] ;
+
+        ResultParsered *result = [ServerRequest syncFetchNickNameOrderList3Days:self.textfield.text num:7] ;
+        if ([result.returnCode integerValue] != 1001) return _list_7days ;
+        NSDictionary *dicResult = result.returnData ;
+        NSArray *list = dicResult[@"items"] ;
+        for (NSDictionary *tmpDic in list) {
+            Nickname *nick = [Nickname yy_modelWithJSON:tmpDic] ;
+            if ([nick.wx_name isEqualToString:@"ribenliuxrb"]) {
+                continue ;
+            }
+            [_list_7days addObject:nick] ;
+        }
     }
+    
     return _list_7days ;
 }
 
 - (NSMutableArray *)list_30days
 {
-    if (!_list_30days) {
+    if (!_list_30days)
+    {
         _list_30days = [@[] mutableCopy] ;
+        
+        ResultParsered *result = [ServerRequest syncFetchNickNameOrderList3Days:self.textfield.text num:30] ;
+        if ([result.returnCode integerValue] != 1001) return _list_30days ;
+        NSDictionary *dicResult = result.returnData ;
+        NSArray *list = dicResult[@"items"] ;
+        for (NSDictionary *tmpDic in list) {
+            Nickname *nick = [Nickname yy_modelWithJSON:tmpDic] ;
+            if ([nick.wx_name isEqualToString:@"ribenliuxrb"]) {
+                continue ;
+            }
+            [_list_30days addObject:nick] ;
+        }
     }
     return _list_30days ;
 }
@@ -54,65 +97,24 @@
 
 - (IBAction)btZhouOnclick:(id)sender
 {
-    if (!self.list_7days.count)
-    {
-        [ServerRequest fetchNickNameOrderList3Days:self.textfield.text
-                                               num:7
-                                           success:^(id json) {
-                                               
-                                               ResultParsered *result = [[ResultParsered alloc] initWithDic:json] ;
-                                               if ([result.returnCode integerValue] != 1001) return ;
-                                               NSDictionary *dicResult = result.returnData ;
-                                               NSArray *list = dicResult[@"items"] ;
-                                               for (NSDictionary *tmpDic in list) {
-                                                   Nickname *nick = [Nickname yy_modelWithJSON:tmpDic] ;
-                                                   [self.list_7days addObject:nick] ;
-                                               }
-                                               
-                                               [self showChartWithButton:sender data:self.list_7days] ;
-                                               
-                                           } fail:^{
-                                               
-                                           }] ;
-    } else {
-        [self showChartWithButton:sender data:self.list_7days] ;
-    }
+    m_moreList = self.list_7days ;
     
+    [self showChartWithButton:sender data:m_moreList] ;
 }
 
 - (IBAction)btYueOnclick:(id)sender
 {
-    if (!self.list_30days.count)
-    {
-        [ServerRequest fetchNickNameOrderList3Days:self.textfield.text
-                                               num:30
-                                           success:^(id json) {
-                                               
-                                               ResultParsered *result = [[ResultParsered alloc] initWithDic:json] ;
-                                               if ([result.returnCode integerValue] != 1001) return ;
-                                               NSDictionary *dicResult = result.returnData ;
-                                               NSArray *list = dicResult[@"items"] ;
-                                               for (NSDictionary *tmpDic in list) {
-                                                   Nickname *nick = [Nickname yy_modelWithJSON:tmpDic] ;
-                                                   [self.list_30days addObject:nick] ;
-                                               }
-                                               
-                                               [self showChartWithButton:sender data:self.list_30days] ;
-                                               
-                                           } fail:^{
-                                               
-                                           }] ;
-    }
-    else
-    {
-        [self showChartWithButton:sender data:self.list_30days] ;
-    }
+    m_moreList = self.list_30days ;
+    
+    [self showChartWithButton:sender data:m_moreList] ;
 }
 
 #pragma mark - Chart 
 
 - (void)showChartWithButton:(UIButton *)button data:(NSArray *)dataList
 {
+    if (!dataList.count) return ;
+    
     if (_chartView)
     {
         [_chartView removeFromSuperview] ;
@@ -122,9 +124,9 @@
     _chartView = [[SelfChartView alloc] initWithList:dataList] ;
     _chartView.hidden = YES ;
     _chartView.transform = CGAffineTransformScale(_chartView.transform, 0.2, 0.2) ;
-
+    
     [self.view.window addSubview:_chartView] ;
-
+    
     [UIView transitionWithView:_chartView
                       duration:.25
                        options:UIViewAnimationOptionCurveEaseOut
@@ -132,7 +134,7 @@
                         
                         _chartView.hidden = NO ;
                         _chartView.transform = CGAffineTransformIdentity ;
-
+                        
                     } completion:^(BOOL finished) {
                         
                     }] ;
@@ -141,17 +143,20 @@
 
 #pragma mark - Life
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.title = @"我" ;
     self.textfield.delegate = self ;
-    self.tabBarController.tabBar.tintColor = [UIColor darkGrayColor] ;
+    self.tabBarController.tabBar.tintColor = [UIColor xt_blackColor] ; //[UIColor xt_mainBlueColor] ;
 
     _btYue.layer.cornerRadius = _btYue.frame.size.width / 2. ;
     _btZhou.layer.cornerRadius = _btZhou.frame.size.width / 2. ;
+    _btMore.layer.cornerRadius = _btMore.frame.size.width / 2. ;
     
+    m_moreList = self.list_7days ;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -159,21 +164,19 @@
     [super viewWillAppear:animated] ;
     
     [self modalIntoLauncher] ;
-    
     [self pulseView] ;
 }
-
 
 - (void)viewDidLayoutSubviews
 {
     [self pulseView] ;
+    [self.view bringSubviewToFront:self.btMore] ;
 }
-
 
 - (void)pulseView
 {
-//    
-    if (bt1_pulseView || bt2_pulseView) {
+    if (bt1_pulseView || bt2_pulseView)
+    {
         [bt1_pulseView stopAnimation] ;
         [bt1_pulseView removeFromSuperview] ;
         bt1_pulseView = nil ;
@@ -206,7 +209,7 @@
     bt1_pulseView.center = self.btZhou.center ;
     [bt1_pulseView startAnimation];
     [self.view bringSubviewToFront:self.btZhou] ;
-//
+
     bt2_pulseView.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     bt2_pulseView.colors = @[(__bridge id)[UIColor whiteColor].CGColor,
                              (__bridge id)[UIColor xt_mainColor].CGColor,
@@ -221,8 +224,8 @@
     [self.view bringSubviewToFront:self.btYue] ;
 }
 
-
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -246,14 +249,38 @@
     self.list_30days    = [@[] mutableCopy] ;
 }
 
-/*
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    self.transition.transitionMode = XTBubbleTransitionModePresent;
+    self.transition.startPoint = self.btMore.center;
+    self.transition.bubbleColor = self.btMore.backgroundColor;
+    return self.transition;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    self.transition.transitionMode = XTBubbleTransitionModeDismiss ;
+    self.transition.startPoint = self.btMore.center;
+    self.transition.bubbleColor = self.btMore.backgroundColor;
+    return self.transition;
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"rank2detail"])
+    {
+        GrowUpDetailCtrller *controller = segue.destinationViewController ;
+        controller.transitioningDelegate = self ;
+        controller.modalPresentationStyle = UIModalPresentationCustom ;
+        controller.dataList = m_moreList ;
+    }
 }
-*/
 
 @end

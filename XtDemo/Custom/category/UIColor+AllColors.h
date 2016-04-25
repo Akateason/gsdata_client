@@ -28,4 +28,6 @@
 
 + (UIColor *)xt_lightRedColor ;
 
++ (UIColor *)xt_yellowColor ;
+
 @end
