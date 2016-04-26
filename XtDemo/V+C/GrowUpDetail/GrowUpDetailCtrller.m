@@ -7,26 +7,28 @@
 //
 
 #import "GrowUpDetailCtrller.h"
-#import "GrowUpDetailCell.h"
 #import "Nickname.h"
 #import "PlistUtils.h"
 #import "GrowUpDetailCtrller+Animations.h"
+#import "EvernoteLayout.h"
+#import "PropCollectionCell.h"
 
-static NSString *kGrowUpDetailCellIdentifier = @"GrowUpDetailCell" ;
 
-@interface GrowUpDetailCtrller () <UITableViewDataSource,UITableViewDelegate>
+static NSString *kPropCollectionCell = @"PropCollectionCell" ;
+
+@interface GrowUpDetailCtrller () <UICollectionViewDelegate,UICollectionViewDataSource>
 {
-    CGPoint leftCorner ;
+    CGPoint             leftCorner ;
 }
-@property (weak, nonatomic) IBOutlet UILabel *lb_title;
-@property (weak, nonatomic) IBOutlet UITableView *table;
-@property (weak, nonatomic) IBOutlet UIButton *button ;
-@property (weak, nonatomic) IBOutlet UIButton *btDayChange;
+@property (weak, nonatomic) IBOutlet UILabel            *lb_title;
+@property (weak, nonatomic) IBOutlet UIButton           *button ;
+@property (weak, nonatomic) IBOutlet UIButton           *btDayChange;
+@property (weak, nonatomic) IBOutlet UICollectionView   *collection;
 
-@property (nonatomic,strong) NSMutableArray *titleList ;
-@property (nonatomic,strong) NSDictionary   *nicknameProperties ;
-@property (nonatomic,strong) NSArray        *nicknameChineseNameList ;
-@property (nonatomic,strong) PlistUtils     *util ;
+@property (nonatomic,strong) NSMutableArray             *titleList ;
+@property (nonatomic,strong) NSDictionary               *nicknameProperties ;
+@property (nonatomic,strong) NSArray                    *nicknameChineseNameList ;
+@property (nonatomic,strong) PlistUtils                 *util ;
 
 @end
 
@@ -91,7 +93,7 @@ static NSString *kGrowUpDetailCellIdentifier = @"GrowUpDetailCell" ;
                                                                }
                                                            }] ;
                                                            
-                                                           [UIView transitionWithView:_table
+                                                           [UIView transitionWithView:_collection
                                                                              duration:.3
                                                                               options:UIViewAnimationOptionTransitionFlipFromRight
                                                                            animations:^{
@@ -99,8 +101,8 @@ static NSString *kGrowUpDetailCellIdentifier = @"GrowUpDetailCell" ;
                                                                            } completion:^(BOOL finished) {
                                                                            
                                                                                self.lb_title.text = title ;
-                                                                               [_table reloadData] ;
-
+                                                                               [_collection reloadData] ;
+                                                                               
                                                                            }] ;
                                                            
                                                        }] ;
@@ -138,25 +140,20 @@ static NSString *kGrowUpDetailCellIdentifier = @"GrowUpDetailCell" ;
     self.btDayChange.alpha = 0 ;
     self.button.hidden = YES ;
     
-    _table.separatorStyle = UITableViewCellSeparatorStyleNone ;
-    
     // title display
     _lb_title.text = [self.titleList lastObject] ;
+    
+    // collection view .
+    _collection.alwaysBounceVertical = false ;
+    _collection.delegate = self ;
+    _collection.dataSource = self ;
+    _collection.contentInset = UIEdgeInsetsMake(0, 0, verticallyPadding, 0) ;
+    //    _collection.collectionViewLayout = [[EvernoteLayout alloc] init] ; // already set in Storyboard .
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews] ;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated] ;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -169,50 +166,40 @@ static NSString *kGrowUpDetailCellIdentifier = @"GrowUpDetailCell" ;
     [self animationInViewDidAppearWithButton:self.button
                                  btDayChange:self.btDayChange
                                   leftCorner:leftCorner
-                                       table:_table
+                                       table:_collection
                                   completion:^(BOOL finished) {
                                       
                                       if (finished) {
-                                          _table.delegate = self ;
-                                          _table.dataSource = self ;
-                                          [_table reloadData] ;
+                                          //[_collection reloadData] ;
                                       }
                                       
      }] ;
 
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+#pragma mark -
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    [super viewWillDisappear:animated] ;
+    return self.nicknameChineseNameList.count ;
 }
 
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.nicknameProperties.count ;
+    return 1 ;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    GrowUpDetailCell *cell = [_table dequeueReusableCellWithIdentifier:kGrowUpDetailCellIdentifier] ;
-    if (!cell) {
-        cell = [_table dequeueReusableCellWithIdentifier:kGrowUpDetailCellIdentifier];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
-    cell.label.text = self.nicknameChineseNameList[indexPath.row] ;
-    cell.lb_val.text = [NSString stringWithFormat:@"%@",self.nicknameProperties[self.nicknameChineseNameList[indexPath.row]]] ;
+    PropCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPropCollectionCell forIndexPath:indexPath] ;
+    cell.backgroundColor = indexPath.section % 2 ? [UIColor xt_halfMainBlueColor] : [UIColor xt_halfMainColor] ;
+
+    cell.lbKey.text = self.nicknameChineseNameList[indexPath.section] ;
+    cell.lbVal.text = [NSString stringWithFormat:@"%@",self.nicknameProperties[self.nicknameChineseNameList[indexPath.section]]] ;
+    cell.lbKey.textColor = [UIColor whiteColor] ;
+    cell.lbVal.textColor = [UIColor darkGrayColor] ;
     
     return cell ;
 }
-
-#pragma mark - UITableViewDelegate
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 151. ;
-//}
 
 /*
 #pragma mark - Navigation

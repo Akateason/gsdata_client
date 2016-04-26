@@ -35,7 +35,7 @@ static float const kTransitionAnimationDuration = 0.65 ;
 - (void)animationInViewDidAppearWithButton:(UIButton *)button
                                btDayChange:(UIButton *)btDayChange
                                 leftCorner:(CGPoint)leftCorner
-                                     table:(UITableView *)table
+                                     table:(UIView *)table
                                 completion:(void(^)(BOOL finished))completion
 {
     
@@ -56,22 +56,23 @@ static float const kTransitionAnimationDuration = 0.65 ;
                                              
                                          } completion:^(BOOL finished) {
                                              
-                                             [self fadeinTableView:table completion:^(BOOL finished) {
-                                                 
-                                                 if (completion) {
-                                                     completion(finished) ;
-                                                 }
-
-                                             }] ;
-                                             
                                          }] ;
+                         
+                         [self fadeinTableView:table completion:^(BOOL finished) {
+                             
+                             if (completion) {
+                                 completion(finished) ;
+                             }
+                             
+                         }] ;
                          
                      }] ;
 }
 
-- (void)fadeinTableView:(UITableView *)table
+- (void)fadeinTableView:(UIView *)table
              completion:(void(^)(BOOL finished))completion
 {
+    /*
     [UIView transitionWithView:table
                       duration:.3
                        options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionTransitionCurlUp
@@ -82,6 +83,7 @@ static float const kTransitionAnimationDuration = 0.65 ;
                             completion(finished) ;
                         }
                     }] ;
+    */
 }
 
 

@@ -14,6 +14,8 @@
 		603FB9501CAA87E2004FD018 /* BRFlabbyTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 603FB94B1CAA87E2004FD018 /* BRFlabbyTableManager.m */; };
 		603FB9511CAA87E2004FD018 /* BRFlabbyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 603FB94D1CAA87E2004FD018 /* BRFlabbyTableViewCell.m */; };
 		603FB9521CAA87E2004FD018 /* NSIndexPath+BRFlabbyTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 603FB94F1CAA87E2004FD018 /* NSIndexPath+BRFlabbyTable.m */; };
+		605117D91CCF4B3800D57BCF /* EvernoteLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 605117D81CCF4B3800D57BCF /* EvernoteLayout.m */; };
+		605117DD1CCF4C3D00D57BCF /* PropCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 605117DB1CCF4C3D00D57BCF /* PropCollectionCell.m */; };
 		606CF96D1C9BFB45009E51F6 /* RootCtrl+LoadingLauncherScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 606CF96C1C9BFB45009E51F6 /* RootCtrl+LoadingLauncherScene.m */; };
 		606CF9701C9BFB61009E51F6 /* LauncherCtrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 606CF96F1C9BFB61009E51F6 /* LauncherCtrller.m */; };
 		606CF9751C9C150B009E51F6 /* IndexCtrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 606CF9741C9C150B009E51F6 /* IndexCtrller.m */; };
@@ -58,7 +60,6 @@
 		60EE17EE1CC8E95600429004 /* XTCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17EC1CC8E95600429004 /* XTCustomSegue.m */; };
 		60EE17F21CC8EB5000429004 /* GrowUpDetailCtrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17F11CC8EB5000429004 /* GrowUpDetailCtrller.m */; };
 		60EE17F41CC9FD4600429004 /* NicknameTransfer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60EE17F31CC9FD4600429004 /* NicknameTransfer.plist */; };
-		60EE17F71CCA0AAD00429004 /* GrowUpDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17F61CCA0AAD00429004 /* GrowUpDetailCell.m */; };
 		60EE17FA1CCDC5CE00429004 /* PlistUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17F91CCDC5CE00429004 /* PlistUtils.m */; };
 		60EE17FD1CCDCC2C00429004 /* NSObject+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17FC1CCDCC2C00429004 /* NSObject+Reflection.m */; };
 		60EE18001CCDD64000429004 /* GrowUpDetailCtrller+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17FF1CCDD64000429004 /* GrowUpDetailCtrller+Animations.m */; };
@@ -262,6 +263,10 @@
 		603FB94D1CAA87E2004FD018 /* BRFlabbyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRFlabbyTableViewCell.m; sourceTree = "<group>"; };
 		603FB94E1CAA87E2004FD018 /* NSIndexPath+BRFlabbyTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+BRFlabbyTable.h"; sourceTree = "<group>"; };
 		603FB94F1CAA87E2004FD018 /* NSIndexPath+BRFlabbyTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+BRFlabbyTable.m"; sourceTree = "<group>"; };
+		605117D71CCF4B3800D57BCF /* EvernoteLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvernoteLayout.h; path = "XtDemo/V+C/GrowUpDetail/EvernoteLayout.h"; sourceTree = SOURCE_ROOT; };
+		605117D81CCF4B3800D57BCF /* EvernoteLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvernoteLayout.m; path = "XtDemo/V+C/GrowUpDetail/EvernoteLayout.m"; sourceTree = SOURCE_ROOT; };
+		605117DA1CCF4C3D00D57BCF /* PropCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PropCollectionCell.h; path = "XtDemo/V+C/GrowUpDetail/PropCollectionCell.h"; sourceTree = SOURCE_ROOT; };
+		605117DB1CCF4C3D00D57BCF /* PropCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PropCollectionCell.m; path = "XtDemo/V+C/GrowUpDetail/PropCollectionCell.m"; sourceTree = SOURCE_ROOT; };
 		606CF96B1C9BFB45009E51F6 /* RootCtrl+LoadingLauncherScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RootCtrl+LoadingLauncherScene.h"; path = "XtDemo/V+C/Launcher/RootCtrl+LoadingLauncherScene.h"; sourceTree = SOURCE_ROOT; };
 		606CF96C1C9BFB45009E51F6 /* RootCtrl+LoadingLauncherScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RootCtrl+LoadingLauncherScene.m"; path = "XtDemo/V+C/Launcher/RootCtrl+LoadingLauncherScene.m"; sourceTree = SOURCE_ROOT; };
 		606CF96E1C9BFB61009E51F6 /* LauncherCtrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LauncherCtrller.h; path = "XtDemo/V+C/Launcher/LauncherCtrller.h"; sourceTree = SOURCE_ROOT; };
@@ -343,8 +348,6 @@
 		60EE17F01CC8EB5000429004 /* GrowUpDetailCtrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowUpDetailCtrller.h; path = "XtDemo/V+C/GrowUpDetail/GrowUpDetailCtrller.h"; sourceTree = SOURCE_ROOT; };
 		60EE17F11CC8EB5000429004 /* GrowUpDetailCtrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowUpDetailCtrller.m; path = "XtDemo/V+C/GrowUpDetail/GrowUpDetailCtrller.m"; sourceTree = SOURCE_ROOT; };
 		60EE17F31CC9FD4600429004 /* NicknameTransfer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = NicknameTransfer.plist; path = "XtDemo/V+C/GrowUpDetail/NicknameTransfer.plist"; sourceTree = SOURCE_ROOT; };
-		60EE17F51CCA0AAD00429004 /* GrowUpDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowUpDetailCell.h; path = "XtDemo/V+C/GrowUpDetail/GrowUpDetailCell.h"; sourceTree = SOURCE_ROOT; };
-		60EE17F61CCA0AAD00429004 /* GrowUpDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowUpDetailCell.m; path = "XtDemo/V+C/GrowUpDetail/GrowUpDetailCell.m"; sourceTree = SOURCE_ROOT; };
 		60EE17F81CCDC5CE00429004 /* PlistUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlistUtils.h; path = "XtDemo/V+C/GrowUpDetail/PlistUtils.h"; sourceTree = SOURCE_ROOT; };
 		60EE17F91CCDC5CE00429004 /* PlistUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlistUtils.m; path = "XtDemo/V+C/GrowUpDetail/PlistUtils.m"; sourceTree = SOURCE_ROOT; };
 		60EE17FB1CCDCC2C00429004 /* NSObject+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Reflection.h"; sourceTree = "<group>"; };
@@ -963,10 +966,12 @@
 				60EE17FF1CCDD64000429004 /* GrowUpDetailCtrller+Animations.m */,
 				60EE17F81CCDC5CE00429004 /* PlistUtils.h */,
 				60EE17F91CCDC5CE00429004 /* PlistUtils.m */,
-				60EE17F51CCA0AAD00429004 /* GrowUpDetailCell.h */,
-				60EE17F61CCA0AAD00429004 /* GrowUpDetailCell.m */,
 				60EE17F31CC9FD4600429004 /* NicknameTransfer.plist */,
 				60EE18011CCE08FD00429004 /* NicknameSequence.plist */,
+				605117D71CCF4B3800D57BCF /* EvernoteLayout.h */,
+				605117D81CCF4B3800D57BCF /* EvernoteLayout.m */,
+				605117DA1CCF4C3D00D57BCF /* PropCollectionCell.h */,
+				605117DB1CCF4C3D00D57BCF /* PropCollectionCell.m */,
 			);
 			name = GrowUpDetailCtrller;
 			sourceTree = "<group>";
@@ -1887,12 +1892,12 @@
 				D75CC5AF1C2A965000E590E6 /* ASINetworkQueue.m in Sources */,
 				D75CC4481C2A95DE00E590E6 /* PinkButton.m in Sources */,
 				60D04DB91CACC464005C1B98 /* UUBar.m in Sources */,
-				60EE17F71CCA0AAD00429004 /* GrowUpDetailCell.m in Sources */,
 				D75CC5A61C2A965000E590E6 /* AFURLResponseSerialization.m in Sources */,
 				D75CC5CE1C2A965000E590E6 /* MJRefreshBackFooter.m in Sources */,
 				D75CC5F31C2A965000E590E6 /* MKAnnotationView+WebCache.m in Sources */,
 				D75CC5A91C2A965000E590E6 /* ASIDataCompressor.m in Sources */,
 				D75CC5E01C2A965000E590E6 /* NSObject+MKBlockTimer.m in Sources */,
+				605117D91CCF4B3800D57BCF /* EvernoteLayout.m in Sources */,
 				D75CC5D71C2A965000E590E6 /* MJRefreshBackStateFooter.m in Sources */,
 				D75CC5C81C2A965000E590E6 /* HWWeakTimer.m in Sources */,
 				D75CC6C21C2BEB0400E590E6 /* MyWebController.m in Sources */,
@@ -1968,6 +1973,7 @@
 				60D04DBC1CACC464005C1B98 /* UUChartConst.m in Sources */,
 				D75CC5A11C2A965000E590E6 /* AFHTTPSessionManager.m in Sources */,
 				D75CC4471C2A95DE00E590E6 /* MyTextView.m in Sources */,
+				605117DD1CCF4C3D00D57BCF /* PropCollectionCell.m in Sources */,
 				D75CC43E1C2A95DE00E590E6 /* NSString+Extend.m in Sources */,
 				D75CC5E21C2A965000E590E6 /* QNAsyncRun.m in Sources */,
 				D75CC5A51C2A965000E590E6 /* AFURLRequestSerialization.m in Sources */,

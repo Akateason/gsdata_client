@@ -16,7 +16,7 @@
 - (void)animationInViewDidAppearWithButton:(UIButton *)button
                                btDayChange:(UIButton *)btDayChange
                                 leftCorner:(CGPoint)leftCorner
-                                     table:(UITableView *)table
+                                     table:(UIView *)table
                                 completion:(void(^)(BOOL finished))completion ;
 
 
