@@ -244,7 +244,7 @@ static const NSInteger kRows = 10 ;
         {
             NSString *dateString = [XTTickConvert getStrWithNSDate:m_dateWillPick
                                                      AndWithFormat:TIME_STR_FORMAT_YY_MM_DD] ;
-
+            
             [ServerRequest sortInDayWithDayString:dateString
                                           groupID:_selectedGoupID
                                              sort:m_sortWayKey
@@ -324,7 +324,6 @@ static const NSInteger kRows = 10 ;
     }
     
     [_table reloadData] ;
-
 }
 
 - (void)didReceiveMemoryWarning

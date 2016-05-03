@@ -265,9 +265,7 @@ static NSString *kJsonStr     = @"jsonStr" ;
     NSString *jsonStr = [XTJson getJsonStr:@{@"day":dayStr,
                                              @"groupid":@(groupID),
                                              @"sort":sort,
-                                             @"order":order,
-                                             //@"page":@(page),
-                                             //@"rows":@(rows)
+                                             @"order":order
                                              }] ;
     
     NSMutableDictionary *paramer = [self getParameters] ;
