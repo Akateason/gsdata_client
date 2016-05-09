@@ -9,7 +9,9 @@
 #ifndef subao_NoticicationCenterHeader_h
 #define subao_NoticicationCenterHeader_h
 
-//后台获取
-static NSString *const NOTIFICATION_EG = @"NOTIFICATION_EG" ;
+// 登录登出
+static NSString *const NOTIFICATION_LOGINOUT = @"NOTIFICATION_LOGINOUT" ;
+
+//
 
 #endif

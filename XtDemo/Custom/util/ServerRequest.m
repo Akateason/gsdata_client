@@ -28,6 +28,67 @@ static NSString *kJsonStr     = @"jsonStr" ;
 }
 
 #pragma mark --
+#pragma mark - 登录注册
+/*
+    PARAM:
+    name        STR	: 用户名(真实姓名)
+    password    STR	: 密码
+    kind        INT : 工作类型 (-1->管理员,  1->速报酱员工,  2->小旭子员工)
+ */
++ (void)registerName:(NSString *)name
+            password:(NSString *)pass
+                kind:(NSInteger)kind
+             success:(void (^)(id json))success
+                fail:(void (^)())fail
+{
+    
+    NSMutableDictionary *paramer = [self getParameters] ;
+    [paramer setObject:name
+                forKey:@"name"] ;
+    [paramer setObject:pass
+                forKey:@"password"] ;
+    [paramer setObject:@(kind)
+                forKey:@"kind"] ;
+    
+    [XTRequest GETWithUrl:URL_USER_REGISTER
+               parameters:paramer
+                  success:^(id json) {
+                      if (success) success(json) ;
+                  } fail:^{
+                      if (fail) fail() ;
+                  }] ;
+
+}
+
+/*
+    PARAM:
+    name       STR : 用户名(真实姓名)
+    password   STR : 密码
+ */
++ (void)loginName:(NSString *)name
+         password:(NSString *)pass
+          success:(void (^)(id json))success
+             fail:(void (^)())fail
+{
+    
+    NSMutableDictionary *paramer = [self getParameters] ;
+    [paramer setObject:name
+                forKey:@"name"] ;
+    [paramer setObject:pass
+                forKey:@"password"] ;
+    
+    [XTRequest GETWithUrl:URL_USER_LOGIN
+               parameters:paramer
+                  success:^(id json) {
+                      if (success) success(json) ;
+                  } fail:^{
+                      if (fail) fail() ;
+                  }] ;
+
+}
+
+
+#pragma mark --
 #pragma mark - 系统API（接口列表）
 /**
  *  获取用户信息

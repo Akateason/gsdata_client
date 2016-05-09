@@ -10,18 +10,7 @@
 #import "DigitInformation.h"
 #import "NSObject+MKBlockTimer.h"
 
-static XTHudManager *instance ;
-static dispatch_once_t *onceToken ;
-
 @implementation XTHudManager
-
-+ (XTHudManager *)shareInstance
-{
-    dispatch_once(onceToken, ^{
-        instance = [[XTHudManager alloc] init] ;
-    }) ;
-    return instance ;
-}
 
 #pragma mark --
 #pragma mark - SHOW HUD
@@ -33,23 +22,12 @@ static dispatch_once_t *onceToken ;
 + (void)showWordHudWithTitle:(NSString *)title
                        delay:(float)delay
 {
-    if (![XTHudManager shareInstance].HUD)
-    {
-        [XTHudManager shareInstance].HUD = [[MBProgressHUD alloc] initWithView:[UIApplication sharedApplication].delegate.window] ;
-
-    }
-    
-    if (![[XTHudManager shareInstance].HUD superview]) {
-        [[UIApplication sharedApplication].delegate.window addSubview:[XTHudManager shareInstance].HUD] ;
-    }
-    
-    [[UIApplication sharedApplication].delegate.window bringSubviewToFront:[XTHudManager shareInstance].HUD] ;
-    [[XTHudManager shareInstance].HUD show:YES] ;
-    
-    [XTHudManager shareInstance].HUD.detailsLabelText = title ;
-    [XTHudManager shareInstance].HUD.dimBackground = NO ;
-    [XTHudManager shareInstance].HUD.mode = MBProgressHUDModeText ;
-    [[XTHudManager shareInstance].HUD hide:YES afterDelay:delay] ;
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:YES];
+    HUD.detailsLabelText = title ;
+    HUD.dimBackground = YES ;
+    HUD.mode = MBProgressHUDModeText ;
+    HUD.animationType = MBProgressHUDAnimationZoomIn ;
+    [HUD hide:YES afterDelay:delay] ;
 }
 
 + (void)showHudWhileExecutingBlock:(dispatch_block_t)block

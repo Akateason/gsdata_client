@@ -12,11 +12,6 @@
 
 @interface XTHudManager : NSObject
 
-//hud
-@property (nonatomic,retain) MBProgressHUD *HUD ;
-
-+ (XTHudManager *)shareInstance ;
-
 //show normal hud
 + (void)showWordHudWithTitle:(NSString *)title ;
 + (void)showWordHudWithTitle:(NSString *)title

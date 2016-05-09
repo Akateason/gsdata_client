@@ -20,12 +20,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XtDemo/Custom/util/ServerRequest.m"
-            timestampString = "483421297.021582"
+            timestampString = "484468937.185885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
             landmarkName = "+searchNicknameWithKeyword:start:success:fail:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XtDemo/V+C/Login/RegisterViewCtrller.m"
+            timestampString = "484474336.439619"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-btRegisterConfirmOnClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -14,6 +14,8 @@
 #import "PublicNameListCtrller.h"
 #import "SortViewController.h"
 #import "SortPublicCtrller.h"
+#import "NotificationCenterHeader.h"
+#import "LoginHandler.h"
 
 static NSString *kGroupCell = @"GroupCell" ;
 
@@ -35,15 +37,31 @@ static NSString *kGroupCell = @"GroupCell" ;
     return _groupList ;
 }
 
+#pragma mark - Notification
+- (void)afterLoginNotificationSend
+{
+    [self loadNewData] ;
+}
+
 
 #pragma mark - Life
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
     if (self) {
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(afterLoginNotificationSend)
+                                                     name:NOTIFICATION_LOGINOUT
+                                                   object:nil] ;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NOTIFICATION_LOGINOUT
+                                                  object:nil] ;
 }
 
 - (void)viewDidLoad
@@ -92,6 +110,20 @@ static NSString *kGroupCell = @"GroupCell" ;
         NSArray *list = dicResult[@"list"] ;
         for (NSDictionary *tmpDic in list) {
             Group *group = [Group yy_modelWithJSON:tmpDic] ;
+            switch ([LoginHandler getCurrentUsersKindOfJob]) {
+                case subaojiang:
+                {
+                    if (![group.groupname isEqualToString:@"日本"]) continue ;
+                }
+                    break;
+                case xiaoxuzi:
+                {
+                    if (![group.groupname isEqualToString:@"美妆"]) continue ;
+                }
+                default:
+                    break;
+            }
+            
             [self.groupList addObject:group] ;
         }
         
@@ -155,7 +187,6 @@ static NSString *kGroupCell = @"GroupCell" ;
         SortPublicCtrller *sortPublicCtrller = segue.destinationViewController ;
         sortPublicCtrller.selectedGoupID = ((Group *)sender).groupid ;
     }
-        
     
     [segue.destinationViewController setHidesBottomBarWhenPushed:YES] ;
 }

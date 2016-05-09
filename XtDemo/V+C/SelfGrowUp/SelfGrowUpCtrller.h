@@ -8,6 +8,8 @@
 
 #import "RootCtrl.h"
 
+/// 自增长, 首页 .
+
 @interface SelfGrowUpCtrller : RootCtrl
 
 @end

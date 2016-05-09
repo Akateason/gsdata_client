@@ -12,9 +12,16 @@
 /**
  *服务器 地址
  */
-static NSString *const kRootUrlString           = @"http://114.55.74.220:8080/gsdata/api" ;
+static NSString *const kRootUrlString           = @"http://wei.subaojiang.com:8080/gsdata/api" ;
 //static NSString *const kRootUrlString           = @"http://localhost:8080/gsdata/api" ;
 //static NSString *const kRootUrlString           = @"http://teason.pagekite.me/gsdata/api" ;
+
+#pragma mark --
+#pragma mark - 登录注册
+static NSString *const URL_USER_REGISTER        = @"http://wei.subaojiang.com:8080/GsdataApp/user/register" ;
+static NSString *const URL_USER_LOGIN           = @"http://wei.subaojiang.com:8080/GsdataApp/user/login" ;
+//static NSString *const URL_USER_REGISTER        = @"http://localhost:8080/GsdataApp/user/register" ;
+//static NSString *const URL_USER_LOGIN           = @"http://localhost:8080/GsdataApp/user/login" ;
 
 #pragma mark --
 #pragma mark - 系统api

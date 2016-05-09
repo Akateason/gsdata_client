@@ -14,7 +14,11 @@
 #import "MMPulseView.h"
 #import "XTBubbleTransition.h"
 #import "GrowUpDetailCtrller.h"
-
+#import "SelfGrowUpCtrller+Animation.h"
+#import "LoginNavCtrller.h"
+#import "LoginHandler.h"
+#import "User.h"
+#import "NotificationCenterHeader.h"
 
 @interface SelfGrowUpCtrller () <UITextFieldDelegate,UIViewControllerTransitioningDelegate>
 {
@@ -24,6 +28,7 @@
     NSArray     *m_moreList ;
 }
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *bbt_login;
 @property (nonatomic,strong) NSMutableArray *list_7days ;
 @property (nonatomic,strong) NSMutableArray *list_30days ;
 
@@ -95,6 +100,27 @@
 
 #pragma mark - Action
 
+- (IBAction)bbtLoginOnClick:(id)sender
+{
+     // 退出登录 . ?
+    if ([LoginHandler userHasLogin]) {
+        UIAlertController *alertCtrller = [UIAlertController alertControllerWithTitle:@"确定要退出登录吗?!"
+                                                                              message:nil
+                                                                       preferredStyle:UIAlertControllerStyleAlert] ;
+        [alertCtrller addAction:[UIAlertAction actionWithTitle:@"确认退出"
+                                                         style:UIAlertActionStyleDestructive
+                                                       handler:^(UIAlertAction * _Nonnull action) {
+                                                           [LoginHandler logout] ;
+                                                           _bbt_login.title = @"登录" ;
+                                                       }]] ;
+        [alertCtrller addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]] ;
+        [self presentViewController:alertCtrller animated:YES completion:^{}] ;
+    }
+    else {
+        [LoginNavCtrller modalToLoginNavCtrllerWithOrignalCtrller:self] ;
+    }
+}
+
 - (IBAction)btZhouOnclick:(id)sender
 {
     m_moreList = self.list_7days ;
@@ -141,22 +167,62 @@
 
 }
 
+#pragma mark - Notification
+
+- (void)afterLoginNotificationSend
+{
+    [self setupUIs] ;
+    self.list_7days = nil ;
+    self.list_30days = nil ;
+    m_moreList = self.list_7days ;
+}
+
 #pragma mark - Life
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(afterLoginNotificationSend)
+                                                     name:NOTIFICATION_LOGINOUT
+                                                   object:nil] ;
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NOTIFICATION_LOGINOUT
+                                                  object:nil] ;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self setup] ;
+    [self setupUIs] ;
+    
     self.title = @"我" ;
     self.textfield.delegate = self ;
-    self.tabBarController.tabBar.tintColor = [UIColor xt_blackColor] ; //[UIColor xt_mainBlueColor] ;
+    m_moreList = self.list_7days ;
+}
 
+- (void)setupUIs
+{
+    if ([LoginHandler userHasLogin]) _bbt_login.title = ((User *)[LoginHandler getCurrentUserInCache]).userName ;
+    _textfield.text = [LoginHandler getNicknameString] ;
+}
+
+- (void)setup
+{
+    self.tabBarController.tabBar.tintColor = [UIColor xt_blackColor] ; //[UIColor xt_mainBlueColor] ;
     _btYue.layer.cornerRadius = _btYue.frame.size.width / 2. ;
     _btZhou.layer.cornerRadius = _btZhou.frame.size.width / 2. ;
     _btMore.layer.cornerRadius = _btMore.frame.size.width / 2. ;
-    
-    m_moreList = self.list_7days ;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -164,64 +230,25 @@
     [super viewWillAppear:animated] ;
     
     [self modalIntoLauncher] ;
-    [self pulseView] ;
+    
+    [self pulseViewWithMPV1:bt1_pulseView
+                       MPV2:bt2_pulseView
+                        bt1:self.btZhou
+                        bt2:self.btYue] ;
+    
+    if (![LoginHandler userHasLogin]) {
+        [LoginNavCtrller modalToLoginNavCtrllerWithOrignalCtrller:self] ;
+    }
 }
 
 - (void)viewDidLayoutSubviews
 {
-    [self pulseView] ;
+    [self pulseViewWithMPV1:bt1_pulseView
+                       MPV2:bt2_pulseView
+                        bt1:self.btZhou
+                        bt2:self.btYue] ;
+    
     [self.view bringSubviewToFront:self.btMore] ;
-}
-
-- (void)pulseView
-{
-    if (bt1_pulseView || bt2_pulseView)
-    {
-        [bt1_pulseView stopAnimation] ;
-        [bt1_pulseView removeFromSuperview] ;
-        bt1_pulseView = nil ;
-        
-        [bt2_pulseView stopAnimation] ;
-        [bt2_pulseView removeFromSuperview] ;
-        bt2_pulseView = nil ;
-    }
-    
-    if (!bt1_pulseView || !bt2_pulseView)
-    {
-        bt1_pulseView = [MMPulseView new] ;
-        bt1_pulseView.frame = CGRectMake(0,0,200,200);
-        [self.view addSubview:bt1_pulseView];
-        
-        bt2_pulseView = [MMPulseView new] ;
-        bt2_pulseView.frame = CGRectMake(0,0,200,200);
-        [self.view addSubview:bt2_pulseView];
-    }
-    
-    bt1_pulseView.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    bt1_pulseView.colors = @[(__bridge id)[UIColor xt_lightGreenColor].CGColor,
-                             (__bridge id)[UIColor xt_mainColor].CGColor,
-                             (__bridge id)[UIColor xt_lightGreenColor].CGColor];
-    bt1_pulseView.minRadius = 20;
-    bt1_pulseView.maxRadius = 50;
-    bt1_pulseView.duration = 5;
-    bt1_pulseView.count = 6;
-    bt1_pulseView.lineWidth = 1.0f;
-    bt1_pulseView.center = self.btZhou.center ;
-    [bt1_pulseView startAnimation];
-    [self.view bringSubviewToFront:self.btZhou] ;
-
-    bt2_pulseView.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    bt2_pulseView.colors = @[(__bridge id)[UIColor whiteColor].CGColor,
-                             (__bridge id)[UIColor xt_mainColor].CGColor,
-                             (__bridge id)[UIColor whiteColor].CGColor];
-    bt2_pulseView.minRadius = 20;
-    bt2_pulseView.maxRadius = 50;
-    bt2_pulseView.duration = 3;
-    bt2_pulseView.count = 1;
-    bt2_pulseView.lineWidth = 9.0f;
-    bt2_pulseView.center = self.btYue.center ;
-    [bt2_pulseView startAnimation];
-    [self.view bringSubviewToFront:self.btYue] ;
 }
 
 - (void)didReceiveMemoryWarning
