@@ -83,7 +83,6 @@ static NSString *const URL_WX_ARTICLE_COMMENTS  = @"wx/wxapi2/wx_comment_by_url"
 //添加微信分组到用户账户下
 static NSString *const URL_WX_ADDWXGROUP        = @"wx/wxapi/addWxGroup" ;
 
-
 #endif
 
 

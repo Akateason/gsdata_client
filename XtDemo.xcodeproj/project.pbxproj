@@ -44,7 +44,6 @@
 		60754E621CA15EA4006AE4B9 /* SortSeqButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60754E611CA15EA4006AE4B9 /* SortSeqButton.m */; };
 		608354A11CDC965E00212124 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608354A01CDC965E00212124 /* LoginViewController.m */; };
 		608354A41CDCA03200212124 /* LoginNavCtrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 608354A31CDCA03200212124 /* LoginNavCtrller.m */; };
-		608354A71CDCA14300212124 /* SelfGrowUpCtrller+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 608354A61CDCA14300212124 /* SelfGrowUpCtrller+Animation.m */; };
 		608354AA1CDCA89100212124 /* RegisterViewCtrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 608354A91CDCA89100212124 /* RegisterViewCtrller.m */; };
 		608354AE1CDCAFFE00212124 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 608354AD1CDCAFFE00212124 /* User.m */; };
 		608354B11CDCB16600212124 /* LoginHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 608354B01CDCB16600212124 /* LoginHandler.m */; };
@@ -323,8 +322,6 @@
 		608354A01CDC965E00212124 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "XtDemo/V+C/Login/LoginViewController.m"; sourceTree = SOURCE_ROOT; };
 		608354A21CDCA03200212124 /* LoginNavCtrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginNavCtrller.h; path = "XtDemo/V+C/Login/LoginNavCtrller.h"; sourceTree = SOURCE_ROOT; };
 		608354A31CDCA03200212124 /* LoginNavCtrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginNavCtrller.m; path = "XtDemo/V+C/Login/LoginNavCtrller.m"; sourceTree = SOURCE_ROOT; };
-		608354A51CDCA14300212124 /* SelfGrowUpCtrller+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelfGrowUpCtrller+Animation.h"; path = "XtDemo/V+C/SelfGrowUp/SelfGrowUpCtrller+Animation.h"; sourceTree = SOURCE_ROOT; };
-		608354A61CDCA14300212124 /* SelfGrowUpCtrller+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelfGrowUpCtrller+Animation.m"; path = "XtDemo/V+C/SelfGrowUp/SelfGrowUpCtrller+Animation.m"; sourceTree = SOURCE_ROOT; };
 		608354A81CDCA89100212124 /* RegisterViewCtrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewCtrller.h; path = "XtDemo/V+C/Login/RegisterViewCtrller.h"; sourceTree = SOURCE_ROOT; };
 		608354A91CDCA89100212124 /* RegisterViewCtrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewCtrller.m; path = "XtDemo/V+C/Login/RegisterViewCtrller.m"; sourceTree = SOURCE_ROOT; };
 		608354AC1CDCAFFE00212124 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -793,7 +790,7 @@
 			name = Launcher;
 			sourceTree = "<group>";
 		};
-		606CF9711C9C1265009E51F6 /* MyGroups(Home) */ = {
+		606CF9711C9C1265009E51F6 /* MyGroups */ = {
 			isa = PBXGroup;
 			children = (
 				606CF9731C9C150B009E51F6 /* IndexCtrller.h */,
@@ -802,7 +799,7 @@
 				60754E411CA0E349006AE4B9 /* GroupCell.m */,
 				60754E421CA0E349006AE4B9 /* GroupCell.xib */,
 			);
-			name = "MyGroups(Home)";
+			name = MyGroups;
 			sourceTree = "<group>";
 		};
 		606CF9721C9C1290009E51F6 /* Searcher */ = {
@@ -949,17 +946,15 @@
 			name = User;
 			sourceTree = "<group>";
 		};
-		60B0EF3F1CB39D8700EAF7F5 /* SelfGrowUp */ = {
+		60B0EF3F1CB39D8700EAF7F5 /* SelfGrowUp(Home) */ = {
 			isa = PBXGroup;
 			children = (
 				60B0EF401CB39DE500EAF7F5 /* SelfGrowUpCtrller.h */,
 				60B0EF411CB39DE500EAF7F5 /* SelfGrowUpCtrller.m */,
-				608354A51CDCA14300212124 /* SelfGrowUpCtrller+Animation.h */,
-				608354A61CDCA14300212124 /* SelfGrowUpCtrller+Animation.m */,
 				60B0EF431CB50AB400EAF7F5 /* SelfChartView.h */,
 				60B0EF441CB50AB400EAF7F5 /* SelfChartView.m */,
 			);
-			name = SelfGrowUp;
+			name = "SelfGrowUp(Home)";
 			sourceTree = "<group>";
 		};
 		60D04DAC1CACC464005C1B98 /* UUChart */ = {
@@ -1094,9 +1089,9 @@
 			children = (
 				6083549E1CDC961E00212124 /* Login */,
 				606CF96A1C9BFA81009E51F6 /* Launcher */,
-				60B0EF3F1CB39D8700EAF7F5 /* SelfGrowUp */,
+				60B0EF3F1CB39D8700EAF7F5 /* SelfGrowUp(Home) */,
 				60EE17EF1CC8EB1A00429004 /* GrowUpDetailCtrller */,
-				606CF9711C9C1265009E51F6 /* MyGroups(Home) */,
+				606CF9711C9C1265009E51F6 /* MyGroups */,
 				60754E451CA0E8A7006AE4B9 /* PublicNameList */,
 				60754E521CA12CC3006AE4B9 /* PublicNameDetail */,
 				603FB93B1CA91843004FD018 /* SortPublicName */,
@@ -2078,7 +2073,6 @@
 				D75CC6031C2A965000E590E6 /* SIAlertView.m in Sources */,
 				60EE17EE1CC8E95600429004 /* XTCustomSegue.m in Sources */,
 				60EE17F21CC8EB5000429004 /* GrowUpDetailCtrller.m in Sources */,
-				608354A71CDCA14300212124 /* SelfGrowUpCtrller+Animation.m in Sources */,
 				60754E551CA12CFB006AE4B9 /* PublicNameDetailCtrller.m in Sources */,
 				60754E431CA0E349006AE4B9 /* GroupCell.m in Sources */,
 				D75CC5BD1C2A965000E590E6 /* ASIS3ServiceRequest.m in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -108,6 +108,17 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJU-Ar-NqC">
+                        <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                        <color key="backgroundColor" red="1" green="0.60939943360000004" blue="0.64999970529999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="24n-gp-vqm"/>
+                            <constraint firstAttribute="width" constant="22" id="qBX-Pc-YHh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="YtA-X9-Td9" secondAttribute="bottom" constant="21" id="139-RI-Ghz"/>
@@ -128,11 +139,13 @@
                     <constraint firstAttribute="trailing" secondItem="U6x-ZK-Mzs" secondAttribute="trailing" id="dcY-r4-ZYC"/>
                     <constraint firstItem="8Uh-96-AHa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="erd-bT-e9v"/>
                     <constraint firstAttribute="bottom" secondItem="U6x-ZK-Mzs" secondAttribute="bottom" constant="-50" id="fuB-LN-poS"/>
+                    <constraint firstItem="bJU-Ar-NqC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="g3o-w1-lqo"/>
                     <constraint firstItem="ytw-fY-N5q" firstAttribute="leading" secondItem="ovA-Q8-ZfS" secondAttribute="trailing" constant="6" id="iCW-bj-yhF"/>
                     <constraint firstAttribute="bottom" secondItem="ejq-EA-hB8" secondAttribute="bottom" constant="18" id="mIM-nT-AQV"/>
                     <constraint firstItem="ovA-Q8-ZfS" firstAttribute="leading" secondItem="ejq-EA-hB8" secondAttribute="trailing" constant="14" id="mPS-j6-grd"/>
                     <constraint firstItem="U6x-ZK-Mzs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tpX-k0-UDN"/>
                     <constraint firstItem="YtA-X9-Td9" firstAttribute="top" secondItem="JbE-Eh-Ko7" secondAttribute="bottom" constant="21" id="uTj-NM-C6e"/>
+                    <constraint firstItem="bJU-Ar-NqC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wV1-gE-wCN"/>
                     <constraint firstItem="JeC-4I-jiZ" firstAttribute="leading" secondItem="8Uh-96-AHa" secondAttribute="trailing" constant="8" id="xnf-Nk-6XP"/>
                 </constraints>
             </tableViewCellContentView>
@@ -142,6 +155,7 @@
                 <outlet property="lbZan" destination="ovA-Q8-ZfS" id="n7k-3a-iRO"/>
                 <outlet property="lb_author" destination="iqK-8D-MOa" id="KrH-6O-fcL"/>
                 <outlet property="lb_engName" destination="JeC-4I-jiZ" id="e4O-D2-tv0"/>
+                <outlet property="lb_headLine" destination="bJU-Ar-NqC" id="bOG-lJ-x6O"/>
                 <outlet property="lb_likeCount" destination="ytw-fY-N5q" id="lxn-TX-Ipb"/>
                 <outlet property="lb_readcount" destination="ejq-EA-hB8" id="aHb-1i-EzG"/>
                 <outlet property="lb_title" destination="JbE-Eh-Ko7" id="10h-5a-7aM"/>

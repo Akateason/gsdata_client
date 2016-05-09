@@ -254,7 +254,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PublicNameInfoCell" rowHeight="137" id="Qts-wL-kZh" customClass="PublicNameInfoCell">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="137"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qts-wL-kZh" id="4QY-Yp-ceQ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
@@ -346,7 +346,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PublicRecentCell" rowHeight="80" id="9ky-59-Lfo" customClass="PublicRecentCell">
-                                        <rect key="frame" x="0.0" y="165" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="229" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9ky-59-Lfo" id="Dxz-2t-dX6">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
@@ -401,8 +401,20 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTo-H3-pfE">
+                                                    <rect key="frame" x="5" y="5" width="22" height="22"/>
+                                                    <color key="backgroundColor" red="1" green="0.60939943360000004" blue="0.64999970529999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="Td9-hc-B3C"/>
+                                                        <constraint firstAttribute="width" constant="22" id="cWd-6U-AMC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="MTo-H3-pfE" firstAttribute="leading" secondItem="Dxz-2t-dX6" secondAttribute="leading" constant="5" id="I2o-bA-EUN"/>
                                                 <constraint firstAttribute="bottom" secondItem="fJD-gh-WiI" secondAttribute="bottom" constant="11" id="LTp-kY-mMJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="RWE-zX-2MG" secondAttribute="trailing" constant="45" id="Tia-KX-xB1"/>
                                                 <constraint firstItem="z7v-Dn-OHB" firstAttribute="top" secondItem="xlD-hR-Mui" secondAttribute="bottom" constant="7" id="V2o-um-zCC"/>
@@ -413,11 +425,13 @@
                                                 <constraint firstItem="xlD-hR-Mui" firstAttribute="leading" secondItem="Dxz-2t-dX6" secondAttribute="leading" constant="45" id="erm-jl-ecc"/>
                                                 <constraint firstItem="xlD-hR-Mui" firstAttribute="top" secondItem="Dxz-2t-dX6" secondAttribute="top" constant="14" id="hhQ-za-A3O"/>
                                                 <constraint firstItem="RWE-zX-2MG" firstAttribute="leading" secondItem="fJD-gh-WiI" secondAttribute="trailing" constant="10" id="vR0-6k-jqA"/>
+                                                <constraint firstItem="MTo-H3-pfE" firstAttribute="top" secondItem="Dxz-2t-dX6" secondAttribute="top" constant="5" id="xtY-bj-g31"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bt_see" destination="fJD-gh-WiI" id="04M-nu-G6m"/>
                                             <outlet property="bt_seven" destination="RWE-zX-2MG" id="t7W-53-xPX"/>
+                                            <outlet property="lb_headline" destination="MTo-H3-pfE" id="Ggd-GU-mOJ"/>
                                             <outlet property="lb_title" destination="xlD-hR-Mui" id="nQT-jl-CAd"/>
                                             <outlet property="lb_updateTiem" destination="z7v-Dn-OHB" id="2FV-fN-Y6E"/>
                                         </connections>
@@ -1141,7 +1155,7 @@
         <image name="sch" width="24" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oe6-NU-ZAG"/>
-        <segue reference="soE-FS-mP5"/>
+        <segue reference="iwU-9i-h5U"/>
+        <segue reference="7oF-oV-ccq"/>
     </inferredMetricsTieBreakers>
 </document>

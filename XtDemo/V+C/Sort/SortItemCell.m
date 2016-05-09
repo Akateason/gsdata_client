@@ -12,6 +12,7 @@
 
 @interface SortItemCell ()
 
+@property (weak, nonatomic) IBOutlet UILabel *lb_headLine;
 @property (weak, nonatomic) IBOutlet UILabel *lb_title;
 @property (weak, nonatomic) IBOutlet UILabel *lb_updateTime;
 @property (weak, nonatomic) IBOutlet UILabel *lbYue;
@@ -27,13 +28,17 @@
 
 @implementation SortItemCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     // Initialization code
     
     _lbYue.layer.cornerRadius = _lbYue.frame.size.width / 2. ;
     _lbYue.layer.masksToBounds = YES ;
     _lbZan.layer.cornerRadius = _lbZan.frame.size.width / 2. ;
     _lbZan.layer.masksToBounds = YES ;
+    
+    _lb_headLine.layer.cornerRadius = _lb_headLine.frame.size.width / 2. ;
+    _lb_headLine.layer.masksToBounds = YES ;
     
     _lbYue.backgroundColor = [UIColor xt_lightBlueColor] ;
     _lbZan.backgroundColor = [UIColor xt_lightGreenColor] ;
@@ -47,6 +52,8 @@
     _article = article ;
     
     // set UIs
+    _lb_headLine.hidden = (article.top != 1) ;
+    
     _lb_title.text = article.title ;
     _lb_updateTime.text = article.posttime ;
     _lb_wxName.text = article.wx_nickname ;
