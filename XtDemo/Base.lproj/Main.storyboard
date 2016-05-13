@@ -466,10 +466,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Mgo-Ra-V8Z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NoC-0p-hCO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="hAB-a4-RaK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4C-LM-dwo" userLabel="First Responder" sceneMemberID="firstResponder"/>

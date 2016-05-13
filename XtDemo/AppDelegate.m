@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AppDelegateInitial.h"
 #import "ServerRequest.h"
+#import "OpenShareHeader.h"
 
 
 @interface AppDelegate ()
@@ -17,13 +18,25 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Override point for customization after application launch.
     AppDelegateInitial *appInitial = [[AppDelegateInitial alloc] initWithApplication:application
                                                                              options:launchOptions
                                                                               window:_window] ;
     [appInitial setup] ;
 
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    //第二步：添加回调
+    if ([OpenShare handleOpenURL:url])
+    {
+        return YES;
+    }
+    //这里可以写上其他OpenShare不支持的客户端的回调，比如支付宝等。
     return YES;
 }
 

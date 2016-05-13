@@ -60,6 +60,12 @@
 		60D04DBD1CACC464005C1B98 /* UUChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB61CACC464005C1B98 /* UUChartLabel.m */; };
 		60D04DBE1CACC464005C1B98 /* UULineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DB81CACC464005C1B98 /* UULineChart.m */; };
 		60D04DC11CAD14CE005C1B98 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D04DC01CAD14CE005C1B98 /* SearchViewController.m */; };
+		60E45F0B1CE45AED00DE6FFF /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E45EFF1CE45AED00DE6FFF /* OpenShare+Alipay.m */; };
+		60E45F0C1CE45AED00DE6FFF /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E45F011CE45AED00DE6FFF /* OpenShare+QQ.m */; };
+		60E45F0D1CE45AED00DE6FFF /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E45F031CE45AED00DE6FFF /* OpenShare+Renren.m */; };
+		60E45F0E1CE45AED00DE6FFF /* OpenShare+Weibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E45F051CE45AED00DE6FFF /* OpenShare+Weibo.m */; };
+		60E45F0F1CE45AED00DE6FFF /* OpenShare+Weixin.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E45F071CE45AED00DE6FFF /* OpenShare+Weixin.m */; };
+		60E45F101CE45AED00DE6FFF /* OpenShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E45F091CE45AED00DE6FFF /* OpenShare.m */; };
 		60EE179B1CBB83FF00429004 /* MMPulseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE179A1CBB83FF00429004 /* MMPulseView.m */; };
 		60EE17ED1CC8E95600429004 /* XTBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17EA1CC8E95600429004 /* XTBubbleTransition.m */; };
 		60EE17EE1CC8E95600429004 /* XTCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE17EC1CC8E95600429004 /* XTCustomSegue.m */; };
@@ -354,6 +360,19 @@
 		60D04DB81CACC464005C1B98 /* UULineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UULineChart.m; sourceTree = "<group>"; };
 		60D04DBF1CAD14CE005C1B98 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = "XtDemo/V+C/Searcher/SearchViewController.h"; sourceTree = SOURCE_ROOT; };
 		60D04DC01CAD14CE005C1B98 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = "XtDemo/V+C/Searcher/SearchViewController.m"; sourceTree = SOURCE_ROOT; };
+		60E45EFE1CE45AED00DE6FFF /* OpenShare+Alipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Alipay.h"; sourceTree = "<group>"; };
+		60E45EFF1CE45AED00DE6FFF /* OpenShare+Alipay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Alipay.m"; sourceTree = "<group>"; };
+		60E45F001CE45AED00DE6FFF /* OpenShare+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+QQ.h"; sourceTree = "<group>"; };
+		60E45F011CE45AED00DE6FFF /* OpenShare+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+QQ.m"; sourceTree = "<group>"; };
+		60E45F021CE45AED00DE6FFF /* OpenShare+Renren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Renren.h"; sourceTree = "<group>"; };
+		60E45F031CE45AED00DE6FFF /* OpenShare+Renren.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Renren.m"; sourceTree = "<group>"; };
+		60E45F041CE45AED00DE6FFF /* OpenShare+Weibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Weibo.h"; sourceTree = "<group>"; };
+		60E45F051CE45AED00DE6FFF /* OpenShare+Weibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Weibo.m"; sourceTree = "<group>"; };
+		60E45F061CE45AED00DE6FFF /* OpenShare+Weixin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Weixin.h"; sourceTree = "<group>"; };
+		60E45F071CE45AED00DE6FFF /* OpenShare+Weixin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Weixin.m"; sourceTree = "<group>"; };
+		60E45F081CE45AED00DE6FFF /* OpenShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenShare.h; sourceTree = "<group>"; };
+		60E45F091CE45AED00DE6FFF /* OpenShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenShare.m; sourceTree = "<group>"; };
+		60E45F0A1CE45AED00DE6FFF /* OpenShareHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenShareHeader.h; sourceTree = "<group>"; };
 		60EE17991CBB83FF00429004 /* MMPulseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPulseView.h; sourceTree = "<group>"; };
 		60EE179A1CBB83FF00429004 /* MMPulseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPulseView.m; sourceTree = "<group>"; };
 		60EE17E91CC8E95600429004 /* XTBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTBubbleTransition.h; sourceTree = "<group>"; };
@@ -976,6 +995,26 @@
 			path = UUChart;
 			sourceTree = "<group>";
 		};
+		60E45EFD1CE45AED00DE6FFF /* openshare */ = {
+			isa = PBXGroup;
+			children = (
+				60E45EFE1CE45AED00DE6FFF /* OpenShare+Alipay.h */,
+				60E45EFF1CE45AED00DE6FFF /* OpenShare+Alipay.m */,
+				60E45F001CE45AED00DE6FFF /* OpenShare+QQ.h */,
+				60E45F011CE45AED00DE6FFF /* OpenShare+QQ.m */,
+				60E45F021CE45AED00DE6FFF /* OpenShare+Renren.h */,
+				60E45F031CE45AED00DE6FFF /* OpenShare+Renren.m */,
+				60E45F041CE45AED00DE6FFF /* OpenShare+Weibo.h */,
+				60E45F051CE45AED00DE6FFF /* OpenShare+Weibo.m */,
+				60E45F061CE45AED00DE6FFF /* OpenShare+Weixin.h */,
+				60E45F071CE45AED00DE6FFF /* OpenShare+Weixin.m */,
+				60E45F081CE45AED00DE6FFF /* OpenShare.h */,
+				60E45F091CE45AED00DE6FFF /* OpenShare.m */,
+				60E45F0A1CE45AED00DE6FFF /* OpenShareHeader.h */,
+			);
+			path = openshare;
+			sourceTree = "<group>";
+		};
 		60EE17981CBB83FF00429004 /* MMPulseView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1118,6 +1157,7 @@
 		D75CC3F91C2A92B200E590E6 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				60E45EFD1CE45AED00DE6FFF /* openshare */,
 				60EE17981CBB83FF00429004 /* MMPulseView */,
 				60D04DAC1CACC464005C1B98 /* UUChart */,
 				603FB9491CAA87E2004FD018 /* FlabbyTable */,
@@ -1936,6 +1976,7 @@
 				D75CC5AF1C2A965000E590E6 /* ASINetworkQueue.m in Sources */,
 				D75CC4481C2A95DE00E590E6 /* PinkButton.m in Sources */,
 				60D04DB91CACC464005C1B98 /* UUBar.m in Sources */,
+				60E45F0D1CE45AED00DE6FFF /* OpenShare+Renren.m in Sources */,
 				D75CC5A61C2A965000E590E6 /* AFURLResponseSerialization.m in Sources */,
 				D75CC5CE1C2A965000E590E6 /* MJRefreshBackFooter.m in Sources */,
 				D75CC5F31C2A965000E590E6 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1953,6 +1994,7 @@
 				D75CC5E71C2A965000E590E6 /* QNHttpManager.m in Sources */,
 				603FB9421CA91EA9004FD018 /* SortPNCell.m in Sources */,
 				60754E511CA100CC006AE4B9 /* Nickname.m in Sources */,
+				60E45F0F1CE45AED00DE6FFF /* OpenShare+Weixin.m in Sources */,
 				D75CC5CF1C2A965000E590E6 /* MJRefreshComponent.m in Sources */,
 				D75CC44C1C2A95DE00E590E6 /* CommonFunc.m in Sources */,
 				607386871CA2A27300B8CD71 /* Article.m in Sources */,
@@ -1980,6 +2022,7 @@
 				D75CC5FE1C2A965000E590E6 /* UIImage+MultiFormat.m in Sources */,
 				60EE18001CCDD64000429004 /* GrowUpDetailCtrller+Animations.m in Sources */,
 				D75CC4491C2A95DE00E590E6 /* PlaceHolderTextView.m in Sources */,
+				60E45F0E1CE45AED00DE6FFF /* OpenShare+Weibo.m in Sources */,
 				D75CC5D51C2A965000E590E6 /* MJRefreshBackGifFooter.m in Sources */,
 				606CF9701C9BFB61009E51F6 /* LauncherCtrller.m in Sources */,
 				60754E481CA0E93A006AE4B9 /* PublicNameListCtrller.m in Sources */,
@@ -2000,6 +2043,7 @@
 				609041D51CAB90DB002FF0E0 /* NicknameInfo.m in Sources */,
 				D75CC44F1C2A95DE00E590E6 /* ShareUtils.m in Sources */,
 				D75CC5B11C2A965000E590E6 /* ASICloudFilesContainer.m in Sources */,
+				60E45F0C1CE45AED00DE6FFF /* OpenShare+QQ.m in Sources */,
 				60D04DBD1CACC464005C1B98 /* UUChartLabel.m in Sources */,
 				D75CC5B41C2A965000E590E6 /* ASICloudFilesObject.m in Sources */,
 				603FB9501CAA87E2004FD018 /* BRFlabbyTableManager.m in Sources */,
@@ -2036,6 +2080,7 @@
 				D75CC5E61C2A965000E590E6 /* QNDns.m in Sources */,
 				D75CC5EE1C2A965000E590E6 /* QNResumeUpload.m in Sources */,
 				608354B11CDCB16600212124 /* LoginHandler.m in Sources */,
+				60E45F0B1CE45AED00DE6FFF /* OpenShare+Alipay.m in Sources */,
 				D75CC5A71C2A965000E590E6 /* AFURLSessionManager.m in Sources */,
 				D75CC5C01C2A965000E590E6 /* NSString+MD5.m in Sources */,
 				D75CC5BC1C2A965000E590E6 /* ASIS3Request.m in Sources */,
@@ -2085,6 +2130,7 @@
 				D75CC5CC1C2A965000E590E6 /* MBProgressHUD.m in Sources */,
 				D75CC6001C2A965000E590E6 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D75CC5B71C2A965000E590E6 /* Reachability.m in Sources */,
+				60E45F101CE45AED00DE6FFF /* OpenShare.m in Sources */,
 				6073868B1CA4D77900B8CD71 /* ArticleCtrller.m in Sources */,
 				D75CC44A1C2A95DE00E590E6 /* XTNetReloader.m in Sources */,
 			);

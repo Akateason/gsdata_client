@@ -61,6 +61,7 @@
         _list_7days = [@[] mutableCopy] ;
 
         ResultParsered *result = [ServerRequest syncFetchNickNameOrderList3Days:self.textfield.text num:7] ;
+        // ResultParsered *result = [ServerRequest syncFetchNickNameOrderList3DaysWX:@"zhepen" num:7] ;
         if ([result.returnCode integerValue] != 1001) return _list_7days ;
         NSDictionary *dicResult = result.returnData ;
         NSArray *list = dicResult[@"items"] ;

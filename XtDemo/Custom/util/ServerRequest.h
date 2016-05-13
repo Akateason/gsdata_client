@@ -215,6 +215,9 @@
 + (ResultParsered *)syncFetchNickNameOrderList3Days:(NSString *)nickNameString
                                                 num:(NSInteger)days ;
 
++ (ResultParsered *)syncFetchNickNameOrderList3DaysWX:(NSString *)wxName
+                                                  num:(NSInteger)days ;
+
 @end
 
 

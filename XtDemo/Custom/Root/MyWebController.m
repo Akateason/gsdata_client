@@ -36,9 +36,9 @@
         _webView = [[UIWebView alloc] initWithFrame:self.view.bounds] ;
         _webView.autoresizesSubviews = YES ;
         _webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth ;
+        
         _webView.delegate = self ;
-        if (![_webView superview])
-        {
+        if (![_webView superview]) {
             [self.view addSubview:_webView] ;
         }
     }
@@ -75,6 +75,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self webView] ;
     
     UIBarButtonItem *lItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left"]
                                                               style:UIBarButtonItemStylePlain

@@ -16,22 +16,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "XtDemo/Custom/util/ServerRequest.m"
-            timestampString = "484468937.185885"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
-            landmarkName = "+searchNicknameWithKeyword:start:success:fail:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -43,6 +27,38 @@
             endingLineNumber = "45"
             landmarkName = "-btRegisterConfirmOnClick:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[RegisterViewCtrller btRegisterConfirmOnClick:]_block_invoke"
+                  moduleName = "XtDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teason/Documents/iOS_project/Groupbuying_Demo-master/XtDemo/V+C/Login/RegisterViewCtrller.m"
+                  timestampString = "484799920.359358"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "396">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[RegisterViewCtrller btRegisterConfirmOnClick:]_block_invoke_2"
+                  moduleName = "XtDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teason/Documents/iOS_project/Groupbuying_Demo-master/XtDemo/V+C/Login/RegisterViewCtrller.m"
+                  timestampString = "484799920.359573"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
