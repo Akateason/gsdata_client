@@ -11,15 +11,15 @@
 #import "DigitInformation.h"
 #import "OpenShareHeader.h"
 
-//NSString *const UM_APPKEY       = @"565681dc67e58e4d0e00014d" ;
+NSString *const UM_APPKEY       = @"565681dc67e58e4d0e00014d" ;
 NSString *const WX_APPKEY       = @"wx85ebb55ba448b4b7" ;
 NSString *const WX_APPSECRET    = @"11cd5581856c97ec0e5f909d72c1120a" ;
 
-//NSString *const WB_APPKEY       = @"1634965927" ;
-//NSString *const WB_APPSECRET    = @"360a37c962a65ee96b8b5189708c986e" ;
-//NSString *const WB_REDIRECTURL  = @"http://sns.whalecloud.com/sina2/callback" ;
+NSString *const WB_APPKEY       = @"1634965927" ;
+NSString *const WB_APPSECRET    = @"360a37c962a65ee96b8b5189708c986e" ;
+NSString *const WB_REDIRECTURL  = @"http://sns.whalecloud.com/sina2/callback" ;
 
-//NSString *const APPSTORE_APPID  = @"999705868" ;
+NSString *const APPSTORE_APPID  = @"999705868" ;
 
 @interface AppDelegateInitial ()
 
@@ -58,7 +58,7 @@ NSString *const WX_APPSECRET    = @"11cd5581856c97ec0e5f909d72c1120a" ;
 {
     [OpenShare connectWeiboWithAppKey:WB_APPKEY];
     [OpenShare connectWeixinWithAppId:WX_APPKEY];
-
+    
 }
 
 - (void)setMyStyleWithWindow:(UIWindow *)window
