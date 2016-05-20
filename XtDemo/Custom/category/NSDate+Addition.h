@@ -25,6 +25,7 @@
 - (int)getSecond;
 
 //当前月有多少天
-+ (int)daysInMonth:(int)imonth year:(int)year ;
++ (int)daysInMonth:(int)imonth
+              year:(int)year ;
 
 @end

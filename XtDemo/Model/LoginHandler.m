@@ -100,7 +100,31 @@ static NSString *kKind        = @"kind" ;
         default:
             break;
     }
-    
+}
+
+/*
+ *  KindOfJob wx Name
+ */
++ (NSString *)getWXnameString
+{
+    KindOfJob kind = (![self userHasLogin]) ? subaojiang : ((User *)[self getCurrentUserInCache]).kind ;
+    switch (kind)
+    {
+        case subaojiang :
+        case admin :
+        {
+            return @"zhepen" ;
+        }
+            break;
+        case xiaoxuzi :
+        {
+            return @"xiaoxuzi_fashion" ;
+        }
+            break;
+        default:
+            break;
+    }
+
 }
 
 @end

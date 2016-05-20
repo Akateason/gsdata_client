@@ -526,4 +526,63 @@ static NSString *kJsonStr     = @"jsonStr" ;
 
 }
 
+/*
+ *  根据条件列出公众号某日文章
+ *  wx_name	true	string	搜公众号官方英文ID,例：cctvnewscenter
+ *  start	true	int	搜索结果开始页（默认为0）
+ *  num	true	int	返回数据最大记录数（默认为10，最大不超过10）
+ *  postdate	false	string	发布时间(格式：yyyy-MM-dd)
+ *  datestart	false	string	开始时间(格式：yyyy-MM-dd)
+ *  dateend	false	string	结束时间(格式：yyyy-MM-dd)
+ *  sortname	true	string	排序条件-字段排序条件-字段[readnum|likenum|readnum_pm|likenum_pm|readnum_week|likenum_week|posttime]
+ *  sort	true	string	[asc|desc] 排序方式
+ *  nickname_id	true	string	平台内公众号ID
+ *  is_top	false	boolean	是否是头条文章
+ */
++ (void)fetchContentListWithWxName:(NSString *)wx_name
+                             start:(int)start
+                         dateStart:(NSString *)dateStart
+                           dateEnd:(NSString *)dateEnd
+                          sortName:(NSString *)sortName
+                              sort:(NSString *)sort
+                             isTop:(BOOL)isTop
+                            QuanBu:(BOOL)bQuanbu
+                            success:(void (^)(id json))success
+                               fail:(void (^)())fail
+{
+    NSString *jsonStr = bQuanbu
+                        ?
+                        [XTJson getJsonStr:@{@"wx_name":wx_name ,
+                                             @"start":@(start) ,
+                                             @"sortname":sortName ,
+                                             @"sort":sort ,
+                         }]
+                        :
+                        [XTJson getJsonStr:@{@"wx_name":wx_name ,
+                                             @"start":@(start) ,
+                                             @"datestart":dateStart ,
+                                             @"dateend":dateEnd ,
+                                             @"sortname":sortName ,
+                                             @"sort":sort ,
+                                             @"is_top":@(isTop)
+                                             }] ;
+    
+//    NSLog(@"%@",jsonStr) ;
+    
+    NSMutableDictionary *paramer = [self getParameters] ;
+    [paramer setObject:URL_OPEN_C_LIST_INTIME
+                forKey:kSpaceName] ;
+    [paramer setObject:jsonStr
+                forKey:kJsonStr] ;
+    
+    [XTRequest GETWithUrl:kRootUrlString
+               parameters:paramer
+                  success:^(id json) {
+                      if (success) success(json) ;
+                  } fail:^{
+                      if (fail) fail() ;
+                  }] ;
+}
+
+
 @end

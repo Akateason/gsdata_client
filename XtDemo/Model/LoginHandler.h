@@ -48,7 +48,15 @@ typedef NS_ENUM(NSInteger, KindOfJob) {
 
 /*
  *  KindOfJob nickname
+ @return 日本流行每日速报
  */
 + (NSString *)getNicknameString ;
+
+/*
+ *  KindOfJob wx Name
+ @return zhepen
+ */
++ (NSString *)getWXnameString ;
+
 
 @end

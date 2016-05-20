@@ -18,6 +18,7 @@
 #import "LoginHandler.h"
 #import "User.h"
 #import "NotificationCenterHeader.h"
+#import "TopPerMonthController.h"
 
 @interface SelfGrowUpCtrller () <UITextFieldDelegate,UIViewControllerTransitioningDelegate>
 {
@@ -27,6 +28,7 @@
     NSArray     *m_moreList ;
 }
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *bbt_articlePerMonth;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *bbt_login;
 @property (nonatomic,strong) NSMutableArray *list_7days ;
 @property (nonatomic,strong) NSMutableArray *list_30days ;
@@ -99,6 +101,11 @@
 
 #pragma mark - Action
 
+- (IBAction)bbtArticlesPerMonth:(id)sender
+{
+    [self performSegueWithIdentifier:@"index2topPerMonth" sender:nil] ;
+}
+
 - (IBAction)bbtLoginOnClick:(id)sender
 {
      // 退出登录 . ?
@@ -139,6 +146,16 @@
 - (void)showChartWithButton:(UIButton *)button data:(NSArray *)dataList
 {
     if (!dataList.count) return ;
+ 
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        SEL selector = NSSelectorFromString(@"setOrientation:");
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+        [invocation setSelector:selector];
+        [invocation setTarget:[UIDevice currentDevice]];
+        int val = UIInterfaceOrientationLandscapeRight;
+        [invocation setArgument:&val atIndex:2];
+        [invocation invoke];
+    }
     
     if (_chartView)
     {
@@ -354,6 +371,12 @@
         controller.modalPresentationStyle = UIModalPresentationCustom ;
         controller.dataList = m_moreList ;
     }
+//    else if ([segue.identifier isEqualToString:@"index2topPerMonth"])
+//    {
+//        
+//    }
+    
+    [segue.destinationViewController setHidesBottomBarWhenPushed:YES] ;
 }
 
 @end

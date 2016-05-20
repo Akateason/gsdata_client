@@ -466,7 +466,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Mgo-Ra-V8Z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NoC-0p-hCO">
-                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -956,6 +956,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="VQW-tn-6aN">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="登录" id="MBa-TQ-onh">
+                            <connections>
+                                <action selector="bbtLoginOnClick:" destination="KhA-92-E37" id="rSI-Zl-rOJ"/>
+                            </connections>
+                        </barButtonItem>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="日本流行每日速报" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="3IQ-zx-zZc">
                             <rect key="frame" x="220" y="7" width="160" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -967,23 +972,107 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <barButtonItem key="rightBarButtonItem" title="登录" id="MBa-TQ-onh">
+                        <barButtonItem key="rightBarButtonItem" title="头条" id="rsf-2r-ssv">
                             <connections>
-                                <action selector="bbtLoginOnClick:" destination="KhA-92-E37" id="rSI-Zl-rOJ"/>
+                                <action selector="bbtArticlesPerMonth:" destination="KhA-92-E37" id="GCe-Ur-vEg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bbt_articlePerMonth" destination="rsf-2r-ssv" id="SeO-8O-8Kf"/>
                         <outlet property="bbt_login" destination="MBa-TQ-onh" id="KmF-0a-LkJ"/>
                         <outlet property="btMore" destination="dtQ-53-6tL" id="QOJ-mY-LXd"/>
                         <outlet property="btYue" destination="ihe-o4-916" id="73j-T1-JJT"/>
                         <outlet property="btZhou" destination="678-ma-19h" id="jdY-je-1ut"/>
                         <outlet property="textfield" destination="3IQ-zx-zZc" id="sdK-um-6Ua"/>
+                        <segue destination="3rA-am-jbG" kind="push" identifier="index2topPerMonth" id="q2N-Jn-fiw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEj-J2-YHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1854" y="1900"/>
+        </scene>
+        <!--本月头条-->
+        <scene sceneID="jVz-ZJ-yWO">
+            <objects>
+                <viewController id="3rA-am-jbG" customClass="TopPerMonthController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SX1-L6-JJi"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Vs-yf-G41"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dSa-xl-SDL">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SfV-kb-85f" customClass="RootTableView">
+                                <rect key="frame" x="0.0" y="55" width="600" height="481"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="60p-G5-j9T">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxv-WI-9H2">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="月份">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btMonthOnClick:" destination="3rA-am-jbG" eventType="touchUpInside" id="yyb-1w-F6a"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEw-Fn-ZXH" customClass="SortSeqButton">
+                                        <rect key="frame" x="200" y="0.0" width="200" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="阅读量">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btReadCountOnClick:" destination="3rA-am-jbG" eventType="touchUpInside" id="kOe-EQ-HQk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkW-wc-Mj2" customClass="SortSeqButton">
+                                        <rect key="frame" x="400" y="0.0" width="200" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="发布时间">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btPostTimeOnClick:" destination="3rA-am-jbG" eventType="touchUpInside" id="VCj-Jb-JRf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="oIO-wR-62h"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="SfV-kb-85f" secondAttribute="bottom" id="OYv-PZ-2SL"/>
+                            <constraint firstItem="60p-G5-j9T" firstAttribute="leading" secondItem="dSa-xl-SDL" secondAttribute="leading" id="QIS-P6-aIh"/>
+                            <constraint firstItem="SfV-kb-85f" firstAttribute="top" secondItem="60p-G5-j9T" secondAttribute="bottom" id="QPJ-SN-fCI"/>
+                            <constraint firstAttribute="trailing" secondItem="60p-G5-j9T" secondAttribute="trailing" id="XZ2-iU-CeV"/>
+                            <constraint firstItem="SfV-kb-85f" firstAttribute="leading" secondItem="dSa-xl-SDL" secondAttribute="leading" id="XkP-33-vyI"/>
+                            <constraint firstItem="60p-G5-j9T" firstAttribute="top" secondItem="SX1-L6-JJi" secondAttribute="bottom" id="b9u-IJ-Mk1"/>
+                            <constraint firstAttribute="trailing" secondItem="SfV-kb-85f" secondAttribute="trailing" id="yBb-Cc-llk"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="本月头条" id="cRA-xB-TMO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="btMonth" destination="mxv-WI-9H2" id="Y0a-cI-diU"/>
+                        <outlet property="btPostTime" destination="YkW-wc-Mj2" id="NS7-rF-wwY"/>
+                        <outlet property="btReadCount" destination="tEw-Fn-ZXH" id="mU7-Ul-Uuu"/>
+                        <outlet property="table" destination="SfV-kb-85f" id="dZw-aY-Xeq"/>
+                        <segue destination="Ml2-ye-pP3" kind="push" identifier="artPerMon2article" id="zQr-ry-mnW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NyM-RX-gWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2647" y="2634"/>
         </scene>
         <!--Grow Up Detail Ctrller-->
         <scene sceneID="qrP-QA-3IZ">
@@ -1015,7 +1104,7 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="tzO-Xj-fwI"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cky-Fb-SgC">
@@ -1024,7 +1113,7 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="YxZ-Kt-Mbs"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1155,7 +1244,7 @@
         <image name="sch" width="24" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="zQr-ry-mnW"/>
         <segue reference="iwU-9i-h5U"/>
-        <segue reference="7oF-oV-ccq"/>
     </inferredMetricsTieBreakers>
 </document>

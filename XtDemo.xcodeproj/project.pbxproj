@@ -241,6 +241,9 @@
 		D75CC6C41C2BEB0400E590E6 /* RootTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC6BF1C2BEB0400E590E6 /* RootTableView.m */; };
 		D75CC7331C2D13C000E590E6 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC72F1C2D13C000E590E6 /* NSObject+YYModel.m */; };
 		D75CC7341C2D13C000E590E6 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC7311C2D13C000E590E6 /* YYClassInfo.m */; };
+		D77799BC1CEDABB500265A9F /* TopPerMonthController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77799BB1CEDABB500265A9F /* TopPerMonthController.m */; };
+		D77799BF1CEDC9C700265A9F /* PerMonthSortManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = D77799BE1CEDC9C700265A9F /* PerMonthSortManagement.m */; };
+		D77799C21CEEB72F00265A9F /* MonthPickerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D77799C11CEEB72F00265A9F /* MonthPickerHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -718,6 +721,12 @@
 		D75CC7301C2D13C000E590E6 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
 		D75CC7311C2D13C000E590E6 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
 		D75CC7321C2D13C000E590E6 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		D77799BA1CEDABB500265A9F /* TopPerMonthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopPerMonthController.h; path = "XtDemo/V+C/TopPerMonth/TopPerMonthController.h"; sourceTree = SOURCE_ROOT; };
+		D77799BB1CEDABB500265A9F /* TopPerMonthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopPerMonthController.m; path = "XtDemo/V+C/TopPerMonth/TopPerMonthController.m"; sourceTree = SOURCE_ROOT; };
+		D77799BD1CEDC9C700265A9F /* PerMonthSortManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerMonthSortManagement.h; path = "XtDemo/V+C/TopPerMonth/PerMonthSortManagement.h"; sourceTree = SOURCE_ROOT; };
+		D77799BE1CEDC9C700265A9F /* PerMonthSortManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerMonthSortManagement.m; path = "XtDemo/V+C/TopPerMonth/PerMonthSortManagement.m"; sourceTree = SOURCE_ROOT; };
+		D77799C01CEEB72F00265A9F /* MonthPickerHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MonthPickerHandler.h; path = "XtDemo/V+C/TopPerMonth/MonthPickerHandler.h"; sourceTree = SOURCE_ROOT; };
+		D77799C11CEEB72F00265A9F /* MonthPickerHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MonthPickerHandler.m; path = "XtDemo/V+C/TopPerMonth/MonthPickerHandler.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1129,6 +1138,7 @@
 				6083549E1CDC961E00212124 /* Login */,
 				606CF96A1C9BFA81009E51F6 /* Launcher */,
 				60B0EF3F1CB39D8700EAF7F5 /* SelfGrowUp(Home) */,
+				D77799B91CEDAB8300265A9F /* TopPerMonth */,
 				60EE17EF1CC8EB1A00429004 /* GrowUpDetailCtrller */,
 				606CF9711C9C1265009E51F6 /* MyGroups */,
 				60754E451CA0E8A7006AE4B9 /* PublicNameList */,
@@ -1798,6 +1808,19 @@
 			path = YYModel;
 			sourceTree = "<group>";
 		};
+		D77799B91CEDAB8300265A9F /* TopPerMonth */ = {
+			isa = PBXGroup;
+			children = (
+				D77799BA1CEDABB500265A9F /* TopPerMonthController.h */,
+				D77799BB1CEDABB500265A9F /* TopPerMonthController.m */,
+				D77799C01CEEB72F00265A9F /* MonthPickerHandler.h */,
+				D77799C11CEEB72F00265A9F /* MonthPickerHandler.m */,
+				D77799BD1CEDC9C700265A9F /* PerMonthSortManagement.h */,
+				D77799BE1CEDC9C700265A9F /* PerMonthSortManagement.m */,
+			);
+			name = TopPerMonth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2043,6 +2066,7 @@
 				609041D51CAB90DB002FF0E0 /* NicknameInfo.m in Sources */,
 				D75CC44F1C2A95DE00E590E6 /* ShareUtils.m in Sources */,
 				D75CC5B11C2A965000E590E6 /* ASICloudFilesContainer.m in Sources */,
+				D77799BC1CEDABB500265A9F /* TopPerMonthController.m in Sources */,
 				60E45F0C1CE45AED00DE6FFF /* OpenShare+QQ.m in Sources */,
 				60D04DBD1CACC464005C1B98 /* UUChartLabel.m in Sources */,
 				D75CC5B41C2A965000E590E6 /* ASICloudFilesObject.m in Sources */,
@@ -2115,6 +2139,7 @@
 				D75CC5EF1C2A965000E590E6 /* QNUploadManager.m in Sources */,
 				D75CC5A21C2A965000E590E6 /* AFNetworkReachabilityManager.m in Sources */,
 				D75CC5D11C2A965000E590E6 /* MJRefreshHeader.m in Sources */,
+				D77799BF1CEDC9C700265A9F /* PerMonthSortManagement.m in Sources */,
 				D75CC6031C2A965000E590E6 /* SIAlertView.m in Sources */,
 				60EE17EE1CC8E95600429004 /* XTCustomSegue.m in Sources */,
 				60EE17F21CC8EB5000429004 /* GrowUpDetailCtrller.m in Sources */,
@@ -2122,6 +2147,7 @@
 				60754E431CA0E349006AE4B9 /* GroupCell.m in Sources */,
 				D75CC5BD1C2A965000E590E6 /* ASIS3ServiceRequest.m in Sources */,
 				D75CC6561C2AA17700E590E6 /* ResultParsered.m in Sources */,
+				D77799C21CEEB72F00265A9F /* MonthPickerHandler.m in Sources */,
 				D75CC5DF1C2A965000E590E6 /* UIView+MJExtension.m in Sources */,
 				60B0EF451CB50AB400EAF7F5 /* SelfChartView.m in Sources */,
 				D75CC5E51C2A965000E590E6 /* QNUrlSafeBase64.m in Sources */,
