@@ -9,6 +9,7 @@
 #import "ArticleRecentChartView.h"
 #import "UUChart.h"
 #import "Article.h"
+#import "AdjustDeviceDirection.h"
 
 @interface ArticleRecentChartView () <UUChartDataSource>
 {
@@ -95,6 +96,8 @@ static const CGFloat kLabelHeight = 20. ;
 
 - (void)btBackOnClick
 {
+    [AdjustDeviceDirection adjustDirection:UIInterfaceOrientationPortrait] ;
+    
     [UIView animateWithDuration:.25
                      animations:^{
                          

@@ -16,6 +16,7 @@
 #import "PublicRecentCell.h"
 #import "ArticleCtrller.h"
 #import "ArticleRecentChartView.h"
+#import "AdjustDeviceDirection.h"
 
 
 static NSString *kPublicNameInfoCellIdentifier = @"PublicNameInfoCell" ;
@@ -192,6 +193,7 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
             _rChartView.hidden = YES ;
             _rChartView.transform = CGAffineTransformScale(_rChartView.transform, 0.2, 0.2) ;
 
+            
             [UIView transitionWithView:self.view.window
                               duration:.25
                                options:UIViewAnimationOptionCurveEaseOut
@@ -200,8 +202,10 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
                                 _rChartView.transform = CGAffineTransformIdentity ;
                             }
                             completion:^(BOOL finished) {
-                                
+
                             }] ;
+            
+            [AdjustDeviceDirection adjustDirection:UIInterfaceOrientationLandscapeRight] ;
             
         } ;
         

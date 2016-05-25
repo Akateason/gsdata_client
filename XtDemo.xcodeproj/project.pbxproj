@@ -241,6 +241,7 @@
 		D75CC6C41C2BEB0400E590E6 /* RootTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC6BF1C2BEB0400E590E6 /* RootTableView.m */; };
 		D75CC7331C2D13C000E590E6 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC72F1C2D13C000E590E6 /* NSObject+YYModel.m */; };
 		D75CC7341C2D13C000E590E6 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D75CC7311C2D13C000E590E6 /* YYClassInfo.m */; };
+		D76ACD7D1CF56067009DAFAD /* AdjustDeviceDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = D76ACD7C1CF56067009DAFAD /* AdjustDeviceDirection.m */; };
 		D77799BC1CEDABB500265A9F /* TopPerMonthController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77799BB1CEDABB500265A9F /* TopPerMonthController.m */; };
 		D77799BF1CEDC9C700265A9F /* PerMonthSortManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = D77799BE1CEDC9C700265A9F /* PerMonthSortManagement.m */; };
 		D77799C21CEEB72F00265A9F /* MonthPickerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D77799C11CEEB72F00265A9F /* MonthPickerHandler.m */; };
@@ -721,6 +722,8 @@
 		D75CC7301C2D13C000E590E6 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
 		D75CC7311C2D13C000E590E6 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
 		D75CC7321C2D13C000E590E6 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		D76ACD7B1CF56067009DAFAD /* AdjustDeviceDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustDeviceDirection.h; sourceTree = "<group>"; };
+		D76ACD7C1CF56067009DAFAD /* AdjustDeviceDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustDeviceDirection.m; sourceTree = "<group>"; };
 		D77799BA1CEDABB500265A9F /* TopPerMonthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopPerMonthController.h; path = "XtDemo/V+C/TopPerMonth/TopPerMonthController.h"; sourceTree = SOURCE_ROOT; };
 		D77799BB1CEDABB500265A9F /* TopPerMonthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopPerMonthController.m; path = "XtDemo/V+C/TopPerMonth/TopPerMonthController.m"; sourceTree = SOURCE_ROOT; };
 		D77799BD1CEDC9C700265A9F /* PerMonthSortManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerMonthSortManagement.h; path = "XtDemo/V+C/TopPerMonth/PerMonthSortManagement.h"; sourceTree = SOURCE_ROOT; };
@@ -1307,6 +1310,8 @@
 				D75CC4391C2A95DE00E590E6 /* XTTickConvert.m */,
 				D75CC43A1C2A95DE00E590E6 /* XTVerification.h */,
 				D75CC43B1C2A95DE00E590E6 /* XTVerification.m */,
+				D76ACD7B1CF56067009DAFAD /* AdjustDeviceDirection.h */,
+				D76ACD7C1CF56067009DAFAD /* AdjustDeviceDirection.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -2022,6 +2027,7 @@
 				D75CC44C1C2A95DE00E590E6 /* CommonFunc.m in Sources */,
 				607386871CA2A27300B8CD71 /* Article.m in Sources */,
 				60754E3F1C9FEDA0006AE4B9 /* Group.m in Sources */,
+				D76ACD7D1CF56067009DAFAD /* AdjustDeviceDirection.m in Sources */,
 				D75CC5FC1C2A965000E590E6 /* UIButton+WebCache.m in Sources */,
 				D75CC4551C2A95DE00E590E6 /* XTVerification.m in Sources */,
 				603FB9521CAA87E2004FD018 /* NSIndexPath+BRFlabbyTable.m in Sources */,

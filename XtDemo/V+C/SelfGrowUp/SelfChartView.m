@@ -10,6 +10,7 @@
 #import "Nickname.h"
 #import "UUChart.h"
 #import "XTSegment.h"
+#import "AdjustDeviceDirection.h"
 
 typedef enum : NSUInteger {
     typeAllRead = 0,
@@ -151,7 +152,11 @@ static const CGFloat kLabelHeight           = 30. ;
                          self.transform = CGAffineTransformScale(self.transform, 0.01, 0.01) ;
                          
                      } completion:^(BOOL finished) {
+                         
                          [self removeFromSuperview] ;
+                         
+                         [AdjustDeviceDirection adjustDirection:UIInterfaceOrientationPortrait] ;
+                         
                      }] ;
     
 }
