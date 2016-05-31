@@ -18,8 +18,6 @@
 #import "MonthPickerHandler.h"
 
 
-static NSString *kSortItemCell = @"SortItemCell" ;
-
 @interface TopPerMonthController () <UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate>
 {
     PerMonthSortManagement  *m_sortManagement ;  // manage sort condition and get condition result to sort
@@ -130,6 +128,8 @@ static NSString *kSortItemCell = @"SortItemCell" ;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = @"头条" ;
     
     [self setupSortCondition] ;
     [self setupTable] ;

@@ -19,9 +19,6 @@
 #import "AdjustDeviceDirection.h"
 
 
-static NSString *kPublicNameInfoCellIdentifier = @"PublicNameInfoCell" ;
-static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
-
 @interface PublicNameDetailCtrller ()<UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet RootTableView *table;
@@ -154,63 +151,44 @@ static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        PublicNameInfoCell *cell = [_table dequeueReusableCellWithIdentifier:kPublicNameInfoCellIdentifier] ;
-        if (!cell) {
-            cell = [_table dequeueReusableCellWithIdentifier:kPublicNameInfoCellIdentifier] ;
-        }
-        cell.nicknameInfo = self.nickInfo ;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone ;
-        return cell ;
+        return [PublicNameInfoCell configureCell:self.nickInfo withTable:tableView] ;
     }
     else {
-        PublicRecentCell *cell = [_table dequeueReusableCellWithIdentifier:kPublicRecentCellIdentifier] ;
-        if (!cell) {
-            cell = [_table dequeueReusableCellWithIdentifier:kPublicRecentCellIdentifier] ;
-        }
-        cell.article = self.list_recentArticleInfo[indexPath.row - 1] ;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone ;
-        cell.backgroundColor = indexPath.row % 2 ? [UIColor whiteColor] : [UIColor xt_halfMainColor] ;
-        cell.transform = CGAffineTransformMakeTranslation(APP_WIDTH / 4. , 0) ;
-        [UIView animateWithDuration:.35
-                         animations:^{
-                             cell.transform = CGAffineTransformIdentity ;
-                         }] ;
+        return [PublicRecentCell configureCellWithArticle:self.list_recentArticleInfo[indexPath.row - 1]
+                                             table:tableView
+                                         indexPath:indexPath
+                                         seeButton:^(NSString *url) {
+                                             [self performSegueWithIdentifier:@"detail2Article" sender:url] ;
+                                         }
+                                    sevenDayButton:^(Article *article) {
+                                        // custom a chart View .
+                                        // transition scale into Screen .
+                                        if (_rChartView) {
+                                            [_rChartView removeFromSuperview] ;
+                                            _rChartView = nil ;
+                                        }
+                                        _rChartView = [[ArticleRecentChartView alloc] initWithArticle:article] ;
+                                        _rChartView.frame = APPFRAME ;
+                                        [self.view.window addSubview:_rChartView] ;
+                                        _rChartView.hidden = YES ;
+                                        _rChartView.transform = CGAffineTransformScale(_rChartView.transform, 0.2, 0.2) ;
+                                        
+                                        
+                                        [UIView transitionWithView:self.view.window
+                                                          duration:.25
+                                                           options:UIViewAnimationOptionCurveEaseOut
+                                                        animations:^{
+                                                            _rChartView.hidden = NO ;
+                                                            _rChartView.transform = CGAffineTransformIdentity ;
+                                                        }
+                                                        completion:^(BOOL finished) {
+                                                            
+                                                        }] ;
+                                        
+                                        [AdjustDeviceDirection adjustDirection:UIInterfaceOrientationLandscapeRight] ;
+                                    }] ;
         
-        cell.BlockSeeButton = ^(NSString *url){
-            [self performSegueWithIdentifier:@"detail2Article" sender:url] ;
-        } ;
-        
-        cell.BlockSevenDayButton = ^(Article *article){
-            // custom a chart View .
-            // transition scale into Screen .
-            if (_rChartView) {
-                [_rChartView removeFromSuperview] ;
-                _rChartView = nil ;
             }
-            _rChartView = [[ArticleRecentChartView alloc] initWithArticle:article] ;
-            _rChartView.frame = APPFRAME ;
-            [self.view.window addSubview:_rChartView] ;
-            _rChartView.hidden = YES ;
-            _rChartView.transform = CGAffineTransformScale(_rChartView.transform, 0.2, 0.2) ;
-
-            
-            [UIView transitionWithView:self.view.window
-                              duration:.25
-                               options:UIViewAnimationOptionCurveEaseOut
-                            animations:^{
-                                _rChartView.hidden = NO ;
-                                _rChartView.transform = CGAffineTransformIdentity ;
-                            }
-                            completion:^(BOOL finished) {
-
-                            }] ;
-            
-            [AdjustDeviceDirection adjustDirection:UIInterfaceOrientationLandscapeRight] ;
-            
-        } ;
-        
-        return cell ;
-    }
     
     return nil ;
 }

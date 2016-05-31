@@ -20,6 +20,19 @@
 
 @implementation PublicNameCell
 
++ (PublicNameCell *)configureCellWithNickname:(Nickname *)nickname
+                                        table:(UITableView *)table
+                                    indexPath:(NSIndexPath *)indexPath
+{
+    PublicNameCell *cell = [table dequeueReusableCellWithIdentifier:kPublicNameCell] ;
+    if (!cell) {
+        cell = [table dequeueReusableCellWithIdentifier:kPublicNameCell];
+    }
+    cell.nickName = nickname ;
+    cell.backgroundColor = indexPath.row % 2 ? [UIColor xt_halfMainBlueColor] : [UIColor xt_halfMainColor] ;    
+    return cell ;
+}
+
 - (void)setNickName:(Nickname *)nickName
 {
     _lb_name.text = nickName.wx_nickname ;

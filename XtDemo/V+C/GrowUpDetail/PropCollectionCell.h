@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString *kPropCollectionCell = @"PropCollectionCell" ;
+
 @interface PropCollectionCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *lbKey;
-@property (weak, nonatomic) IBOutlet UILabel *lbVal;
+@property (weak, nonatomic) IBOutlet UILabel *lbKey ;
+@property (weak, nonatomic) IBOutlet UILabel *lbVal ;
 
++ (PropCollectionCell *)configureWithChineseNameList:(NSArray *)nicknameChineseNameList
+                                      nameProperties:(NSDictionary *)nicknameProperties
+                                          collection:(UICollectionView *)collectionView
+                                           indexPath:(NSIndexPath *)indexPath ;
 @end

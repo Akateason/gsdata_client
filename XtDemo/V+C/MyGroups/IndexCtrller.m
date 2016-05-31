@@ -17,7 +17,6 @@
 #import "NotificationCenterHeader.h"
 #import "LoginHandler.h"
 
-static NSString *kGroupCell = @"GroupCell" ;
 
 @interface IndexCtrller () <UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate,GroupCellDelegate>
 
@@ -148,14 +147,9 @@ static NSString *kGroupCell = @"GroupCell" ;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GroupCell * cell = [_table dequeueReusableCellWithIdentifier:kGroupCell] ;
-    if (!cell) {
-        cell = [_table dequeueReusableCellWithIdentifier:kGroupCell];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
-    cell.group = self.groupList[indexPath.row] ;
-    cell.delegate = self ;
-    return cell ;
+    return [GroupCell configureCellWithGroup:self.groupList[indexPath.row]
+                             delegateHandler:self
+                                       table:tableView] ;
 }
 
 #pragma mark - UITableViewDelegate

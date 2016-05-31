@@ -30,6 +30,21 @@
 
 @implementation SortPNCell
 
++ (SortPNCell *)configureCellWithNick:(Nickname *)nick
+                          queueNumber:(NSInteger)queueNumber
+                                table:(UITableView *)table
+{
+    SortPNCell *cell = [table dequeueReusableCellWithIdentifier:kSortPNCellIdentifier] ;
+    if (!cell) {
+        cell = [table dequeueReusableCellWithIdentifier:kSortPNCellIdentifier];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
+    cell.nick = nick ;
+    cell.queueNumber = queueNumber ;
+    return cell ;
+}
+
+
 - (void)setQueueNumber:(NSInteger)queueNumber
 {
     _queueNumber = queueNumber ;

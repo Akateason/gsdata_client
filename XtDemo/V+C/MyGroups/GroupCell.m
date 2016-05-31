@@ -20,6 +20,20 @@
 
 @implementation GroupCell
 
++ (GroupCell *)configureCellWithGroup:(Group *)group
+                      delegateHandler:(id)handler
+                                table:(UITableView *)table
+{
+    GroupCell * cell = [table dequeueReusableCellWithIdentifier:kGroupCell] ;
+    if (!cell) {
+        cell = [table dequeueReusableCellWithIdentifier:kGroupCell];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
+    cell.group = group ;
+    cell.delegate = handler ;
+    return cell ;
+}
+
 - (void)setGroup:(Group *)group
 {
     _group = group ;

@@ -28,6 +28,22 @@
 
 @implementation SortItemCell
 
++ (SortItemCell *)configureCellWithArticle:(Article *)article
+                                 indexPath:(NSIndexPath *)indexPath
+                                     table:(UITableView *)table
+{
+    SortItemCell *cell = [table dequeueReusableCellWithIdentifier:kSortItemCell] ;
+    if (!cell) {
+        cell = [table dequeueReusableCellWithIdentifier:kSortItemCell];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
+    cell.article = article ;
+    cell.backgroundColor = indexPath.row % 2 ? [UIColor xt_halfMainBlueColor] : [UIColor xt_halfMainColor] ;
+    
+    return cell ;
+}
+
+
 - (void)awakeFromNib
 {
     // Initialization code

@@ -20,11 +20,10 @@ typedef enum : NSUInteger {
     weekType
 } DateSegmentType;
 
-static NSString *kSortPNCellIdentifier = @"SortPNCell" ;
 static const NSInteger kRows = 10 ;
 
 
-@interface SortPublicCtrller () <UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate,HZQDatePickerViewDelegate,UIActionSheetDelegate>
+@interface SortPublicCtrller () <UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate,HZQDatePickerViewDelegate>
 {
     NSDate              *m_dateWillPick ;
     NSDate              *m_last_date ;
@@ -59,16 +58,29 @@ static const NSInteger kRows = 10 ;
 
 - (IBAction)btSortWayOnClick:(UIButton *)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"排序方式"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"取消"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:nil] ;
+    UIAlertController *alertCtrller = [UIAlertController alertControllerWithTitle:@"排序方式"
+                                                                          message:nil
+                                                                   preferredStyle:UIAlertControllerStyleActionSheet] ;
+    int index = 0 ;
     for (NSString *key in [[self class] getSortWayValList]) {
-        [actionSheet addButtonWithTitle:key] ;
+        UIAlertAction *action = [UIAlertAction actionWithTitle:key
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * _Nonnull action) {
+                                                           NSLog(@"%@",[[self class] getSortWayStringWithIndex:index]) ;
+                                                           m_sortWayKey = [[self class] getSortWayKeyList][index] ;
+                                                           [self.btSortWay setTitle:[[self class] getSortWayDictionary][m_sortWayKey] forState:0] ;
+                                                           [self loadNewData] ;
+                                                       }] ;
+        
+        [alertCtrller addAction:action] ;
+        index ++ ;
     }
     
-    [actionSheet showInView:self.view] ;
+    [alertCtrller addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]] ;
+    
+    [self presentViewController:alertCtrller animated:YES completion:^{
+        
+    }] ;
 }
 
 - (IBAction)btDateOnClick:(UIButton *)sender
@@ -93,19 +105,6 @@ static const NSInteger kRows = 10 ;
 
     [_btDate setTitle:date forState:0] ;
 
-    [self loadNewData] ;
-}
-
-#pragma mark - action sheet delegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (!buttonIndex) return ;
-    NSLog(@"buttonIndex : %@",@(buttonIndex)) ;
-    NSLog(@"%@",[[self class] getSortWayStringWithIndex:buttonIndex - 1]) ;
-    m_sortWayKey = [[self class] getSortWayKeyList][buttonIndex - 1] ;
-    [self.btSortWay setTitle:[[self class] getSortWayDictionary][m_sortWayKey] forState:0] ;
- 
     [self loadNewData] ;
 }
 
@@ -341,15 +340,10 @@ static const NSInteger kRows = 10 ;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SortPNCell *cell = [_table dequeueReusableCellWithIdentifier:kSortPNCellIdentifier] ;
-    if (!cell) {
-        cell = [_table dequeueReusableCellWithIdentifier:kSortPNCellIdentifier];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
-    cell.nick = self.list[indexPath.row] ;
-    cell.queueNumber = (indexPath.row + 1) ;
-    
-    return cell ;
+    return [SortPNCell configureCellWithNick:self.list[indexPath.row]
+                                 queueNumber:(NSInteger)(indexPath.row + 1)
+                                       table:tableView] ;
+
 }
 
 #pragma mark - UITableViewDelegate

@@ -15,9 +15,6 @@
 #import "ArticleCtrller.h"
 #import "PublicNameDetailCtrller.h"
 
-static NSString *const kPublicNameCell  = @"PublicNameCell" ;
-static NSString *const kSortItemCell    = @"SortItemCell" ;
-
 static const NSInteger kNum             = 10 ;
 
 typedef enum : NSUInteger
@@ -237,25 +234,15 @@ typedef enum : NSUInteger
 {
     if (m_searchType == typePublicName)
     {
-        PublicNameCell *cell = [_table dequeueReusableCellWithIdentifier:kPublicNameCell] ;
-        if (!cell) {
-            cell = [_table dequeueReusableCellWithIdentifier:kPublicNameCell];
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone ;
-        cell.nickName = self.list[indexPath.row] ;
-        cell.backgroundColor = indexPath.row % 2 ? [UIColor xt_halfMainBlueColor] : [UIColor xt_halfMainColor] ;
-        return cell ;
+        return [PublicNameCell configureCellWithNickname:self.list[indexPath.row]
+                                                   table:tableView
+                                               indexPath:indexPath] ;
     }
     else if (m_searchType == typeArticle)
     {
-        SortItemCell *cell = [_table dequeueReusableCellWithIdentifier:kSortItemCell] ;
-        if (!cell) {
-            cell = [_table dequeueReusableCellWithIdentifier:kSortItemCell];
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone ;
-        cell.backgroundColor = indexPath.row % 2 ? [UIColor xt_halfMainBlueColor] : [UIColor xt_halfMainColor] ;
-        cell.article = self.list[indexPath.row] ;
-        return cell ;
+        return [SortItemCell configureCellWithArticle:self.list[indexPath.row]
+                                            indexPath:indexPath
+                                                table:tableView] ;
     }
     return nil ;
 }

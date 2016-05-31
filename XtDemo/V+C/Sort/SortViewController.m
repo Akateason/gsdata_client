@@ -17,7 +17,6 @@
 #import "HZQDatePickerView.h"
 #import "NSDate+Utilities.h"
 
-static NSString *kSortItemCell = @"SortItemCell" ;
 static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
 
 @interface SortViewController () <UITableViewDataSource,UITableViewDelegate,RootTableViewDelegate,HZQDatePickerViewDelegate,UIScrollViewDelegate>
@@ -272,15 +271,9 @@ static const NSInteger kRows = 10 ; // 每页记录数(最大10条记录)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SortItemCell *cell = [_table dequeueReusableCellWithIdentifier:kSortItemCell] ;
-    if (!cell) {
-        cell = [_table dequeueReusableCellWithIdentifier:kSortItemCell];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
-    cell.article = self.list[indexPath.row] ;
-    cell.backgroundColor = indexPath.row % 2 ? [UIColor xt_halfMainBlueColor] : [UIColor xt_halfMainColor] ;
-    
-    return cell ;
+    return [SortItemCell configureCellWithArticle:self.list[indexPath.row]
+                                        indexPath:indexPath
+                                            table:tableView] ;
 }
 
 #pragma mark - UITableViewDelegate

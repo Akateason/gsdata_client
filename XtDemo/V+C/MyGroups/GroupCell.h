@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
+static NSString *kGroupCell = @"GroupCell" ;
+
 @class Group ;
 
 @protocol GroupCellDelegate <NSObject>
@@ -20,5 +23,9 @@
 
 @property (nonatomic, strong) Group                     *group ;
 @property (nonatomic, weak)   id <GroupCellDelegate>    delegate ;
+
++ (GroupCell *)configureCellWithGroup:(Group *)group
+                      delegateHandler:(id)handler
+                                table:(UITableView *)table ;
 
 @end

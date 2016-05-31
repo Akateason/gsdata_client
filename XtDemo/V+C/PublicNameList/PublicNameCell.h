@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 @class Nickname ;
-//#import "BRFlabbyTableViewCell.h"
 
-@interface PublicNameCell : UITableViewCell // BRFlabbyTableViewCell
+static NSString *kPublicNameCell = @"PublicNameCell" ;
+
+@interface PublicNameCell : UITableViewCell
 
 @property (nonatomic,strong) Nickname *nickName ;
+
++ (PublicNameCell *)configureCellWithNickname:(Nickname *)nickname
+                                        table:(UITableView *)table
+                                    indexPath:(NSIndexPath *)indexPath ;
 
 @end

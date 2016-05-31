@@ -14,7 +14,6 @@
 #import "PropCollectionCell.h"
 
 
-static NSString *kPropCollectionCell = @"PropCollectionCell" ;
 
 @interface GrowUpDetailCtrller () <UICollectionViewDelegate,UICollectionViewDataSource>
 {
@@ -190,15 +189,10 @@ static NSString *kPropCollectionCell = @"PropCollectionCell" ;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PropCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPropCollectionCell forIndexPath:indexPath] ;
-    cell.backgroundColor = indexPath.section % 2 ? [UIColor xt_halfMainBlueColor] : [UIColor xt_halfMainColor] ;
-
-    cell.lbKey.text = self.nicknameChineseNameList[indexPath.section] ;
-    cell.lbVal.text = [NSString stringWithFormat:@"%@",self.nicknameProperties[self.nicknameChineseNameList[indexPath.section]]] ;
-    cell.lbKey.textColor = [UIColor whiteColor] ;
-    cell.lbVal.textColor = [UIColor darkGrayColor] ;
-    
-    return cell ;
+    return [PropCollectionCell configureWithChineseNameList:self.nicknameChineseNameList
+                                             nameProperties:self.nicknameProperties
+                                                 collection:collectionView
+                                                  indexPath:indexPath] ;
 }
 
 /*

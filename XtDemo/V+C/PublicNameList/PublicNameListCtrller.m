@@ -11,15 +11,12 @@
 #import "PublicNameCell.h"
 #import "Nickname.h"
 #import "PublicNameDetailCtrller.h"
-//#import "BRFlabbyTableManager.h"
 
-static NSString *kPublicNameCell = @"PublicNameCell" ;
 
 @interface PublicNameListCtrller () <UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet    RootTableView           *table ;
 @property (nonatomic, strong)           NSArray                 *publicNameList ;
-//@property (strong, nonatomic)           BRFlabbyTableManager    *flabbyTableManager;
 
 @end
 
@@ -41,9 +38,6 @@ static NSString *kPublicNameCell = @"PublicNameCell" ;
     // Do any additional setup after loading the view.
     [self tableConfigure] ;
     self.title = @"查看公众号" ;
-    
-//    _flabbyTableManager = [[BRFlabbyTableManager alloc] initWithTableView:_table];
-//    [_flabbyTableManager setDelegate:self];
 }
 
 - (void)tableConfigure
@@ -60,25 +54,6 @@ static NSString *kPublicNameCell = @"PublicNameCell" ;
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - RootTableViewDelegate
-- (void)loadNewData
-{
-    
-}
-- (void)loadMoreData
-{
-    
-}
-*/
-
-//#pragma mark - BRFlabbyTableManagerDelegate methods
-//
-//- (UIColor *)flabbyTableManager:(BRFlabbyTableManager *)tableManager flabbyColorForIndexPath:(NSIndexPath *)indexPath
-//{
-//    return [self colorForIndexPath:indexPath];
-//}
-
 #pragma mark - Miscellenanious
 - (UIColor *)colorForIndexPath:(NSIndexPath *)indexPath
 {
@@ -93,15 +68,9 @@ static NSString *kPublicNameCell = @"PublicNameCell" ;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PublicNameCell *cell = [_table dequeueReusableCellWithIdentifier:kPublicNameCell] ;
-    if (!cell) {
-        cell = [_table dequeueReusableCellWithIdentifier:kPublicNameCell];
-    }
-    Nickname *nickName = self.publicNameList[indexPath.row] ;
-    cell.nickName = nickName ;
-    cell.backgroundColor = indexPath.row % 2 ? [UIColor xt_halfMainBlueColor] : [UIColor xt_halfMainColor] ;
-
-    return cell ;
+    return [PublicNameCell configureCellWithNickname:self.publicNameList[indexPath.row]
+                                               table:tableView
+                                           indexPath:indexPath] ;    
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

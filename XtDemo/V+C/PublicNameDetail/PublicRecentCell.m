@@ -20,6 +20,30 @@
 
 @implementation PublicRecentCell
 
++ (PublicRecentCell *)configureCellWithArticle:(Article *)article
+                                         table:(UITableView *)table
+                                     indexPath:(NSIndexPath *)indexPath
+                                     seeButton:(BlockSeeButtonClick)block_seeButton
+                                sevenDayButton:(BlockSevenDayButtonClick)block_sevenDayButton
+{
+    PublicRecentCell *cell = [table dequeueReusableCellWithIdentifier:kPublicRecentCellIdentifier] ;
+    if (!cell) {
+        cell = [table dequeueReusableCellWithIdentifier:kPublicRecentCellIdentifier] ;
+    }
+    cell.article = article ;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
+    cell.backgroundColor = indexPath.row % 2 ? [UIColor whiteColor] : [UIColor xt_halfMainColor] ;
+    cell.transform = CGAffineTransformMakeTranslation(APP_WIDTH / 4. , 0) ;
+    [UIView animateWithDuration:.35
+                     animations:^{
+                         cell.transform = CGAffineTransformIdentity ;
+                     }] ;
+    cell.BlockSeeButton = block_seeButton ;
+    cell.BlockSevenDayButton = block_sevenDayButton ;
+    
+    return cell ;
+}
+
 - (void)setArticle:(Article *)article
 {
     _article = article ;

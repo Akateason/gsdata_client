@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Article.h"
 
+static NSString *kPublicRecentCellIdentifier = @"PublicRecentCell" ;
+
 typedef void(^BlockSeeButtonClick)(NSString *url);
 typedef void(^BlockSevenDayButtonClick)(Article *article);
 
@@ -17,5 +19,11 @@ typedef void(^BlockSevenDayButtonClick)(Article *article);
 @property (nonatomic,strong) Article *article ;
 @property (nonatomic,copy) BlockSeeButtonClick BlockSeeButton ;
 @property (nonatomic,copy) BlockSevenDayButtonClick BlockSevenDayButton ;
+
++ (PublicRecentCell *)configureCellWithArticle:(Article *)article
+                                         table:(UITableView *)table
+                                     indexPath:(NSIndexPath *)indexPath
+                                     seeButton:(BlockSeeButtonClick)block_seeButton
+                                sevenDayButton:(BlockSevenDayButtonClick)block_sevenDayButton ;
 
 @end

@@ -19,6 +19,19 @@
 
 @implementation PublicNameInfoCell
 
++ (PublicNameInfoCell *)configureCell:(NicknameInfo *)info
+                            withTable:(UITableView *)table
+{
+    PublicNameInfoCell *cell = [table dequeueReusableCellWithIdentifier:kPublicNameInfoCellIdentifier] ;
+    if (!cell) {
+        cell = [table dequeueReusableCellWithIdentifier:kPublicNameInfoCellIdentifier] ;
+    }
+    cell.nicknameInfo = info ;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
+    return cell ;
+
+}
+
 - (void)setNicknameInfo:(NicknameInfo *)nicknameInfo
 {
     _nicknameInfo = nicknameInfo ;

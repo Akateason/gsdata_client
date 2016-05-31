@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "NicknameInfo.h"
 
+static NSString *kPublicNameInfoCellIdentifier = @"PublicNameInfoCell" ;
+
 @interface PublicNameInfoCell : UITableViewCell
 
 @property (nonatomic,strong) NicknameInfo *nicknameInfo ;
+
++ (PublicNameInfoCell *)configureCell:(NicknameInfo *)info
+                            withTable:(UITableView *)table ;
 
 @end

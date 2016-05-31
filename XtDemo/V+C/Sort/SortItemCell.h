@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 @class Article ;
 
+static NSString *kSortItemCell = @"SortItemCell" ;
+
 @interface SortItemCell : UITableViewCell
 
 @property (nonatomic,strong) Article *article ;
-- (void)cellOnTableView:(UITableView *)tableView didScrollOnView:(UIView *)view ;
 
+- (void)cellOnTableView:(UITableView *)tableView
+        didScrollOnView:(UIView *)view ;
+
++ (SortItemCell *)configureCellWithArticle:(Article *)article
+                                 indexPath:(NSIndexPath *)indexPath
+                                     table:(UITableView *)table ;
 @end
