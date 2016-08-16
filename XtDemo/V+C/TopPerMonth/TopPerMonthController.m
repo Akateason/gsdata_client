@@ -216,6 +216,10 @@
     SortCondition *sortResult = [m_sortManagement fetchCompletelySortResult] ;
     NSString *dateStart = [m_sortManagement dateStartWithMonth:[m_pickerHandler getCurrentSelectedMonth]] ;
     NSString *dateEnd   = [m_sortManagement dateEndWithMonth:[m_pickerHandler getCurrentSelectedMonth]] ;
+    
+//    dateStart   = @"2016-01-01" ;
+//    dateEnd     = @"2016-06-01" ;
+    
     NSLog(@"%@ , %@",dateStart,dateEnd) ;
     
     [ServerRequest fetchContentListWithWxName:[LoginHandler getWXnameString]

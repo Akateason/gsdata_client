@@ -575,6 +575,8 @@ static NSString *kJsonStr     = @"jsonStr" ;
     [paramer setObject:jsonStr
                 forKey:kJsonStr] ;
     
+//    NSLog(@"paramer : %@",paramer) ;
+    
     [XTRequest GETWithUrl:kRootUrlString
                parameters:paramer
                   success:^(id json) {
